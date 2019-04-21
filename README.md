@@ -1,6 +1,10 @@
 # Anno_1800_Chains_Consumption
 A LaTeX document  displaying Anno1800 production chains and additional information in a visual format (cheatsheet).
 
+You can find a compiled PDF in the [latest release](https://github.com/dotSp0T/Anno_1800_Chains_Consumption/releases/latest).
+
+---
+
 Please feel free to:
 
  - open issues for things that could/should be improved (try to explain/show how to achieve this improvement, maybe even detail expected benefits)
