@@ -16,4 +16,4 @@ Many thanks to the maintainers of the 'LaTeX' packages used in this document, as
 
 Many thanks to my collaborators for helping me figure out how to make things in 'LaTeX' and providing feedback to the document itself:
 
- - @McDonnough
+ - [@McDonnough](https://twitter.com/McDonnough_)
