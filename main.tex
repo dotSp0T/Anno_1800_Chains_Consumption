@@ -1,0 +1,783 @@
+\documentclass{article}
+
+\usepackage{calc}
+\usepackage{geometry}
+\usepackage[figuresleft]{rotating} % 'figuresleft' rotates the content of a 'sidewaysfigure'-page to the right
+\usepackage{fancyhdr}
+\usepackage{datetime2}
+\usepackage[hidelinks]{hyperref} % 'hidelinks' prevents underscores & borders around links
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{etoolbox}
+
+% PAGE GEOMETRY
+\geometry{a4paper,
+          landscape,
+          top=1cm,
+          bottom=1cm,
+          left=1cm,
+          right=1cm,
+          includehead,
+          includefoot}
+\pagestyle{fancy}
+\setlength{\headheight}{18pt}
+\tcbuselibrary{breakable, raster, skins}
+\usetikzlibrary{calc, matrix}
+% END PAGE GEOMETRY
+
+% META
+\newcommand{\thetitle}{Anno 1800 Prod Chains \& Consumption}
+\newcommand{\theauthor}{Michael Stocker (@dot\_Sp0T)}
+\newcommand{\theauthorsgithub}{https://github.com/dotSp0T}
+\newcommand{\thecollaborators}{@McDonnough \space -- \url{https://twitter.com/McDonnough_}}
+\newcommand{\theversion}{v0.1}
+\newcommand{\thelicense}{CC BY-SA 4.0}
+\newcommand{\thelicenseurl}{https://creativecommons.org/licenses/by-sa/4.0/}
+\newcommand{\thesourcerepository}{https://github.com/dotSp0T/Anno_1800_Chains_Consumption}
+
+\newcommand{\theinfo}{! Pop-Numbers are for single factories !}
+\newcommand{\thewiki}{https://anno1800.fandom.com}
+
+% sizes
+\newcommand{\unitsize}{1cm}
+\newcommand{\boxheight}{3.25cm}
+
+% raster
+\newcommand{\landscaperaster}{9}
+\newcommand{\portraitraster}{6}
+
+% tikz
+\tikzset{% hyperlink style, https://tex.stackexchange.com/a/36111/186115
+    hyperlink node/.style={
+        alias=sourcenode,
+        append after command={
+            let \p1 = (sourcenode.north west),
+                \p2=(sourcenode.south east),
+                \n1={\x2-\x1},
+                \n2={\y1-\y2} in
+            node [inner sep=0pt, outer sep=0pt,anchor=north west,at=(\p1)] {\href{#1}{\XeTeXLinkBox{\phantom{\rule{\n1}{\n2}}}}}
+                    %xelatex needs \XeTeXLinkBox, won't create a link unless it
+                    %finds text --- rules don't work without \XeTeXLinkBox.
+                    %Still builds correctly with pdflatex and lualatex
+        }
+    }
+} % END hyperlink style
+
+% #1 (x,y)
+% #2 Object_Name (filename without .png)
+% #3 Amount
+% #4 anno1800 wiki path (../wiki/<HERE>)
+\newcommand{\prodnode}[4]{
+    \node[label={[label distance=-(0.35*\unitsize)]105:#3×},
+          hyperlink node=\thewiki/wiki/#4] (#2) at #1 {
+        \includegraphics[width=\unitsize, height=\unitsize]{icons/#2.png}};
+}
+
+% #1 (x,y)
+% #2 Object_Name (filename without .png)
+% #3 Amount
+% #4 anno1800 wiki path (../wiki/<HERE>)
+% #5 field-size (e.g. 1×1)
+% #6 amount of fields needed (e.g. 72)
+\newcommand{\farmnode}[6]{
+    \node[label={[label distance=-(0.35*\unitsize)]105:#3×},
+          label={[label distance=-(0.2*\unitsize)]270:#6 (#5)},
+          hyperlink node=\thewiki/wiki/#4] (#2) at #1 {
+        \includegraphics[width=\unitsize, height=\unitsize]{icons/#2.png}};
+}
+
+% #1 (x,y)
+% #2 Object_Name (filename without .png)
+% #3 Amount
+% #4 anno1800 wiki path (../wiki/<HERE>)
+% #5 Comma Separated list: <stratum>:<amount>,<stratum>:<amount>, ...
+% [FIXME] horrible wrong math needs to be replaced with good math, try find size of matrix node?
+\newcounter{strata}
+\newcommand{\consnode}[5]{
+    \let\matrixcontents\empty
+    \setcounter{strata}{0}
+    \foreach \l/\r in {#5}{
+        \expandafter\gappto\expandafter\matrixcontents\expandafter{\expandafter\consimg\expandafter{\l} \&}
+        \expandafter\gappto\expandafter\matrixcontents\expandafter{\r \\}
+        \stepcounter{strata}
+    }
+    
+    \node[outer sep=-1mm, hyperlink node=\thewiki/wiki/#4] (#2) at #1 {
+        \begin{tikzpicture}
+            \node[label={[label distance=-(0.2*\unitsize)]115:#3×}] at (0,0) {
+                \includegraphics[width=\unitsize, height=\unitsize]{icons/#2}};
+            \matrix[inner sep=2pt,
+                    row sep=-2pt,
+                    column sep=-2mm,
+                    matrix of nodes,
+                    ampersand replacement=\&] (output) at (0,{((\unitsize/2)*(-\arabic{strata}))+2^\arabic{strata}pt-\arabic{strata}mm}) {
+                \matrixcontents};
+        \end{tikzpicture}};
+}
+
+\newcommand{\consimg}[1]{
+    \raisebox{-.2\height}{\includegraphics[width=\unitsize/2, height=\unitsize/2]{icons/#1.png}}
+}
+
+\newcommand{\divider}[2]{ % #1 > left node; #2 > right node
+    \draw[dashed] ([xshift=\unitsize*0.7]#1.north) -- ([xshift=-\unitsize*0.8]#2.south);
+}
+
+\newcommand{\connect}[2]{ % #1 > source node; #2 > target node
+    \draw[->] (#1) -- (#2);
+}
+
+% tcolorbox
+\tcbset{
+    grid format/.style={% style for all grids
+        arc=0.5pt,
+        valign=center,
+        halign=center,
+        skin=enhanced,
+        boxrule=0.5pt,
+        boxsep=0.5pt,
+        colframe=black!25!white,
+        colback=white,
+        frame empty
+    },
+    page box/.style={% style for page frames
+        middle=0mm,
+        arc=1pt,
+        boxrule=0.5pt,
+        boxsep=0.5pt,
+        colframe=black!25!white,
+        colback=white
+    },
+    warning/.style={
+        size=fbox,
+        on line,
+        colback=red!5!white,
+        colframe=red!75!black
+    }
+}
+% END META
+
+% HEADER
+\fancyhf{}
+\lhead{\thetitle \space -- \theversion \space -- \href{\thelicenseurl}{\thelicense}}
+\chead{\tcbox[warning]{\theinfo}}
+\rhead{\today}
+\renewcommand{\headrulewidth}{0pt} %remove header underline
+\lfoot{\theauthor \space -- \url{\theauthorsgithub}}
+\cfoot{\thepage}
+\rfoot{Numbers, Ratios \& Images from \url{\thewiki}}
+% END HEADER
+
+\begin{document}
+
+\begin{tcolorbox}[height fill,
+                  raster height=\boxheight,
+                  page box]
+
+% START Building Materials
+\section{Building Materials}
+\begin{tcbraster}[raster columns=\landscaperaster,
+                  grid format]
+    \tcbox[blankest,
+           raster multicolumn=6,
+           raster multirow=3]{
+        \begin{tcbraster}[raster height=\boxheight,
+                          raster columns=6,
+                          grid format]
+            \tcbox[raster multicolumn=3]{ % Timber
+                \begin{tikzpicture}
+                    \prodnode{(0,0)}{Wood}{1}{Lumberjack\%27s_Hut_(Old_World)}
+                    \prodnode{(3,0)}{Timber}{1}{Sawmill_(Old_World)}
+                    \connect{Wood}{Timber}
+                \end{tikzpicture}}
+            \tcbox[raster multicolumn=3]{ % Bricks
+                \begin{tikzpicture}
+                    \prodnode{(0,0)}{Clay}{1}{Clay_Pit_(Old_World)}
+                    \prodnode{(3,0)}{Bricks}{2}{Brick_Factory_(Old_World)}
+                    \connect{Clay}{Bricks}
+                \end{tikzpicture}}
+            \tcbox[raster multicolumn=3, % Steel Beams
+                   raster multirow=2]{
+                \begin{tikzpicture}
+                    \prodnode{(0.75,0)}{Iron}{1}{Iron_Mine}
+                    \prodnode{(0,-1.5)}{Charcoal_kiln}{2}{Charcoal_Kiln}
+                    \prodnode{(1.5,-1.5)}{Coal}{1}{Coal_Mine}
+                    \divider{Charcoal_kiln}{Coal}
+                    \prodnode{(3,-0.75)}{Steel}{2}{Furnace}
+                    \connect{Iron}{Steel}
+                    \connect{Coal}{Steel}
+                    
+                    \prodnode{(5,-0.75)}{Steel_beams}{3}{Steelworks}
+                    \connect{Steel}{Steel_beams}
+                \end{tikzpicture}}
+            \tcbox[raster multicolumn=3, % Windows
+                   raster multirow=2]{
+                \begin{tikzpicture}
+                    \prodnode{(0,0)}{Quartz_sand}{2}{Sand_Mine}
+                    \prodnode{(2,0)}{Glass}{2}{Glassmakers}
+                    \connect{Quartz_sand}{Glass}
+                    
+                    \prodnode{(2,-1.5)}{Wood}{1}{Lumberjack\%27s_Hut_(Old_World)}
+                    \prodnode{(4,-0.75)}{Windows}{4}{Window_Makers}
+                    \connect{Glass}{Windows}
+                    \connect{Wood}{Windows}
+                \end{tikzpicture}}
+        \end{tcbraster}}
+    \tcbox[raster multicolumn=3, % Concrete
+           raster multirow=3]{
+        \begin{tikzpicture}
+            \prodnode{(0.75,0)}{Iron}{1}{Iron_Mine}
+            \prodnode{(0,-1.5)}{Charcoal_kiln}{2}{Charcoal_Kiln}
+            \prodnode{(1.5,-1.5)}{Coal}{1}{Coal_Mine}
+            \divider{Charcoal_kiln}{Coal}
+            \prodnode{(3,-0.75)}{Steel}{2}{Furnace}
+            \connect{Iron}{Steel}
+            \connect{Coal}{Steel}
+            
+            \prodnode{(3,-3)}{Cement}{2}{Limestone_Quarry}
+            
+            \prodnode{(5,-1.5)}{Reinforced_concrete}{4}{Concrete_Factory}
+            \connect{Steel}{Reinforced_concrete}
+            \connect{Cement}{Reinforced_concrete}
+        \end{tikzpicture}}
+\end{tcbraster}
+% END Building Materials
+
+\tcbline
+
+% START Ship Materials
+\section{Ship Materials}
+\begin{tcbraster}[raster columns=\landscaperaster,
+                  grid format]
+    \tcbox[blankest,
+           raster multicolumn=3,
+           raster multirow=5]{
+        \begin{tcbraster}[raster height=\boxheight,
+                          raster columns=3,
+                          grid format]
+            \tcbox[raster multicolumn=3, % Sails
+                  raster multirow=3]{
+                \begin{tikzpicture}
+                    \farmnode{(0,0)}{Wool}{1}{Sheep_Farm}{2×3}{3}
+                    \prodnode{(3,0)}{Sails}{1}{Sailmakers_(Old_World)}
+                    \connect{Wool}{Sails}
+                \end{tikzpicture}
+                \tcbline
+                \begin{tikzpicture}
+                    \farmnode{(0,2)}{Cotton}{2}{Cotton_Plantation}{1×1}{144}
+                    \prodnode{(2,2)}{Cotton_fabric}{1}{Cotton_Mill}
+                    \connect{Cotton}{Cotton_fabric}
+                    
+                    \prodnode{(4,2)}{Sails}{1}{Sailmakers_(Old_World)}
+                    \connect{Cotton_fabric}{Sails}
+                \end{tikzpicture}}
+            \tcbox[raster multicolumn=3, % Weapons
+                   raster multirow=2]{
+                \begin{tikzpicture}
+                    \prodnode{(0.75,0)}{Iron}{1}{Iron_Mine}
+                    \prodnode{(0,-1.5)}{Charcoal_kiln}{2}{Charcoal_Kiln}
+                    \prodnode{(1.5,-1.5)}{Coal}{1}{Coal_Mine}
+                    \divider{Charcoal_kiln}{Coal}
+                    \prodnode{(3,-0.75)}{Steel}{2}{Furnace}
+                    \connect{Iron}{Steel}
+                    \connect{Coal}{Steel}
+                    
+                    \prodnode{(5,-0.75)}{Weapons}{6}{Weapons_Factory}
+                    \connect{Steel}{Weapons}
+                \end{tikzpicture}}
+        \end{tcbraster}}
+    \tcbox[raster multicolumn=3, % Advanced Weapons
+           raster multirow=5]{
+        \begin{tikzpicture}
+            \farmnode{(0,0)}{Pigs}{4}{Pig_Farm}{2×3}{5}
+            \prodnode{(2,0)}{Tallow}{4}{Rendering_Works}
+            \connect{Pigs}{Tallow}
+            
+            \prodnode{(2,-1.5)}{Saltpeter}{8}{Saltpeter_Works}
+            \prodnode{(3.5,-0.75)}{Dynamite}{4}{Dynamite_Factory}
+            \connect{Tallow}{Dynamite}
+            \connect{Saltpeter}{Dynamite}
+        
+            \prodnode{(1,-3)}{Iron}{1}{Iron_Mine}
+            \prodnode{(0.25,-4.5)}{Charcoal_kiln}{2}{Charcoal_Kiln}
+            \prodnode{(1.75,-4.5)}{Coal}{1}{Coal_Mine}
+            \divider{Charcoal_kiln}{Coal}
+            \prodnode{(3.5,-3.75)}{Steel}{2}{Furnace}
+            \connect{Iron}{Steel}
+            \connect{Coal}{Steel}
+            
+            \prodnode{(5,-2.25)}{Advanced_weapons}{8}{Heavy_Weapons_Factory}
+            \connect{Dynamite}{Advanced_weapons}
+            \connect{Steel}{Advanced_weapons}
+        \end{tikzpicture}}
+        \tcbox[raster multicolumn=3, % Steam Engines
+           raster multirow=5]{
+        \begin{tikzpicture}
+            \prodnode{(0.75,0)}{Iron}{1}{Iron_Mine}
+            \prodnode{(0,-1.5)}{Charcoal_kiln}{2}{Charcoal_Kiln}
+            \prodnode{(1.5,-1.5)}{Coal}{1}{Coal_Mine}
+            \divider{Charcoal_kiln}{Coal}
+            \prodnode{(3,-0.75)}{Steel}{2}{Furnace}
+            \connect{Iron}{Steel}
+            \connect{Coal}{Steel}
+            
+            \prodnode{(0.75,-3)}{Zinc}{2}{Zinc_Mine}
+            \prodnode{(0.75,-4.5)}{Copper}{2}{Copper_Mine}
+            \prodnode{(3, -3.75)}{Brass}{4}{Brass_Smeltery}
+            \connect{Zinc}{Brass}
+            \connect{Copper}{Brass}
+            
+            \prodnode{(5, -2.25)}{Steam_motors}{6}{Motor_Assembly_Line}
+            \connect{Steel}{Steam_motors}
+            \connect{Brass}{Steam_motors}
+        \end{tikzpicture}}
+\end{tcbraster}
+% END Ship Materials
+\end{tcolorbox}
+
+\pagebreak
+
+\begin{sidewaysfigure} % SIDEWAYS PAGE
+\begin{tcolorbox}[raster height=\boxheight,
+                  height=\paperwidth-2cm, % subtract margins manually
+                  page box]
+
+% START Farmer Consumables
+\section{Farmer Consumables}
+\begin{tcbraster}[raster columns=\portraitraster,
+                  grid format]
+    \tcbox[raster multicolumn=2, % Fish
+           raster multirow=2]{
+        \begin{tikzpicture}
+            \consnode{(0,0)}{Fish}{1}{Fishery}{Farmers/800,Workers/800}
+        \end{tikzpicture}}
+    \tcbox[raster multicolumn=2, % Schnapps
+           raster multirow=2]{
+        \begin{tikzpicture}
+            \farmnode{(0,0)}{Potato}{1}{Potato_Farm}{1×1}{72}
+            \consnode{(2,0)}{Schnapps}{1}{Schnapps_Distillery}{Farmers/600,Workers/600}
+            \connect{Potato}{Schnapps}
+        \end{tikzpicture}}
+    \tcbox[raster multicolumn=2, % Work Clothes
+           raster multirow=2]{
+        \begin{tikzpicture}
+            \farmnode{(0,0)}{Wool}{1}{Sheep_Farm}{2×3}{3}
+            \consnode{(2,0)}{Work_clothes}{1}{Framework_Knitters}{Farmers/650,Workers/650}
+            \connect{Wool}{Work_clothes}
+        \end{tikzpicture}}
+\end{tcbraster}
+% END Farmer Consumables
+
+\tcbline
+
+% START Worker Consumables
+\section{Worker Consumables}
+\begin{tcbraster}[raster columns=\portraitraster,
+                  grid format]
+    \tcbox[raster multicolumn=3, % Sausages
+           raster multirow=2]{
+        \begin{tikzpicture}
+            \farmnode{(0,0)}{Pigs}{1}{Pig_Farm}{2×3}{5}
+            \consnode{(2,0)}{Sausages}{1}{Slaughterhouse}{Workers/1000,Artisans/750}
+            \connect{Pigs}{Sausages}
+        \end{tikzpicture}}
+    \tcbox[raster multicolumn=3, % Bread
+           raster multirow=2]{
+        \begin{tikzpicture}
+            \farmnode{(0,0)}{Grain}{2}{Grain_Farm}{1×1}{144}
+            \prodnode{(2,0)}{Flour}{1}{Flour_Mill}
+            \consnode{(4,0)}{Bread}{2}{Bakery}{Workers/1100,Artisans/825}
+            \connect{Grain}{Flour}
+            \connect{Flour}{Bread}
+        \end{tikzpicture}}
+    \tcbox[raster multicolumn=3, % Soap
+           raster multirow=2]{
+        \begin{tikzpicture}
+            \farmnode{(0,0)}{Pigs}{2}{Pig_Farm}{2×3}{5}
+            \prodnode{(2,0)}{Tallow}{2}{Rendering_Works}
+            \consnode{(4,0)}{Soap}{1}{Soap_Factory}{Workers/4800,Artisans/3600}
+            \connect{Pigs}{Tallow}
+            \connect{Tallow}{Soap}
+        \end{tikzpicture}}
+    \tcbox[raster multicolumn=3, % Beer
+           raster multirow=2]{
+        \begin{tikzpicture}
+            \farmnode{(0,0)}{Grain}{2}{Grain_Farm}{1×1}{144}
+            \prodnode{(2,0)}{Malt}{1}{Malthouse}
+            \connect{Grain}{Malt}
+            
+            \farmnode{(2,-1.5)}{Hops}{3}{Hop_Farm}{1×1}{96}
+            
+            \consnode{(4,-0.75)}{Beer}{2}{Brewery}{Workers/1300,Artisans/975,Obreros/750}
+            \connect{Malt}{Beer}
+            \connect{Hops}{Beer}
+        \end{tikzpicture}}
+\end{tcbraster}
+% END Worker Consumables
+
+\tcbline
+
+% START Jornalero Consumables
+\section{Jornalero Consumables}
+\begin{tcbraster}[raster columns=\portraitraster,
+                  grid format]
+    \tcbox[raster multicolumn=2, % Fried Plantains
+           raster multirow=2]{
+        \begin{tikzpicture}
+            \farmnode{(0,0)}{Plantains}{1}{Plantain_Plantation}{1×1}{128}
+            \prodnode{(0,-1.5)}{Fish_Oil}{1}{Fish_Oil_Factory}
+            \consnode{(2,-0.75)}{Fried_plantains}{1}{Fried_Plantain_Kitchen}{Jornaleros/700,Obreros/700}
+            \connect{Plantains}{Fried_plantains}
+            \connect{Fish_Oil}{Fried_plantains}
+        \end{tikzpicture}}
+    \tcbox[raster multicolumn=2, % Rum
+           raster multirow=2]{
+        \begin{tikzpicture}
+            \farmnode{(0,0)}{Sugar_cane}{2}{Sugar_Cane_Plantation}{1×1}{128}
+            \prodnode{(0,-1.5)}{Wood}{1}{Lumberjack\%27s_Hut_(New_World)}
+            \consnode{(2,-0.75)}{Rum}{1}{Rum_Distillery}{Artisans/1050,Engineers/700,Jornaleros/1400,Obreros/1400}
+            \connect{Sugar_cane}{Rum}
+            \connect{Wood}{Rum}
+        \end{tikzpicture}}
+        \tcbox[raster multicolumn=2, % Ponchos
+               raster multirow=2]{
+            \begin{tikzpicture}
+                \prodnode{(0,0)}{Alpaca_wool}{1}{Alpaca_Farm}
+                \consnode{(2,0)}{Poncho}{1}{Poncho_Darner}{Jornaleros/800,Obreros/800}
+                \connect{Alpaca_wool}{Poncho}
+            \end{tikzpicture}}
+\end{tcbraster}
+% END Jornalero Consumables
+
+\tcbline
+
+% START Artisan Consumables
+\section{Artisan Consumables}
+\begin{tcbraster}[raster columns=\portraitraster,
+                  grid format]
+    \tcbox[raster multicolumn=3, % Canned Food
+           raster multirow=3]{
+        \begin{tikzpicture}
+            \farmnode{(0,0)}{Beef}{8}{Cattle_Farm_(Old_World)}{3×4}{4}
+            \farmnode{(0,-1.5)}{Red_peppers}{8}{Red_Pepper_Farm}{1×1}{108}
+            \prodnode{(2,-0.75)}{Goulash}{8}{Artisanal_Kitchen}
+            \connect{Beef}{Goulash}
+            \connect{Red_peppers}{Goulash}
+            
+            \prodnode{(2,-3)}{Iron}{1}{Iron_Mine}
+            
+            \consnode{(4,-1.5)}{Canned_food}{6}{Cannery}{Artisans/1950,Engineers/1300}
+            \connect{Goulash}{Canned_food}
+            \connect{Iron}{Canned_food}
+        \end{tikzpicture}}
+    \tcbox[raster multicolumn=3, % Sewing Machines
+           raster multirow=3]{
+        \begin{tikzpicture}
+            \prodnode{(0.75,0)}{Iron}{1}{Iron_Mine}
+            \prodnode{(0,-1.5)}{Charcoal_kiln}{2}{Charcoal_Kiln}
+            \prodnode{(1.5,-1.5)}{Coal}{1}{Coal_Mine}
+            \divider{Charcoal_kiln}{Coal}
+            \prodnode{(3,-0.75)}{Steel}{2}{Furnace}
+            \connect{Iron}{Steel}
+            \connect{Coal}{Steel}
+        
+            \prodnode{(3,-3)}{Wood}{1}{Lumberjack\%27s_Hut_(Old_World)}
+            
+            \consnode{(5,-1.5)}{Sewing_machines}{2}{Sewing_Machine_Factory}{Artisans/2100,Engineers/1400,Obreros/1600}
+            \connect{Steel}{Sewing_machines}
+            \connect{Cement}{Sewing_machines}
+        \end{tikzpicture}}
+    \tcbox[raster multicolumn=3, % Fur Coats
+           raster multirow=2]{
+        \begin{tikzpicture}
+            \farmnode{(0,0)}{Cotton}{2}{Cotton_Plantation}{1×1}{144}
+            \prodnode{(2,0)}{Cotton_fabric}{1}{Cotton_Mill}
+            \connect{Cotton}{Cotton_fabric}
+            
+            \prodnode{(2,-1.5)}{Furs}{2}{Hunting_Cabin}
+            
+            \consnode{(4,-0.75)}{Fur_Coats}{1}{Fur_Dealer}{Artisans/2250,Engineers/1500}
+            \connect{Cotton_fabric}{Fur_Coats}
+            \connect{Furs}{Fur_Coats}
+        \end{tikzpicture}}
+\end{tcbraster}
+% END Artisan Consumables
+
+\end{tcolorbox}
+\end{sidewaysfigure}
+
+\pagebreak
+
+\begin{sidewaysfigure} % SIDEWAYS PAGE
+\begin{tcolorbox}[raster height=\boxheight,
+                  height=\paperwidth-2cm, % subtract margins manually
+                  page box]
+
+% START Engineer Consumables
+\section{Engineer Consumables}
+\begin{tcbraster}[raster columns=\portraitraster,
+                  grid format]
+    \tcbox[raster multicolumn=3, % Glasses
+           raster multirow=3]{
+        \begin{tikzpicture}
+            \prodnode{(0,0)}{Quartz_sand}{1}{Sand_Mine}
+            \prodnode{(2,0)}{Glass}{1}{Glassmakers}
+            \connect{Quartz_sand}{Glass}
+            
+            \prodnode{(0,-1.5)}{Zinc}{1}{Zinc_Mine}
+            \prodnode{(0,-3)}{Copper}{1}{Copper_Mine}
+            \prodnode{(2, -2.25)}{Brass}{2}{Brass_Smeltery}
+            \connect{Zinc}{Brass}
+            \connect{Copper}{Brass}
+            
+            \consnode{(4,-1.5)}{Glasses}{3}{Spectacle_Factory}{Engineers/3000,Investors/1875}
+            \connect{Glass}{Glasses}
+            \connect{Brass}{Glasses}
+        \end{tikzpicture}}
+    \tcbox[raster multicolumn=3, % Penny Farthings
+           raster multirow=3]{
+        \begin{tikzpicture}
+            \prodnode{(0.75,0)}{Iron}{1}{Iron_Mine}
+            \prodnode{(0,-1.5)}{Charcoal_kiln}{2}{Charcoal_Kiln}
+            \prodnode{(1.5,-1.5)}{Coal}{1}{Coal_Mine}
+            \divider{Charcoal_kiln}{Coal}
+            \prodnode{(3,-0.75)}{Steel}{2}{Furnace}
+            \connect{Iron}{Steel}
+            \connect{Coal}{Steel}
+        
+            \farmnode{(3,-3)}{Caoutchouc}{4}{Caoutchouc_Plantation}{1×1}{144}
+            
+            \consnode{(5,-1.5)}{High_wheeler}{2}{Bicycle_Factory}{Engineers/3200,Investors/2000}
+            \connect{Steel}{High_wheeler}
+            \connect{Caoutchouc}{High_wheeler}
+        \end{tikzpicture}}
+    \tcbox[raster multicolumn=3, % Pocket Watches
+           raster multirow=3]{
+        \begin{tikzpicture}
+            \prodnode{(0.75,0)}{Gold_Ore}{10}{Gold_Mine}
+            \prodnode{(0,-1.5)}{Charcoal_kiln}{2}{Charcoal_Kiln}
+            \prodnode{(1.5,-1.5)}{Coal}{1}{Coal_Mine}
+            \divider{Charcoal_kiln}{Coal}
+            \prodnode{(3, -0.75)}{Gold}{4}{Goldsmiths}
+            \connect{Gold_Ore}{Gold}
+            \connect{Coal}{Gold}
+            
+            \prodnode{(0.75,-3)}{Quartz_sand}{2}{Sand_Mine}
+            \prodnode{(3,-3)}{Glass}{2}{Glassmakers}
+            \connect{Quartz_sand}{Glass}
+            
+            \consnode{(5,-1.5)}{Pocket_watch}{6}{Clockmakers}{Engineers/3400,Investors/2125}
+            \connect{Gold}{Pocket_watch}
+            \connect{Glass}{Pocket_watch}
+        \end{tikzpicture}}
+    \tcbox[raster multicolumn=3, % Light Bulbs
+           raster multirow=3]{
+        \begin{tikzpicture}
+            \prodnode{(0,0)}{Charcoal_kiln}{2}{Charcoal_Kiln}
+            \prodnode{(1.5,0)}{Coal}{1}{Coal_Mine}
+            \divider{Charcoal_kiln}{Coal}
+            \prodnode{(3, 0)}{Carbon_filament}{4}{Filament_Factory}
+            \connect{Coal}{Carbon_filament}
+            
+            \prodnode{(0.75,-1.5)}{Quartz_sand}{2}{Sand_Mine}
+            \prodnode{(3,-1.5)}{Glass}{2}{Glassmakers}
+            \connect{Quartz_sand}{Glass}
+            
+            \consnode{(5,-0.75)}{Light_bulb}{4}{Light_Bulb_Factory}{Engineers/3200,Investors/2000}
+            \connect{Carbon_filament}{Light_bulb}
+            \connect{Glass}{Light_bulb}
+        \end{tikzpicture}}
+\end{tcbraster}
+% END Engineer Consumables
+
+\tcbline
+
+% START Investor Consumables
+\section{Investor Consumables}
+\begin{tcbraster}[raster columns=7,
+                  grid format]
+    \tcbox[blankest,
+           raster multicolumn=3,
+           raster multirow=8]{
+        \begin{tcbraster}[raster height=\boxheight,
+                          raster columns=3,
+                          grid format]
+            \tcbox[raster multicolumn=3, % Champagne
+                   raster multirow=2]{
+                \begin{tikzpicture}
+                    \prodnode{(0,0)}{Quartz_sand}{1}{Sand_Mine}
+                    \prodnode{(2,0)}{Glass}{1}{Glassmakers}
+                    \connect{Quartz_sand}{Glass}
+                    
+                    \farmnode{(2,-1.5)}{Grapes}{4}{Vineyard}{1×1}{128}
+                    
+                    \consnode{(4,-0.75)}{Champagne}{1}{Champagne_Cellar}{Investors/4250}
+                    \connect{Glass}{Champagne}
+                    \connect{Grapes}{Champagne}
+                \end{tikzpicture}}
+            \tcbox[raster multicolumn=3, % Jewellery
+                   raster multirow=3]{
+                \begin{tikzpicture}
+                    \prodnode{(0.75,0)}{Gold_Ore}{10}{Gold_Mine}
+                    \prodnode{(0,-1.5)}{Charcoal_kiln}{2}{Charcoal_Kiln}
+                    \prodnode{(1.5,-1.5)}{Coal}{1}{Coal_Mine}
+                    \divider{Charcoal_kiln}{Coal}
+                    \prodnode{(3, -0.75)}{Gold}{4}{Goldsmiths}
+                    \connect{Gold_Ore}{Gold}
+                    \connect{Coal}{Gold}
+                    
+                    \prodnode{(3,-3)}{Pearls}{6}{Pearl_Farm}
+                    
+                    \consnode{(5,-1.5)}{Jewelry}{2}{Jewellers}{Investors/4750}
+                    \connect{Gold}{Jewelry}
+                    \connect{Pearls}{Jewelry}
+                \end{tikzpicture}}
+            \tcbox[raster multicolumn=3, % Gramophones
+                   raster multirow=3]{
+                \begin{tikzpicture}
+                    \prodnode{(0,0)}{Wood}{1}{Lumberjack\%27s_Hut_(Old_World)}
+                    \prodnode{(2,0)}{Wood_veneers}{4}{Marquetry_Workshop_(Old_World)}
+                    \connect{Wood}{Wood_veneers}
+                    
+                    \prodnode{(0,-1.5)}{Zinc}{2}{Zinc_Mine}
+                    \prodnode{(0,-3)}{Copper}{2}{Copper_Mine}
+                    \prodnode{(2, -2.25)}{Brass}{4}{Brass_Smeltery}
+                    \connect{Zinc}{Brass}
+                    \connect{Copper}{Brass}
+                    
+                    \consnode{(4,-1.5)}{Gramophone}{8}{Gramophone_Factory}{Investors/3000}
+                    \connect{Wood_veneers}{Gramophone}
+                    \connect{Brass}{Gramophone}
+                \end{tikzpicture}}
+        \end{tcbraster}}
+    \tcbox[raster multicolumn=4, % Steam Carriages
+           raster multirow=8]{
+        \begin{tikzpicture}
+            \prodnode{(0.75,0)}{Iron}{1}{Iron_Mine}
+            \prodnode{(0,-1.5)}{Charcoal_kiln}{2}{Charcoal_Kiln}
+            \prodnode{(1.5,-1.5)}{Coal}{1}{Coal_Mine}
+            \divider{Charcoal_kiln}{Coal}
+            \prodnode{(3,-0.75)}{Steel}{2}{Furnace}
+            \connect{Iron}{Steel}
+            \connect{Coal}{Steel}
+            
+            \prodnode{(0.75,-3)}{Zinc}{2}{Zinc_Mine}
+            \prodnode{(0.75,-4.5)}{Copper}{2}{Copper_Mine}
+            \prodnode{(3, -3.75)}{Brass}{4}{Brass_Smeltery}
+            \connect{Zinc}{Brass}
+            \connect{Copper}{Brass}
+            
+            \prodnode{(5, -2.25)}{Steam_motors}{6}{Motor_Assembly_Line}
+            \connect{Steel}{Steam_motors}
+            \connect{Brass}{Steam_motors}
+            
+            \prodnode{(3,-6)}{Wood}{1}{Lumberjack\%27s_Hut_(Old_World)}
+            \farmnode{(3,-7.5)}{Caoutchouc}{4}{Caoutchouc_Plantation}{1×1}{144}
+            \prodnode{(5,-6.75)}{Chassis}{8}{Coachmakers}
+            \connect{Wood}{Chassis}
+            \connect{Caoutchouc}{Chassis}
+            
+            \consnode{(7,-4.5)}{Steam_carriages}{4}{Cab_Assembly_Line}{Investors/7500}
+            \connect{Steam_motors}{Steam_carriages}
+            \connect{Chassis}{Steam_carriages}
+        \end{tikzpicture}}
+\end{tcbraster}
+% END Investor Consumables
+
+\end{tcolorbox}
+\end{sidewaysfigure}
+
+\pagebreak
+
+\begin{sidewaysfigure} % SIDEWAYS PAGE
+\begin{tcolorbox}[raster height=\boxheight,
+                  height=\paperwidth-2cm, % subtract margins manually
+                  page box]
+
+% START Obrero Consumables
+\section{Obrero Consumables}
+\begin{tcbraster}[raster columns=7,
+                  grid format]
+    \tcbox[raster multicolumn=2, % Tortilla
+           raster multirow=2]{
+        \begin{tikzpicture}
+            \farmnode{(0,0)}{Corn}{2}{Corn_Farm}{1×1}{168}
+            \farmnode{(0,-1.5)}{Beef}{2}{Cattle_Farm_(New_World)}{3×4}{6}
+            \consnode{(2,-0.75)}{Tortilla}{1}{Tortilla_Maker}{Obreros/1400}
+            \connect{Corn}{Tortilla}
+            \connect{Beef}{Tortilla}
+        \end{tikzpicture}}
+    \tcbox[raster multicolumn=2, % Coffee
+           raster multirow=2]{
+        \begin{tikzpicture}
+            \farmnode{(0,0)}{Coffee_beans}{2}{Coffee_Plantation}{1×1}{168}
+            \consnode{(2,0)}{Coffee}{1}{Coffee_Roaster}{Obreros/3400,Engineers/1700,Investors/1062}
+            \connect{Coffee_beans}{Coffee}
+        \end{tikzpicture}}
+    \tcbox[raster multicolumn=3, % Bowler Hats
+           raster multirow=2]{
+        \begin{tikzpicture}
+            \farmnode{(0,0)}{Cotton}{2}{Cotton_Plantation}{1×1}{144}
+            \prodnode{(2,0)}{Cotton_fabric}{1}{Cotton_Mill}
+            \connect{Cotton}{Cotton_fabric}
+            
+            \farmnode{(0,-1.5)}{Alpaca_wool}{1}{Alpaca_Farm}{3×3}{4}
+            \prodnode{(2,-1.5)}{Felt}{1}{Felt_Producer}
+            \connect{Alpaca_wool}{Felt}
+            
+            \consnode{(4,-0.75)}{Bowler_hats}{1}{Bombín_Weaver}{Obreros/1500}
+            \connect{Cotton_fabric}{Bowler_hats}
+            \connect{Felt}{Bowler_hats}
+        \end{tikzpicture}}
+    \tcbox[raster multicolumn=4, % Cigars
+           raster multirow=2]{
+        \begin{tikzpicture}
+            \prodnode{(0,0)}{Wood}{1}{Lumberjack\%27s_Hut_(New_World)}
+            \prodnode{(2,0)}{Wood_veneers}{4}{Marquetry_Workshop_(New_World)}
+            \connect{Wood}{Wood_veneers}
+            
+            \farmnode{(2,-1.5)}{Tobacco}{8}{Tobacco_Plantation}{1×1}{192}
+            
+            \consnode{(4,-0.75)}{Cigars}{2}{Cigar_Factory}{Obreros/3600,Investors/4500}
+            \connect{Wood_veneers}{Cigars}
+            \connect{Tobacco}{Cigars}
+        \end{tikzpicture}}
+    \tcbox[raster multicolumn=3, % Chocolate
+           raster multirow=2]{
+        \begin{tikzpicture}
+            \farmnode{(0,0)}{Sugar_cane}{1}{Sugar_Cane_Plantation}{1×1}{128}
+            \prodnode{(2,0)}{Sugar}{1}{Sugar_Refinery}
+            \connect{Sugar_cane}{Sugar}
+            
+            \farmnode{(2,-1.5)}{Cocoa}{2}{Cocoa_Plantation}{1×1}{128}
+            
+            \consnode{(4,-0.75)}{Chocolate}{1}{Chocolate_Factory}{Obreros/1500,Investors/1750}
+            \connect{Sugar}{Chocolate}
+            \connect{Cocoa}{Chocolate}
+        \end{tikzpicture}}
+\end{tcbraster}
+% END Obrero Consumables
+
+\tcbline
+
+\section{Collaboration \& Thanks}
+
+If you would like to improve this document please check out the GitHub repository: \url{\thesourcerepository}\\
+\\
+Many thanks to the Anno fandom wiki (\url{\thewiki}) for collecting icons and calculating numbers \& ratios.\\
+\\
+Many thanks to the maintainers of the \LaTeX \space packages used in this document, as well as to the \TeX \space Stackexchange (\url{https://tex.stackexchange.com/}) for providing help with \LaTeX \space problems.\\
+\\
+Many thanks to my collaborators for helping me figure out how to make things in \LaTeX \space and providing feedback to the document itself:
+
+\begin{itemize}
+\renewcommand\labelitemi{--}
+\foreach \c in {\thecollaborators} {
+    \item \c
+}
+\end{itemize}
+
+\end{tcolorbox}
+\end{sidewaysfigure}
+
+\end{document}
