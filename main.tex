@@ -101,7 +101,7 @@
         \expandafter\gappto\expandafter\matrixcontents\expandafter{\r \\}
         \stepcounter{strata}
     }
-    
+
     \node[outer sep=-1mm, hyperlink node=\thewiki/wiki/#4] (#2) at #1 {
         \begin{tikzpicture}
             \node[label={[label distance=-(0.2*\unitsize)]115:#3×}] at (0,0) {
@@ -206,7 +206,7 @@
                     \prodnode{(3,-0.75)}{Steel}{2}{Furnace}
                     \connect{Iron}{Steel}
                     \connect{Coal}{Steel}
-                    
+
                     \prodnode{(5,-0.75)}{Steel_beams}{3}{Steelworks}
                     \connect{Steel}{Steel_beams}
                 \end{tikzpicture}}
@@ -216,7 +216,7 @@
                     \prodnode{(0,0)}{Quartz_sand}{2}{Sand_Mine}
                     \prodnode{(2,0)}{Glass}{2}{Glassmakers}
                     \connect{Quartz_sand}{Glass}
-                    
+
                     \prodnode{(2,-1.5)}{Wood}{1}{Lumberjack\%27s_Hut_(Old_World)}
                     \prodnode{(4,-0.75)}{Windows}{4}{Window_Makers}
                     \connect{Glass}{Windows}
@@ -233,9 +233,9 @@
             \prodnode{(3,-0.75)}{Steel}{2}{Furnace}
             \connect{Iron}{Steel}
             \connect{Coal}{Steel}
-            
+
             \prodnode{(3,-3)}{Cement}{2}{Limestone_Quarry}
-            
+
             \prodnode{(5,-1.5)}{Reinforced_concrete}{4}{Concrete_Factory}
             \connect{Steel}{Reinforced_concrete}
             \connect{Cement}{Reinforced_concrete}
@@ -267,7 +267,7 @@
                     \farmnode{(0,2)}{Cotton}{2}{Cotton_Plantation}{1×1}{144}
                     \prodnode{(2,2)}{Cotton_fabric}{1}{Cotton_Mill}
                     \connect{Cotton}{Cotton_fabric}
-                    
+
                     \prodnode{(4,2)}{Sails}{1}{Sailmakers_(Old_World)}
                     \connect{Cotton_fabric}{Sails}
                 \end{tikzpicture}}
@@ -281,7 +281,7 @@
                     \prodnode{(3,-0.75)}{Steel}{2}{Furnace}
                     \connect{Iron}{Steel}
                     \connect{Coal}{Steel}
-                    
+
                     \prodnode{(5,-0.75)}{Weapons}{6}{Weapons_Factory}
                     \connect{Steel}{Weapons}
                 \end{tikzpicture}}
@@ -292,12 +292,12 @@
             \farmnode{(0,0)}{Pigs}{4}{Pig_Farm}{2×3}{5}
             \prodnode{(2,0)}{Tallow}{4}{Rendering_Works}
             \connect{Pigs}{Tallow}
-            
+
             \prodnode{(2,-1.5)}{Saltpeter}{8}{Saltpeter_Works}
             \prodnode{(3.5,-0.75)}{Dynamite}{4}{Dynamite_Factory}
             \connect{Tallow}{Dynamite}
             \connect{Saltpeter}{Dynamite}
-        
+
             \prodnode{(1,-3)}{Iron}{1}{Iron_Mine}
             \prodnode{(0.25,-4.5)}{Charcoal_kiln}{2}{Charcoal_Kiln}
             \prodnode{(1.75,-4.5)}{Coal}{1}{Coal_Mine}
@@ -305,7 +305,7 @@
             \prodnode{(3.5,-3.75)}{Steel}{2}{Furnace}
             \connect{Iron}{Steel}
             \connect{Coal}{Steel}
-            
+
             \prodnode{(5,-2.25)}{Advanced_weapons}{8}{Heavy_Weapons_Factory}
             \connect{Dynamite}{Advanced_weapons}
             \connect{Steel}{Advanced_weapons}
@@ -320,13 +320,13 @@
             \prodnode{(3,-0.75)}{Steel}{2}{Furnace}
             \connect{Iron}{Steel}
             \connect{Coal}{Steel}
-            
+
             \prodnode{(0.75,-3)}{Zinc}{2}{Zinc_Mine}
             \prodnode{(0.75,-4.5)}{Copper}{2}{Copper_Mine}
             \prodnode{(3, -3.75)}{Brass}{4}{Brass_Smeltery}
             \connect{Zinc}{Brass}
             \connect{Copper}{Brass}
-            
+
             \prodnode{(5, -2.25)}{Steam_motors}{6}{Motor_Assembly_Line}
             \connect{Steel}{Steam_motors}
             \connect{Brass}{Steam_motors}
@@ -405,9 +405,9 @@
             \farmnode{(0,0)}{Grain}{2}{Grain_Farm}{1×1}{144}
             \prodnode{(2,0)}{Malt}{1}{Malthouse}
             \connect{Grain}{Malt}
-            
+
             \farmnode{(2,-1.5)}{Hops}{3}{Hop_Farm}{1×1}{96}
-            
+
             \consnode{(4,-0.75)}{Beer}{2}{Brewery}{Workers/1300,Artisans/975,Obreros/750}
             \connect{Malt}{Beer}
             \connect{Hops}{Beer}
@@ -463,9 +463,9 @@
             \prodnode{(2,-0.75)}{Goulash}{8}{Artisanal_Kitchen}
             \connect{Beef}{Goulash}
             \connect{Red_peppers}{Goulash}
-            
+
             \prodnode{(2,-3)}{Iron}{1}{Iron_Mine}
-            
+
             \consnode{(4,-1.5)}{Canned_food}{6}{Cannery}{Artisans/1950,Engineers/1300}
             \connect{Goulash}{Canned_food}
             \connect{Iron}{Canned_food}
@@ -480,9 +480,9 @@
             \prodnode{(3,-0.75)}{Steel}{2}{Furnace}
             \connect{Iron}{Steel}
             \connect{Coal}{Steel}
-        
+
             \prodnode{(3,-3)}{Wood}{1}{Lumberjack\%27s_Hut_(Old_World)}
-            
+
             \consnode{(5,-1.5)}{Sewing_machines}{2}{Sewing_Machine_Factory}{Artisans/2100,Engineers/1400,Obreros/1600}
             \connect{Steel}{Sewing_machines}
             \connect{Cement}{Sewing_machines}
@@ -493,9 +493,9 @@
             \farmnode{(0,0)}{Cotton}{2}{Cotton_Plantation}{1×1}{144}
             \prodnode{(2,0)}{Cotton_fabric}{1}{Cotton_Mill}
             \connect{Cotton}{Cotton_fabric}
-            
+
             \prodnode{(2,-1.5)}{Furs}{2}{Hunting_Cabin}
-            
+
             \consnode{(4,-0.75)}{Fur_Coats}{1}{Fur_Dealer}{Artisans/2250,Engineers/1500}
             \connect{Cotton_fabric}{Fur_Coats}
             \connect{Furs}{Fur_Coats}
@@ -523,13 +523,13 @@
             \prodnode{(0,0)}{Quartz_sand}{1}{Sand_Mine}
             \prodnode{(2,0)}{Glass}{1}{Glassmakers}
             \connect{Quartz_sand}{Glass}
-            
+
             \prodnode{(0,-1.5)}{Zinc}{1}{Zinc_Mine}
             \prodnode{(0,-3)}{Copper}{1}{Copper_Mine}
             \prodnode{(2, -2.25)}{Brass}{2}{Brass_Smeltery}
             \connect{Zinc}{Brass}
             \connect{Copper}{Brass}
-            
+
             \consnode{(4,-1.5)}{Glasses}{3}{Spectacle_Factory}{Engineers/3000,Investors/1875}
             \connect{Glass}{Glasses}
             \connect{Brass}{Glasses}
@@ -544,9 +544,9 @@
             \prodnode{(3,-0.75)}{Steel}{2}{Furnace}
             \connect{Iron}{Steel}
             \connect{Coal}{Steel}
-        
+
             \farmnode{(3,-3)}{Caoutchouc}{4}{Caoutchouc_Plantation}{1×1}{144}
-            
+
             \consnode{(5,-1.5)}{High_wheeler}{2}{Bicycle_Factory}{Engineers/3200,Investors/2000}
             \connect{Steel}{High_wheeler}
             \connect{Caoutchouc}{High_wheeler}
@@ -561,11 +561,11 @@
             \prodnode{(3, -0.75)}{Gold}{4}{Goldsmiths}
             \connect{Gold_Ore}{Gold}
             \connect{Coal}{Gold}
-            
+
             \prodnode{(0.75,-3)}{Quartz_sand}{2}{Sand_Mine}
             \prodnode{(3,-3)}{Glass}{2}{Glassmakers}
             \connect{Quartz_sand}{Glass}
-            
+
             \consnode{(5,-1.5)}{Pocket_watch}{6}{Clockmakers}{Engineers/3400,Investors/2125}
             \connect{Gold}{Pocket_watch}
             \connect{Glass}{Pocket_watch}
@@ -578,11 +578,11 @@
             \divider{Charcoal_kiln}{Coal}
             \prodnode{(3, 0)}{Carbon_filament}{4}{Filament_Factory}
             \connect{Coal}{Carbon_filament}
-            
+
             \prodnode{(0.75,-1.5)}{Quartz_sand}{2}{Sand_Mine}
             \prodnode{(3,-1.5)}{Glass}{2}{Glassmakers}
             \connect{Quartz_sand}{Glass}
-            
+
             \consnode{(5,-0.75)}{Light_bulb}{4}{Light_Bulb_Factory}{Engineers/3200,Investors/2000}
             \connect{Carbon_filament}{Light_bulb}
             \connect{Glass}{Light_bulb}
@@ -608,9 +608,9 @@
                     \prodnode{(0,0)}{Quartz_sand}{1}{Sand_Mine}
                     \prodnode{(2,0)}{Glass}{1}{Glassmakers}
                     \connect{Quartz_sand}{Glass}
-                    
+
                     \farmnode{(2,-1.5)}{Grapes}{4}{Vineyard}{1×1}{128}
-                    
+
                     \consnode{(4,-0.75)}{Champagne}{1}{Champagne_Cellar}{Investors/4250}
                     \connect{Glass}{Champagne}
                     \connect{Grapes}{Champagne}
@@ -625,9 +625,9 @@
                     \prodnode{(3, -0.75)}{Gold}{4}{Goldsmiths}
                     \connect{Gold_Ore}{Gold}
                     \connect{Coal}{Gold}
-                    
+
                     \prodnode{(3,-3)}{Pearls}{6}{Pearl_Farm}
-                    
+
                     \consnode{(5,-1.5)}{Jewelry}{2}{Jewellers}{Investors/4750}
                     \connect{Gold}{Jewelry}
                     \connect{Pearls}{Jewelry}
@@ -638,13 +638,13 @@
                     \prodnode{(0,0)}{Wood}{1}{Lumberjack\%27s_Hut_(Old_World)}
                     \prodnode{(2,0)}{Wood_veneers}{4}{Marquetry_Workshop_(Old_World)}
                     \connect{Wood}{Wood_veneers}
-                    
+
                     \prodnode{(0,-1.5)}{Zinc}{2}{Zinc_Mine}
                     \prodnode{(0,-3)}{Copper}{2}{Copper_Mine}
                     \prodnode{(2, -2.25)}{Brass}{4}{Brass_Smeltery}
                     \connect{Zinc}{Brass}
                     \connect{Copper}{Brass}
-                    
+
                     \consnode{(4,-1.5)}{Gramophone}{8}{Gramophone_Factory}{Investors/3000}
                     \connect{Wood_veneers}{Gramophone}
                     \connect{Brass}{Gramophone}
@@ -660,23 +660,23 @@
             \prodnode{(3,-0.75)}{Steel}{2}{Furnace}
             \connect{Iron}{Steel}
             \connect{Coal}{Steel}
-            
+
             \prodnode{(0.75,-3)}{Zinc}{2}{Zinc_Mine}
             \prodnode{(0.75,-4.5)}{Copper}{2}{Copper_Mine}
             \prodnode{(3, -3.75)}{Brass}{4}{Brass_Smeltery}
             \connect{Zinc}{Brass}
             \connect{Copper}{Brass}
-            
+
             \prodnode{(5, -2.25)}{Steam_motors}{6}{Motor_Assembly_Line}
             \connect{Steel}{Steam_motors}
             \connect{Brass}{Steam_motors}
-            
+
             \prodnode{(3,-6)}{Wood}{1}{Lumberjack\%27s_Hut_(Old_World)}
             \farmnode{(3,-7.5)}{Caoutchouc}{4}{Caoutchouc_Plantation}{1×1}{144}
             \prodnode{(5,-6.75)}{Chassis}{8}{Coachmakers}
             \connect{Wood}{Chassis}
             \connect{Caoutchouc}{Chassis}
-            
+
             \consnode{(7,-4.5)}{Steam_carriages}{4}{Cab_Assembly_Line}{Investors/7500}
             \connect{Steam_motors}{Steam_carriages}
             \connect{Chassis}{Steam_carriages}
@@ -720,11 +720,11 @@
             \farmnode{(0,0)}{Cotton}{2}{Cotton_Plantation}{1×1}{144}
             \prodnode{(2,0)}{Cotton_fabric}{1}{Cotton_Mill}
             \connect{Cotton}{Cotton_fabric}
-            
+
             \farmnode{(0,-1.5)}{Alpaca_wool}{1}{Alpaca_Farm}{3×3}{4}
             \prodnode{(2,-1.5)}{Felt}{1}{Felt_Producer}
             \connect{Alpaca_wool}{Felt}
-            
+
             \consnode{(4,-0.75)}{Bowler_hats}{1}{Bombín_Weaver}{Obreros/1500}
             \connect{Cotton_fabric}{Bowler_hats}
             \connect{Felt}{Bowler_hats}
@@ -735,9 +735,9 @@
             \prodnode{(0,0)}{Wood}{1}{Lumberjack\%27s_Hut_(New_World)}
             \prodnode{(2,0)}{Wood_veneers}{4}{Marquetry_Workshop_(New_World)}
             \connect{Wood}{Wood_veneers}
-            
+
             \farmnode{(2,-1.5)}{Tobacco}{8}{Tobacco_Plantation}{1×1}{192}
-            
+
             \consnode{(4,-0.75)}{Cigars}{2}{Cigar_Factory}{Obreros/3600,Investors/4500}
             \connect{Wood_veneers}{Cigars}
             \connect{Tobacco}{Cigars}
@@ -748,15 +748,87 @@
             \farmnode{(0,0)}{Sugar_cane}{1}{Sugar_Cane_Plantation}{1×1}{128}
             \prodnode{(2,0)}{Sugar}{1}{Sugar_Refinery}
             \connect{Sugar_cane}{Sugar}
-            
+
             \farmnode{(2,-1.5)}{Cocoa}{2}{Cocoa_Plantation}{1×1}{128}
-            
+
             \consnode{(4,-0.75)}{Chocolate}{1}{Chocolate_Factory}{Obreros/1500,Investors/1750}
             \connect{Sugar}{Chocolate}
             \connect{Cocoa}{Chocolate}
         \end{tikzpicture}}
 \end{tcbraster}
 % END Obrero Consumables
+
+% START Explorer Consumables
+\section{Explorer Consumables}
+\begin{tcbraster}[raster columns=\portraitraster,
+                  grid format]
+    \tcbox[raster multicolumn=2, % Pemmican
+           raster multirow=2]{
+        \begin{tikzpicture}
+            \prodnode{(0,0)}{Whale_Oil}{1}{Whaling Station}
+            \prodnode{(0,-1.5)}{Caribou_Meat}{1}{Caribou Hunting Cabin}
+            \consnode{(2,-0.75)}{Pemmican}{1}{Pemmican Cookhouse}{Explorers/833,Technicians/833}
+            \connect{Whale_Oil}{Pemmican}
+            \connect{Caribou_Meat}{Pemmican}
+        \end{tikzpicture}}
+    \tcbox[raster multicolumn=2, % Sleeping Bags
+           raster multirow=2]{
+        \begin{tikzpicture}
+            \prodnode{(0,0)}{Seal_Skin}{1}{Seal Hunting Docks}
+            \farmnode{(0,-1.5)}{Goose_Feathers}{4}{Goose Farm}{2x3}{5}
+            \consnode{(2,-0.75)}{Sleeping_Bags}{2}{Sleeping Bag Factory}{Explorers/2220,Technicians/2220}
+            \connect{Seal_Skin}{Sleeping_Bags}
+            \connect{Goose_Feathers}{Sleeping_Bags}
+        \end{tikzpicture}}
+    \tcbox[raster multicolumn=3, % Oil Lamps
+           raster multirow=3]{
+        \begin{tikzpicture}
+            \prodnode{(0,0)}{Copper}{1}{Copper Mine}
+            \prodnode{(0,-1.5)}{Zinc}{1}{Zinc Mine}
+            \prodnode{(2,-0.75)}{Brass}{2}{Brass Smeltery}
+            \connect{Copper}{Brass}
+            \connect{Zinc}{Brass}
+
+            \prodnode{(2,-3)}{Whale_Oil}{2}{Whaling Station}
+
+            \consnode{(4,-1.5)}{Oil_Lamps}{2}{Oil Lamp Factory}{Explorers/3333,Technicians/3333}
+            \connect{Brass}{Oil_Lamps}
+            \connect{Whale_Oil}{Oil_Lamps}
+        \end{tikzpicture}}
+\end{tcbraster}
+% END Explorer Consumables
+
+\section{Technician Consumables}
+
+% START Technician Consumables
+\begin{tcbraster}[raster columns=\portraitraster,
+                  grid format]
+    \tcbox[raster multicolumn=2, % Parkas
+           raster multirow=2]{
+        \begin{tikzpicture}
+            \prodnode{(0,0)}{Bear_Skin}{3}{Bear Hunting Cabin}
+            \prodnode{(0,-1.5)}{Seal_Skin}{1}{Seal Hunting Docks}
+            \consnode{(2,-0.75)}{Parkas}{3}{Parka Factory}{Technicians/1666}
+            \connect{Bear_Skin}{Parkas}
+            \connect{Seal_Skin}{Parkas}
+        \end{tikzpicture}}
+   \tcbox[raster multicolumn=3, % Canned Food
+           raster multirow=3]{
+        \begin{tikzpicture}
+            \prodnode{(0,0)}{Seal_Skin}{2}{Seal Hunting Docks}
+            \prodnode{(0,-1.5)}{Wood}{1}{Lumberjack\%27s_Hut}
+            \prodnode{(2,-0.75)}{Sleds}{4}{Sled_Frame_Factory}
+            \connect{Seal_Skin}{Sleds}
+            \connect{Wood}{Sleds}
+
+            \farmnode{(2,-3)}{Huskies}{8}{Husky_Farm}{3x4}{4}
+
+            \consnode{(4,-1.5)}{Husky_Sleds}{4}{Husky_Sleds}{Technicians/4444}
+            \connect{Sleds}{Husky_Sleds}
+            \connect{Huskies}{Husky_Sleds}
+        \end{tikzpicture}}
+\end{tcbraster}
+% END Technician Consumables
 
 \tcbline
 
