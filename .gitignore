@@ -1,0 +1,15 @@
+*.aux
+*.fls
+*.log
+*.pdf
+*.gz
+*.fdb_latexmk
+*.toc
+*.lof
+*.lot
+*.out
+*.xdv
+.vscode
+*.synctex(busy)
+__latexindent_temp.tex
+pdf_out
