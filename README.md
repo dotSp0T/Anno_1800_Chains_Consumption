@@ -20,4 +20,5 @@ Many thanks to the maintainers of the 'LaTeX' packages used in this document, as
 
 Many thanks to my collaborators for helping me figure out how to make things in 'LaTeX' and providing feedback to the document itself:
 
- - [@McDonnough](https://twitter.com/McDonnough_)
+ - [McDonnough](https://github.com/McDonnough)
+ - [René Kost](https://github.com/rkost)

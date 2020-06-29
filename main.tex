@@ -11,6 +11,7 @@
 \usepackage{tikz}
 \usepackage{etoolbox}
 \usepackage{siunitx}
+\usepackage{enumitem}
 
 % PAGE GEOMETRY
 \geometry{a4paper,
@@ -37,7 +38,6 @@
 \newcommand{\thetitle}{Anno 1800 Prod Chains \& Consumption}
 \newcommand{\theauthor}{Michael Stocker (@dot\_Sp0T)}
 \newcommand{\theauthorsgithub}{https://github.com/dotSp0T}
-\newcommand{\thecollaborators}{@McDonnough \space -- \url{https://twitter.com/McDonnough_}}
 \newcommand{\theversion}{v0.2}
 \newcommand{\thelicense}{CC BY-SA 4.0}
 \newcommand{\thelicenseurl}{https://creativecommons.org/licenses/by-sa/4.0/}
@@ -795,7 +795,7 @@
             \prodnode{(2,-1.5)}{Felt}{1}{Felt_Producer}
             \connect{Alpaca_wool}{Felt}
 
-            \consnode{(4,-0.75)}{Bowler_hats}{1}{Bombín_Weaver}{Obreros/1500}
+            \consnode{(4,-0.75)}{Bowler_hats}{1}{Bombin_Weaver}{Obreros/1500}
             \connect{Cotton_fabric}{Bowler_hats}
             \connect{Felt}{Bowler_hats}
         \end{tikzpicture}}
@@ -830,9 +830,11 @@
 \end{tcbraster}
 % END Obrero Consumables
 
+\tcbline
+
 % START Explorer Consumables
 \section{Explorer Consumables}
-\begin{tcbraster}[raster columns=\portraitraster,
+\begin{tcbraster}[raster columns=7,
                   grid format]
     \tcbox[raster multicolumn=2, % Pemmican
            raster multirow=2]{
@@ -855,39 +857,40 @@
     \tcbox[raster multicolumn=3, % Oil Lamps
            raster multirow=3]{
         \begin{tikzpicture}
-            \prodnode{(0,0)}{Copper}{1}{Copper Mine}
-            \prodnode{(0,-1.5)}{Zinc}{1}{Zinc Mine}
-            \prodnode{(2,-0.75)}{Brass}{2}{Brass Smeltery}
+            \prodnode{(0,0)}{Copper}{1}{Copper_Mine}
+            \prodnode{(0,-1.5)}{Zinc}{1}{Zinc_Mine}
+            \prodnode{(2,-0.75)}{Brass}{2}{Brass_Smeltery}
             \connect{Copper}{Brass}
             \connect{Zinc}{Brass}
 
-            \prodnode{(2,-3)}{Whale_Oil}{2}{Whaling Station}
+            \prodnode{(2,-3)}{Whale_Oil}{2}{Whaling_Station}
 
-            \consnode{(4,-1.5)}{Oil_Lamps}{2}{Oil Lamp Factory}{Explorers/3333,Technicians/3333}
+            \consnode{(4,-1.5)}{Oil_Lamps}{2}{Oil_Lamp_Factory}{Explorers/3333,Technicians/3333}
             \connect{Brass}{Oil_Lamps}
             \connect{Whale_Oil}{Oil_Lamps}
         \end{tikzpicture}}
 \end{tcbraster}
 % END Explorer Consumables
 
-\section{Technician Consumables}
+\tcbline
 
 % START Technician Consumables
-\begin{tcbraster}[raster columns=\portraitraster,
+\section{Technician Consumables}
+\begin{tcbraster}[raster columns=5,
                   grid format]
     \tcbox[raster multicolumn=2, % Parkas
            raster multirow=2]{
         \begin{tikzpicture}
-            \prodnode{(0,0)}{Bear_Skin}{3}{Bear Hunting Cabin}
-            \prodnode{(0,-1.5)}{Seal_Skin}{1}{Seal Hunting Docks}
-            \consnode{(2,-0.75)}{Parkas}{3}{Parka Factory}{Technicians/1666}
+            \prodnode{(0,0)}{Bear_Skin}{3}{Bear_Hunting_Cabin}
+            \prodnode{(0,-1.5)}{Seal_Skin}{1}{Seal_Hunting_Docks}
+            \consnode{(2,-0.75)}{Parkas}{3}{Parka_Factory}{Technicians/1666}
             \connect{Bear_Skin}{Parkas}
             \connect{Seal_Skin}{Parkas}
         \end{tikzpicture}}
-   \tcbox[raster multicolumn=3, % Canned Food
+   \tcbox[raster multicolumn=3, % Husky Sleds
            raster multirow=3]{
         \begin{tikzpicture}
-            \prodnode{(0,0)}{Seal_Skin}{2}{Seal Hunting Docks}
+            \prodnode{(0,0)}{Seal_Skin}{2}{Seal_Hunting_Docks}
             \prodnode{(0,-1.5)}{Wood}{1}{Lumberjack\%27s_Hut}
             \prodnode{(2,-0.75)}{Sleds}{4}{Sled_Frame_Factory}
             \connect{Seal_Skin}{Sleds}
@@ -895,7 +898,7 @@
 
             \farmnode{(2,-3)}{Huskies}{8}{Husky_Farm}{3x4}{4}
 
-            \consnode{(4,-1.5)}{Husky_Sleds}{4}{Husky_Sleds}{Technicians/4444}
+            \consnode{(4,-1.5)}{Husky_Sleds}{4}{Husky_Sled_Factory}{Technicians/4444}
             \connect{Sleds}{Husky_Sleds}
             \connect{Huskies}{Husky_Sleds}
         \end{tikzpicture}}
@@ -908,15 +911,11 @@
 
 If you would like to improve this document please check out the GitHub repository: \url{\thesourcerepository}\\
 \\
-Many thanks to the Anno fandom wiki (\url{\thewiki}) for collecting icons and calculating numbers \& ratios.\\
-\\
-Many thanks to the maintainers of the \LaTeX \space packages used in this document, as well as to the \TeX \space Stackexchange (\url{https://tex.stackexchange.com/}) for providing help with \LaTeX \space problems.\\
-\\
-Many thanks to my collaborators for helping me figure out how to make things in \LaTeX \space and providing feedback to the document itself:
+Many thanks to all collaborators:
 
-\begin{itemize}
+\begin{itemize}[noitemsep]
 \renewcommand\labelitemi{--}
-\foreach \c in {\thecollaborators} {
+\foreach \c in {McDonnough \space (\url{https://github.com/McDonnough}),René Kost \space (\url{https://github.com/rkost})} {
     \item \c
 }
 \end{itemize}
