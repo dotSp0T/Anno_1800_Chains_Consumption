@@ -25,6 +25,12 @@
 \setlength{\headheight}{18pt}
 \tcbuselibrary{breakable, raster, skins}
 \usetikzlibrary{calc, matrix}
+
+\newenvironment{portraitpage}
+    {\global\pdfpageattr\expandafter{\the\pdfpageattr/Rotate 270}}
+    {\clearpage\pagebreak[4]\global\pdfpageattr\expandafter{\the\pdfpageattr/Rotate 0}}
+\BeforeBeginEnvironment{sidewaysfigure}{\begin{portraitpage}}
+\AfterEndEnvironment{sidewaysfigure}{\end{portraitpage}}
 % END PAGE GEOMETRY
 
 % META
