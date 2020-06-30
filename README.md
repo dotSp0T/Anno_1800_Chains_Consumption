@@ -16,6 +16,8 @@ For ease of use the document is licensed under [CC BY-SA 4.0](https://creativeco
 
 Many thanks to the Anno fandom wiki (https://anno1800.fandom.com) for collecting icons and calculating numbers \& ratios.
 
+Many thanks to Marcel Körner (https://schwubbe.de/) for their Anno 1800 Calculator and adjusted numbers.
+
 Many thanks to the maintainers of the 'LaTeX' packages used in this document, as well as to the 'TeX' Stackexchange (https://tex.stackexchange.com/) for providing help with 'LaTeX' problems.
 
 Many thanks to my collaborators for helping me figure out how to make things in 'LaTeX' and providing feedback to the document itself:

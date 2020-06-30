@@ -443,7 +443,7 @@
            raster multirow=2]{
         \begin{tikzpicture}
             \farmnode{(0,0)}{Potato}{1}{Potato_Farm}{1×1}{72}
-            \consnode{(2,0)}{Schnapps}{1}{Schnapps_Distillery}{Farmers/600,Workers/600}
+            \consnode{(2,0)}{Schnapps}{1}{Schnapps_Distillery}{Farmers/600,Workers/600,Explorers/1333,Technicians/1333}
             \connect{Potato}{Schnapps}
         \end{tikzpicture}}
     \tcbox[nodebox, % Work Clothes
@@ -563,7 +563,7 @@
 
             \prodnode{(2,-3)}{Iron}{1}{Iron_Mine}
 
-            \consnode{(4,-1.5)}{Canned_food}{6}{Cannery}{Artisans/1950,Engineers/1300}
+            \consnode{(4,-1.5)}{Canned_food}{6}{Cannery}{Artisans/1950,Engineers/1300,Technicians/1111}
             \connect{Goulash}{Canned_food}
             \connect{Iron}{Canned_food}
         \end{tikzpicture}}
@@ -820,7 +820,7 @@
            raster multirow=2]{
         \begin{tikzpicture}
             \farmnode{(0,0)}{Coffee_beans}{2}{Coffee_Plantation}{1×1}{168}
-            \consnode{(2,0)}{Coffee}{1}{Coffee_Roaster}{Obreros/3400,Engineers/1700,Investors/1062}
+            \consnode{(2,0)}{Coffee}{1}{Coffee_Roaster}{Obreros/3400,Engineers/1700,Investors/1062.5,Technicians/1666}
             \connect{Coffee_beans}{Coffee}
         \end{tikzpicture}}
     \tcbox[nodebox, % Bowler Hats
@@ -863,7 +863,7 @@
 
             \farmnode{(2,-1.5)}{Cocoa}{2}{Cocoa_Plantation}{1×1}{128}
 
-            \consnode{(4,-0.75)}{Chocolate}{1}{Chocolate_Factory}{Obreros/1500,Investors/1750}
+            \consnode{(4,-0.75)}{Chocolate}{1}{Chocolate_Factory}{Investors/1875}
             \connect{Sugar}{Chocolate}
             \connect{Cocoa}{Chocolate}
         \end{tikzpicture}}
@@ -890,7 +890,7 @@
         \begin{tikzpicture}
             \prodnode{(0,0)}{Seal_Skin}{1}{Seal Hunting Docks}
             \farmnode{(0,-1.5)}{Goose_Feathers}{4}{Goose Farm}{2x3}{5}
-            \consnode{(2,-0.75)}{Sleeping_Bags}{2}{Sleeping Bag Factory}{Explorers/2220,Technicians/2220}
+            \consnode{(2,-0.75)}{Sleeping_Bags}{2}{Sleeping Bag Factory}{Explorers/1111,Technicians/1111}
             \connect{Seal_Skin}{Sleeping_Bags}
             \connect{Goose_Feathers}{Sleeping_Bags}
         \end{tikzpicture}}
@@ -905,7 +905,7 @@
 
             \prodnode{(2,-3)}{Whale_Oil}{2}{Whaling_Station}
 
-            \consnode{(4,-1.5)}{Oil_Lamps}{2}{Oil_Lamp_Factory}{Explorers/3333,Technicians/3333}
+            \consnode{(4,-1.5)}{Oil_Lamps}{2}{Oil_Lamp_Factory}{Explorers/1111,Technicians/1111}
             \connect{Brass}{Oil_Lamps}
             \connect{Whale_Oil}{Oil_Lamps}
         \end{tikzpicture}}
@@ -923,7 +923,7 @@
         \begin{tikzpicture}
             \prodnode{(0,0)}{Bear_Skin}{3}{Bear_Hunting_Cabin}
             \prodnode{(0,-1.5)}{Seal_Skin}{1}{Seal_Hunting_Docks}
-            \consnode{(2,-0.75)}{Parkas}{3}{Parka_Factory}{Technicians/1666}
+            \consnode{(2,-0.75)}{Parkas}{3}{Parka_Factory}{Technicians/555.5}
             \connect{Bear_Skin}{Parkas}
             \connect{Seal_Skin}{Parkas}
         \end{tikzpicture}}
@@ -938,7 +938,7 @@
 
             \farmnode{(2,-3)}{Huskies}{8}{Husky_Farm}{3x4}{4}
 
-            \consnode{(4,-1.5)}{Husky_Sleds}{4}{Husky_Sled_Factory}{Technicians/4444}
+            \consnode{(4,-1.5)}{Husky_Sleds}{4}{Husky_Sled_Factory}{Technicians/1111}
             \connect{Sleds}{Husky_Sleds}
             \connect{Huskies}{Husky_Sleds}
         \end{tikzpicture}}
