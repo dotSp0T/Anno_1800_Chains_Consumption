@@ -7,6 +7,7 @@
 \usepackage{fancyhdr}
 \usepackage{datetime2}
 \usepackage[hidelinks]{hyperref} % 'hidelinks' prevents underscores & borders around links
+\usepackage[dvipsnames]{xcolor}
 \usepackage{tcolorbox}
 \usepackage{tikz}
 \usepackage{etoolbox}
@@ -25,7 +26,7 @@
 \pagestyle{fancy}
 \setlength{\headheight}{18pt}
 \tcbuselibrary{breakable, raster, skins}
-\usetikzlibrary{calc, matrix}
+\usetikzlibrary{calc, matrix, backgrounds}
 
 \newenvironment{portraitpage}
     {\global\pdfpageattr\expandafter{\the\pdfpageattr/Rotate 270}}
@@ -61,8 +62,6 @@
 \newcommand{\facproddegs}{0}
 \newcommand{\fldnumdist}{-(0.2*\unitsize)}
 \newcommand{\fldnumdegs}{270}
-\newcommand{\stratafacnumdist}{-(0.15*\unitsize)}
-\newcommand{\stratafacnumdegs}{115}
 \newcommand{\stratalistmath}{-(0.55*\unitsize*\arabic{strata}) + (0.25*\unitsize*(\arabic{strata} - 2))}
 
 % nodes
@@ -85,9 +84,10 @@
     }% END hyperlink style
 }
 
+% P R O D N O D E
 \newcommand{\prodpermin}[1]{ % #1 decimal number to be rounded to 3 digits
     \DIVIDE{60}{#1}{\sol}
-    \num[round-mode=places,round-precision=3]{\sol}
+    \num[round-mode=places,round-precision=3]{\sol}%
 }
 
 % #1 (x,y)
@@ -97,23 +97,34 @@
 \newcommand{\prodnode}[4]{
     \node[outer ysep=\nodepadding,
           label={[label distance=\facnumdist]\facnumdegs:#3×},
-          hyperlink node=\thewiki/wiki/#4] (#2) at #1 {
-        \includegraphics[width=\unitsize, height=\unitsize]{icons/#2.png}};
+          hyperlink node=\thewiki/wiki/#4] (#2) at #1 {\icon{#2}};
 }
 
-% #1 (x,y)
-% #2 Object_Name (filename without .png)
-% #3 Amount
-% #4 anno1800 wiki path (../wiki/<HERE>)
 % #5 amount of units produced per factory per minute
 \newcommand{\prodnodec}[5]{
     \node[outer ysep=\nodepadding,
           label={[label distance=\facnumdist]\facnumdegs:#3×},
           label={[label distance=\facproddist]\facproddegs:@\prodpermin{#5}/min},
-          hyperlink node=\thewiki/wiki/#4] (#2) at #1 {
-        \includegraphics[width=\unitsize, height=\unitsize]{icons/#2.png}};
+          hyperlink node=\thewiki/wiki/#4] (#2) at #1 {\icon{#2}};
 }
 
+% #3 Amount of electrified factories
+\newcommand{\prodnodefe}[4]{
+    \node[outer ysep=\nodepadding,
+          label={[label distance=\facnumdist]\facnumdegs:\smallicon{Electricity}\textcolor{SkyBlue}{#3×}},
+          hyperlink node=\thewiki/wiki/#4] (#2) at #1 {\icon{#2}};
+}
+
+% #3 Amount of electrified factories
+% #5 amount of units produced per factory per minute
+\newcommand{\prodnodefec}[5]{
+    \node[outer ysep=\nodepadding,
+    label={[label distance=\facnumdist]\facnumdegs:\smallicon{Electricity}\textcolor{SkyBlue}{#3×}},
+          label={[label distance=\facproddist]\facproddegs:\textcolor{SkyBlue}{@\prodpermin{#5}/min}},
+          hyperlink node=\thewiki/wiki/#4] (#2) at #1 {\icon{#2}};
+}
+
+% F A R M N O D E
 % #1 (x,y)
 % #2 Object_Name (filename without .png)
 % #3 Amount
@@ -124,8 +135,19 @@
     \node[outer ysep=\nodepadding,
           label={[label distance=\facnumdist]\facnumdegs:#3×},
           label={[label distance=\fldnumdist]\fldnumdegs:#6 (#5)},
-          hyperlink node=\thewiki/wiki/#4] (#2) at #1 {
-        \includegraphics[width=\unitsize, height=\unitsize]{icons/#2.png}};
+          hyperlink node=\thewiki/wiki/#4] (#2) at #1 {\icon{#2}};
+}
+
+% C O N S N O D E
+\newcounter{strata}
+\newcommand{\consstratalist}[1]{
+    \let\matrixcontents\empty
+    \setcounter{strata}{0}
+    \foreach \l/\r in {#1}{
+        \expandafter\gappto\expandafter\matrixcontents\expandafter{\expandafter\smallicon\expandafter{\l} \&}
+        \expandafter\gappto\expandafter\matrixcontents\expandafter{\r \\}
+        \stepcounter{strata}
+    }
 }
 
 % #1 (x,y)
@@ -133,40 +155,58 @@
 % #3 Amount
 % #4 anno1800 wiki path (../wiki/<HERE>)
 % #5 Comma Separated list: <stratum>:<amount>,<stratum>:<amount>, ...
-\newcounter{strata}
 \newcommand{\consnode}[5]{
-    \let\matrixcontents\empty
-    \setcounter{strata}{0}
-    \foreach \l/\r in {#5}{
-        \expandafter\gappto\expandafter\matrixcontents\expandafter{\expandafter\consimg\expandafter{\l} \&}
-        \expandafter\gappto\expandafter\matrixcontents\expandafter{\r \\}
-        \stepcounter{strata}
-    }
+    \consstratalist{#5}
 
-    \node[outer sep=-1mm, hyperlink node=\thewiki/wiki/#4] (#2) at #1 {
+    \node[outer sep=-1mm,
+          label={[label distance=\facnumdist]\facnumdegs:#3×},
+          hyperlink node=\thewiki/wiki/#4] (#2) at #1 {
         \begin{tikzpicture}
-            \node[outer ysep=\nodepadding,
-                label={[label distance=\stratafacnumdist]\stratafacnumdegs:#3×}] at (0,0) {
-                \includegraphics[width=\unitsize, height=\unitsize]{icons/#2}};
+            \node[outer ysep=\nodepadding] at (0,0) {\icon{#2}};
             \matrix[inner sep=2pt,
                     row sep=-2pt,
-                    column sep=-2mm,
+                    column sep=-1mm,
                     matrix of nodes,
                     ampersand replacement=\&] (output) at (0,{\stratalistmath}) {
                 \matrixcontents};
         \end{tikzpicture}};
 }
 
-\newcommand{\consimg}[1]{
-    \raisebox{-.2\height}{\includegraphics[width=\unitsize/2, height=\unitsize/2]{icons/#1.png}}
+% #3 Amount of electrified factories
+\newcommand{\consnodefe}[5]{
+    \consstratalist{#5}
+
+    \node[outer sep=-1mm,
+          label={[label distance=\facnumdist]\facnumdegs:\smallicon{Electricity}\textcolor{SkyBlue}{#3×}},
+          hyperlink node=\thewiki/wiki/#4] (#2) at #1 {
+        \begin{tikzpicture}
+            \node[outer ysep=\nodepadding] at (0,0) {\icon{#2}};
+            \matrix[inner sep=2pt,
+                    row sep=-2pt,
+                    column sep=-1mm,
+                    matrix of nodes,
+                    ampersand replacement=\&] (output) at (0,{\stratalistmath}) {
+                \matrixcontents};
+        \end{tikzpicture}};
 }
 
+\newcommand{\icon}[1]{
+    \includegraphics[width=\unitsize, height=\unitsize]{icons/#1.png}%
+}
+
+\newcommand{\smallicon}[1]{
+    \raisebox{-.2\height}{\includegraphics[width=\unitsize/2, height=\unitsize/2]{icons/#1.png}}%
+}
+
+% O T H E R
 \newcommand{\divider}[2]{ % #1 > left node; #2 > right node
     \draw[dashed] ([xshift=\unitsize*0.7]#1.north) -- ([xshift=-\unitsize*0.8]#2.south);
 }
 
 \newcommand{\connect}[2]{ % #1 > source node; #2 > target node
-    \draw[->] (#1) -- (#2);
+    \begin{scope}[on background layer]
+        \draw[->] (#1) -- (#2);
+    \end{scope}
 }
 
 % tcolorbox
@@ -328,7 +368,7 @@
                     \prodnode{(3,-0.75)}{Steel}{2}{Furnace}
                     \connect{Iron}{Steel}
                     \connect{Coal}{Steel}
-                    \prodnodec{(5,-0.75)}{Weapons}{6}{Weapons_Factory}{90}
+                    \prodnodec{(5,-0.75)}{Weapons}{6}{Weapon_Factory}{90}
                     \connect{Steel}{Weapons}
                 \end{tikzpicture}}
         \end{tcbraster}}
@@ -352,7 +392,7 @@
             \prodnode{(3.5,-3.75)}{Steel}{2}{Furnace}
             \connect{Iron}{Steel}
             \connect{Coal}{Steel}
-            \prodnodec{(5,-2.25)}{Advanced_weapons}{8}{Heavy_Weapons_Factory}{120}
+            \prodnodefec{(5,-2.25)}{Advanced_weapons}{4}{Heavy_Weapons_Factory}{60}
             \connect{Dynamite}{Advanced_weapons}
             \connect{Steel}{Advanced_weapons}
         \end{tikzpicture}}
@@ -373,7 +413,7 @@
             \prodnode{(3, -3.75)}{Brass}{4}{Brass_Smeltery}
             \connect{Zinc}{Brass}
             \connect{Copper}{Brass}
-            \prodnodec{(5, -2.25)}{Steam_motors}{6}{Motor_Assembly_Line}{90}
+            \prodnodefec{(5, -2.25)}{Steam_motors}{3}{Motor_Assembly_Line}{45}
             \connect{Steel}{Steam_motors}
             \connect{Brass}{Steam_motors}
         \end{tikzpicture}}
@@ -608,7 +648,7 @@
 
             \farmnode{(3,-3)}{Caoutchouc}{4}{Caoutchouc_Plantation}{1×1}{144}
 
-            \consnode{(5,-1.5)}{High_wheeler}{2}{Bicycle_Factory}{Engineers/3200,Investors/2000}
+            \consnodefe{(5,-1.5)}{High_wheeler}{1}{Bicycle_Factory}{Engineers/6400,Investors/4000}
             \connect{Steel}{High_wheeler}
             \connect{Caoutchouc}{High_wheeler}
         \end{tikzpicture}}
@@ -628,7 +668,7 @@
             \prodnode{(3,-3)}{Glass}{2}{Glassmakers}
             \connect{Quartz_sand}{Glass}
 
-            \consnode{(5,-1.5)}{Pocket_watch}{6}{Clockmakers}{Engineers/3400,Investors/2125}
+            \consnodefe{(5,-1.5)}{Pocket_watch}{3}{Clockmakers}{Engineers/6800,Investors/4250}
             \connect{Gold}{Pocket_watch}
             \connect{Glass}{Pocket_watch}
         \end{tikzpicture}}
@@ -711,7 +751,7 @@
                     \connect{Zinc}{Brass}
                     \connect{Copper}{Brass}
 
-                    \consnode{(4,-1.5)}{Gramophone}{8}{Gramophone_Factory}{Investors/3000}
+                    \consnodefe{(4,-1.5)}{Gramophone}{4}{Gramophone_Factory}{Investors/9500}
                     \connect{Wood_veneers}{Gramophone}
                     \connect{Brass}{Gramophone}
                 \end{tikzpicture}}
@@ -734,7 +774,7 @@
             \connect{Zinc}{Brass}
             \connect{Copper}{Brass}
 
-            \prodnode{(5, -2.25)}{Steam_motors}{6}{Motor_Assembly_Line}
+            \prodnodefe{(5, -2.25)}{Steam_motors}{3}{Motor_Assembly_Line}
             \connect{Steel}{Steam_motors}
             \connect{Brass}{Steam_motors}
 
@@ -744,7 +784,7 @@
             \connect{Wood}{Chassis}
             \connect{Caoutchouc}{Chassis}
 
-            \consnode{(7,-4.5)}{Steam_carriages}{4}{Cab_Assembly_Line}{Investors/7500}
+            \consnodefe{(7,-4.5)}{Steam_carriages}{2}{Cab_Assembly_Line}{Investors/15000}
             \connect{Steam_motors}{Steam_carriages}
             \connect{Chassis}{Steam_carriages}
         \end{tikzpicture}}
@@ -907,19 +947,24 @@
 
 \tcbline
 
+\section{Electrification}
+
+Almost all buildings in the \textbf{Old World}, excluding \textit{farms} and \textit{Lumberjacks}, can be electrified for up to \textit{200\%} productivity.
+\underline{Buildings marked with\smallicon{Electricity}require electricity by default}.\\
+
+\tcbline
+
 \section{Collaboration \& Thanks}
 
 If you would like to improve this document please check out the GitHub repository: \url{\thesourcerepository}\\
 \\
 Many thanks to all collaborators:
-
-\begin{itemize}[noitemsep]
+\begin{itemize}[topsep=2pt, noitemsep]
 \renewcommand\labelitemi{--}
-\foreach \c in {McDonnough \space (\url{https://github.com/McDonnough}),René Kost \space (\url{https://github.com/rkost})} {
-    \item \c
+\foreach \x/\y in {McDonnough/\url{https://github.com/McDonnough},René Kost/\url{https://github.com/rkost}} {
+    \item \x \space (\y)%
 }
 \end{itemize}
-
 \end{tcolorbox}
 \end{sidewaysfigure}
 
