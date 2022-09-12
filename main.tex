@@ -560,7 +560,7 @@
         \begin{tikzpicture}
             \farmnode{(0,0)}{Sugar_cane}{2}{Sugar_Cane_Plantation}{1×1}{128}
             \prodnode{(0,-1.5)}{Wood}{1}{Lumberjack\%27s_Hut_(New_World)}
-            \consnode{(2,-0.75)}{Rum}{1}{Rum_Distillery}{Artisans/1050,Engineers/700,Jornaleros/1400,Obreros/1400}
+            \consnode{(2,-0.75)}{Rum}{1}{Rum_Distillery}{Artisans/1050,Engineers/700,Jornaleros/1400,Obreros/1400,Scholars/10000}
             \connect{Sugar_cane}{Rum}
             \connect{Wood}{Rum}
         \end{tikzpicture}}
@@ -596,7 +596,7 @@
 
             \prodnode{(3.5,-2.5)}{Iron}{1}{Iron_Mine}
 
-            \consnode{(5.5,-1.5)}{Canned_food}{6}{Cannery}{Artisans/1950,Engineers/1300,Technicians/1111}
+            \consnode{(5.5,-1.5)}{Canned_food}{6}{Cannery}{Artisans/1950,Engineers/1300,Technicians/1111,Scholars/1333}
             \connect{Goulash}{Canned_food}
             \connect{Iron}{Canned_food}
         \end{tikzpicture}}
@@ -665,7 +665,7 @@
             \connect{Zinc}{Brass}
             \connect{Copper}{Brass}
 
-            \consnode{(4,-1.5)}{Glasses}{3}{Spectacle_Factory}{Engineers/3000,Investors/1875}
+            \consnode{(4,-1.5)}{Glasses}{3}{Spectacle_Factory}{Engineers/3000,Investors/1875,Elders/1850}
             \connect{Glass}{Glasses}
             \connect{Brass}{Glasses}
         \end{tikzpicture}}
@@ -794,7 +794,7 @@
                     \connect{Zinc}{Brass}
                     \connect{Copper}{Brass}
 
-                    \consnodefe{(4,-1.5)}{Gramophone}{4}{Gramophone_Factory}{Investors/9500}
+                    \consnodefe{(4,-1.5)}{Gramophone}{4}{Gramophone_Factory}{Investors/9500,Scholars/2580}
                     \connect{Wood_veneers}{Gramophone}
                     \connect{Brass}{Gramophone}
                 \end{tikzpicture}}
@@ -874,7 +874,7 @@
             \prodnode{(2,-1.5)}{Felt}{1}{Felt_Producer}
             \connect{Alpaca_wool}{Felt}
 
-            \consnode{(4,-0.75)}{Bowler_hats}{1}{Bombin_Weaver}{Obreros/1500}
+            \consnode{(4,-0.75)}{Bowler_hats}{1}{Bombin_Weaver}{Obreros/1500,scholars/5000}
             \connect{Cotton_fabric}{Bowler_hats}
             \connect{Felt}{Bowler_hats}
         \end{tikzpicture}}
@@ -1000,6 +1000,34 @@
 % END Technician Consumables
 
 \tcbline
+
+\end{tcolorbox}
+\end{sidewaysfigure}
+
+\pagebreak
+
+\begin{sidewaysfigure} % SIDEWAYS PAGE
+\begin{tcolorbox}[raster height=\boxheight,
+height=\paperwidth-2cm, % subtract margins manually
+page box]
+
+\include{shepards.tex}
+
+\include{elders.tex}
+
+\end{tcolorbox}
+\end{sidewaysfigure}
+
+\pagebreak
+
+\begin{sidewaysfigure} % SIDEWAYS PAGE
+\begin{tcolorbox}[raster height=\boxheight,
+height=\paperwidth-2cm, % subtract margins manually
+page box]
+
+\include{scholars.tex}
+
+
 
 \section{Electrification \& Symbols}
 
