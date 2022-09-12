@@ -7,7 +7,7 @@
 		\begin{tikzpicture}
 			\farmnode{(0,-1.5)}{Indigo}{4}{Indigo_Farm}{1×1}{144}
 			\prodnode{(0,0)}{Clay}{1}{Clay Collector}
-			\consnode{(2,-0.75)}{Ceramics}{2}{Ceramic_Workshop}{Elders/1777}
+			\consnode{(2,-0.75)}{Ceramics}{2}{Ceramics_Workshop}{Elders/1777}
 			\connect{Indigo}{Ceramics}
 			\connect{Clay}{Ceramics}
 	\end{tikzpicture}}
@@ -19,7 +19,7 @@
 		\prodnode{(2,0)}{Linen}{1}{Linen_Mill}
 		\connect{Linseed}{Linen}
 		\farmnode{(2,-1.5)}{Indigo}{2}{Indigo_Farm}{1×1}{144}
-		\consnode{(4,-0.75)}{Tapestries}{1}{Tapastry_loom}{Elders/1904,Scholars/3200}
+		\consnode{(4,-0.75)}{Tapestries}{1}{Tapestry_Looms}{Elders/1904,Scholars/3200}
 		\connect{Indigo}{Tapestries}
 		\connect{Linen}{Tapestries}
 	\end{tikzpicture}}
@@ -27,8 +27,8 @@
 	raster multicolumn=3,
 	raster multirow=3]{
 	\begin{tikzpicture}
-		\farmnode{(0,0)}{Teff_Grass}{2}{Teff_farm}{1×1}{144}
-		\farmnode{(0,-1.5)}{Spices}{2}{Spices_Farm}{1×1}{144}
+		\farmnode{(0,0)}{Teff_Grass}{2}{Teff_Farm}{1×1}{144}
+		\farmnode{(0,-1.5)}{Spices}{2}{Spice_Farm}{1×1}{144}
 		\prodnode{(2,-0.75)}{Teff_Flour}{1}{Teff_Mill}
 		\connect{Teff_Grass}{Teff_Flour}
 		\connect{Spices}{Teff_Flour}
@@ -45,7 +45,7 @@
 		\prodnode{(2,0)}{Paper}{1}{Paper_Mill}
 		\connect{Wood}{Paper}
 		\farmnode{(2,-1.5)}{Indigo}{4}{Indigo_Farm}{1×1}{144}
-		\consnode{(4,-0.75)}{Scriptures}{4}{Luminers}{Elders/1851}
+		\consnode{(4,-0.75)}{Scriptures}{4}{Luminer}{Elders/1851}
 		\connect{Indigo}{Scriptures}
 		\connect{Paper}{Scriptures}
 	\end{tikzpicture}}
@@ -53,7 +53,7 @@
 	raster multicolumn=3,
 	raster multirow=3]{
 	\begin{tikzpicture}
-		\farmnode{(0,0)}{Beeswax}{1}{Apairy}{1×1}{192}
+		\farmnode{(0,0)}{Beeswax}{1}{Apiary}{1×1}{192}
 		\farmnode{(0,-1.5)}{Cotton}{2}{Cotton_Plantation}{1×1}{144}
 		\prodnode{(2,-0.75)}{Candles}{1}{Chandler}
 		\connect{Cotton}{Candles}
@@ -61,7 +61,7 @@
 		\prodnode{(0,-3.25)}{Quartz_sand}{1}{Sand_Mine}
 		\prodnode{(2,-3.25)}{Glass}{1}{Glassmakers}
 		\connect{Quartz_sand}{Glass}
-		\consnode{(4,-1.75)}{Lanterns}{2}{Lanternssmith}{Elders/1111}
+		\consnode{(4,-1.75)}{Lanterns}{2}{Lanternsmith}{Elders/1111}
 		\connect{Glass}{Lanterns}
 		\connect{Candles}{Lanterns}
 	\end{tikzpicture}}

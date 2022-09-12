@@ -170,6 +170,23 @@
           hyperlink node=\thewiki/wiki/#4] (#7) at #1 {\icon{#2}};
 }
 
+% ORCHARD NODE
+% #1 (x,y)
+% #2 Object_Name (filename without .png)
+% #3 Amount
+% #4 anno1800 wiki path (../wiki/<HERE>)
+% #5 field-size (e.g. 1×1)
+% #6 amount of fields needed (e.g. 72)
+% #7 node identifier
+% #8 label (e.g. New World)
+\newcommand{\orchnode}[8]{
+	\node[outer ysep=\nodepadding,
+	label={[label distance=\facnumdist]\facnumdegs:#3×},
+	label={[label distance=\fldnumdist]\fldnumdegs:#6 (#5)},
+	label={[label distance=\lblmrkdist]\lblmrkdegs:#8},
+	hyperlink node=\thewiki/wiki/#4] (#7) at #1 {\icon{#2}};
+}
+
 % C O N S N O D E
 \newcounter{strata}
 \newcommand{\consstratalist}[1]{

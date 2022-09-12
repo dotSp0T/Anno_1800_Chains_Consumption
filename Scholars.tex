@@ -6,7 +6,7 @@
 	raster multirow=2]{
 		\begin{tikzpicture}
 			\farmnode{(0,0)}{Sanga_cow}{1}{Sanga_Farm}{4×4}{5}
-			\consnode{(2,0)}{Leather_Boots}{1}{BootMaker}{Scholars/1000}
+			\consnode{(2,0)}{Leather_Boots}{1}{BootMakers}{Scholars/1000}
 			\connect{Sanga_cow}{Leather_Boots}
 	\end{tikzpicture}}
 	
@@ -20,7 +20,7 @@
 			\farmnode{(0,-1.5)}{Cotton}{2}{Cotton_Plantation}{1×1}{144}
 			\prodnode{(2,-1.5)}{Cotton_fabric}{1}{Cotton_Mill}
 			\connect{Cotton}{Cotton_fabric}
-			\consnode{(4,-0.75)}{Tailored_Suits}{2}{Tailer_Shop}{Scholars/736}
+			\consnode{(4,-0.75)}{Tailored_Suits}{2}{Tailor's_Shop}{Scholars/736}
 			\connect{Linen}{Tailored_Suits}
 			\connect{Cotton_fabric}{Tailored_Suits}
 	\end{tikzpicture}}
@@ -37,7 +37,7 @@
 		\divider{Charcoal_kiln}{Coal}
 		\prodnode{(3, -1.5)}{Carbon_filament}{4}{Filament_Factory}
 		\connect{Coal}{Carbon_filament}
-		\consnode{(5,-0.75)}{Telephones}{3}{Telephone_Manufacturer}{Scholars/1777}
+		\consnodefe{(5,-0.75)}{Telephones}{3}{Telephone_Manufacturer}{Scholars/1777}
 		\connect{Wood_veneers}{Telephones}
 		\connect{Carbon_filament}{Telephones}
 \end{tikzpicture}}
