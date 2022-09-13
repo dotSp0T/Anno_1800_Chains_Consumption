@@ -1,0 +1,74 @@
+\section{Restaurant Recipes}
+\begin{tcbraster}[raster columns=\portraitraster,
+	grid format]
+	\tcbox[nodebox, %ArchDuke_Schitel
+		raster multicolumn=3,
+		raster multirow=3]{
+	\begin{tikzpicture}
+		\farmnode{(0,-3)}{Pigs}{2}{Pig_Farm}{2×3}{5}
+		\prodnode{(2,-3)}{Tallow}{2}{Rendering_Works}
+		\connect{Pigs}{Tallow}
+		\farmnode{(2,0)}{Pigs}{2}{Pig_Farm}{2×3}{5}
+		\farmnode{(1.5,-1.5)}{Potato}{1}{Potato_Farm}{1×1}{72}
+		\recipenode{(4,-1.5)}{Restaurant}{ArchDuke Schitel}{Restaurant}{Bread/-25\%,Fish/-35\%,Chocolate/-10\%}
+		\connect{Tallow}{Restaurant}
+		\connect{Pigs}{Restaurant}
+		\connect{Potato}{Restaurant}
+	\end{tikzpicture}}			
+	\tcbox[nodebox, %Venison en Croute
+		raster multicolumn=3,
+		raster multirow=3]{
+	\begin{tikzpicture}
+				\farmnode{(0,0)}{Grain}{2}{Grain_Farm}{1×1}{144}
+				\prodnode{(2,0)}{Flour}{1}{Flour_Mill}
+				\connect{Grain}{Flour}
+				\farmnode{(2,-1.5)}{Potato}{1}{Potato_Farm}{1×1}{72}
+				\prodnode{(2,-3)}{Caribou_Meat}{2}{Caribou_Hunting_Cabin}
+				\recipenode{(4,-2)}{Restaurant}{Venison en Croute}{Restaurant}{Sausages/-25\%,Chocolate/-15\%,Schnapps/-20\%}
+				\connect{Flour}{Restaurant}
+				\connect{Caribou_Meat}{Restaurant}
+				\connect{Potato}{Restaurant}
+	\end{tikzpicture}}
+
+	\tcbox[nodebox, %Stroggof Goulash
+		raster multicolumn=3,
+		raster multirow=3]{
+	\begin{tikzpicture}
+	    \farmnode{(0.75,-1.5)}{Corn}{1}{Corn_Farm}{1×1}{168}
+        \farmnodelbld{(0,0)}{Beef}{2}{Cattle_Farm}{3×4}{4}{Beef_o}{\oldworld}
+	    \farmnodelbld{(1.5,0)}{Beef}{1}{Cattle_Farm}{3×4}{6}{Beef_n}{\newworld}
+	    \divider{Beef_o}{Beef_n}
+        \farmnode{(0.75,-3)}{Red_peppers}{2}{Red_Pepper_Farm}{1×1}{108}
+		\recipenode{(3.75,-1.5)}{Restaurant}{Stroggof Goulash}{Restaurant}{Fish/-45\%,Sausages/-35\%,Canned_Food/-25\%}
+		\connect{Corn}{Restaurant}
+		\connect{Red_peppers}{Restaurant}
+		\connect{Beef_n}{Restaurant}
+	\end{tikzpicture}}		
+	\tcbox[nodebox, %Stroggof Goulash
+		raster multicolumn=3,
+		raster multirow=3]{
+	\begin{tikzpicture}
+		\prodnode{(0,0)}{Fish}{1}{Fishery}
+		\orchnodenew{(0,-1.5)}{Citrus}{1}
+		\farmnode{(0,-3)}{Potato}{1}{Potato_Farm}{1×1}{72}
+		\recipenode{(2,-1.5)}{Restaurant}{Fish and Frites}{Restaurant}{Canned_Food/-25\%,Bread/-25\%,Coffee/-5\%}
+		\connect{Fish}{Restaurant}
+		\connect{Citrus}{Restaurant}
+		\connect{Potato}{Restaurant}
+	\end{tikzpicture}}	
+	\tcbox[nodebox, %Stroggof Goulash
+		raster multicolumn=3,
+		raster multirow=3]{
+	\begin{tikzpicture}
+		\prodnode{(0,0)}{Lobsters}{2}{Lobster_Fishery}
+		\orchnodenew{(0,-1.5)}{Citrus}{1}
+		\farmnode{(0,-3)}{Tobacco}{8}{Tobacco_Plantation}{1×1}{192}
+		\recipenode{(2,-1.5)}{Restaurant}{Lobster Cheminee}{Restaurant}{Beer/-5\%,Chocolate/-5\%,Rum/-20\%}
+		\connect{Lobsters}{Restaurant}
+		\connect{Citrus}{Restaurant}
+		\connect{Tobacco}{Restaurant}
+	\end{tikzpicture}}			
+	
+\end{tcbraster}
+
+\tcbline

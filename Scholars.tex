@@ -3,13 +3,12 @@
 	grid format]
 	\tcbox[nodebox, %Leather Boots
 	raster multicolumn=3,
-	raster multirow=2]{
+	raster multirow=1]{
 		\begin{tikzpicture}
 			\farmnode{(0,0)}{Sanga_cow}{1}{Sanga_Farm}{4×4}{5}
 			\consnode{(2,0)}{Leather_Boots}{1}{BootMakers}{Scholars/1000}
 			\connect{Sanga_cow}{Leather_Boots}
 	\end{tikzpicture}}
-	
 	\tcbox[nodebox, % Leather_Suits
 	raster multicolumn=3,
 	raster multirow=2]{
@@ -24,13 +23,12 @@
 			\connect{Linen}{Tailored_Suits}
 			\connect{Cotton_fabric}{Tailored_Suits}
 	\end{tikzpicture}}
-
 	\tcbox[nodebox, % Telephones
 	raster multicolumn=3,
 	raster multirow=2]{
 	\begin{tikzpicture}
-		\prodnode{(0,0)}{Wood}{1}{Lumberjack\%27s_Hut_(Old_World)}
-		\prodnode{(2,0)}{Wood_veneers}{4}{Marquetry_Workshop_(Old_World)}
+		\prodnode{(0.75,0)}{Wood}{1}{Lumberjack\%27s_Hut_(Old_World)}
+		\prodnode{(3,0)}{Wood_veneers}{4}{Marquetry_Workshop_(Old_World)}
 		\connect{Wood}{Wood_veneers}
 		\prodnode{(0,-1.5)}{Charcoal_kiln}{2}{Charcoal_Kiln}
 		\prodnode{(1.5,-1.5)}{Coal}{1}{Coal_Mine}

@@ -249,6 +249,28 @@
 % #4 Comma Separated list: <stratum>:<amount>,<stratum>:<amount>, ...
 \newcommand{\arwsnodecons}[4]{ \multifaccons{#1}{#2}{#3}{Artisans_Workshop}{Artisans_Workshop}{#4} }
 
+% Recipe Node
+% #1 (x,y)
+% #2 Object_Name (filename without .png)
+% #3 Recipe Name
+% #4 link
+% #5 Comma Separated list: <stratum>:<amount>,<stratum>:<amount>, ...
+\newcommand{\recipenode}[5]{
+	\consstratalist{#5}
+	\node[outer ysep=\nodepadding,
+	label={[label distance=\lblmrkdist]\facnumdegs:},
+	hyperlink node=\thewiki/wiki/#4] (#2) at #1 {
+		\begin{tikzpicture}
+			\node[outer ysep=\nodepadding] at (0,0) {\icon{#2}};
+			\matrix[inner sep=2pt,
+			row sep=-2pt,
+			column sep=-1mm,
+			matrix of nodes,
+			ampersand replacement=\&] (#2) (output) at (0,{\stratalistmath}) {
+				\matrixcontents};
+	\end{tikzpicture}};;
+}
+
 % C O N S N O D E
 \newcounter{strata}
 \newcommand{\consstratalist}[1]{
@@ -1109,6 +1131,18 @@ page box]
 \include{scholars.tex}
 
 \include{Tourist.tex}
+
+\end{tcolorbox}
+\end{sidewaysfigure}
+
+\pagebreak
+
+\begin{sidewaysfigure} % SIDEWAYS PAGE
+\begin{tcolorbox}[raster height=\boxheight,
+height=\paperwidth-2cm, % subtract margins manually
+page box]
+
+\include{Restaurant.tex}
 
 
 
