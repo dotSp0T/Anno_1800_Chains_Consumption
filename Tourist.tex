@@ -1,0 +1,57 @@
+\section{Tourist Consumables}
+\begin{tcbraster}[raster columns=\portraitraster,
+	grid format]
+	\tcbox[nodebox, %Jam
+		raster multicolumn=1,
+		raster multirow=3]{
+	\begin{tikzpicture}
+		\orchnodeoldcons{(0,0)}{jam}{1}{Tourists/1000}
+	\end{tikzpicture}}
+	\tcbox[nodebox, %Lemonade
+		raster multicolumn=5,
+		raster multirow=3]{
+	\begin{tikzpicture}
+		\orchnodenew{(4,0)}{Coconut_Oil}{1}
+		\orchnodenew{(4,-1.5)}{Cinnamon}{1}
+		\farmnode{(0,-3)}{Pigs}{2}{Pig_Farm}{2×3}{5}
+		\prodnode{(2,-3)}{Tallow}{2}{Rendering_Works}
+		\prodnode{(4,-3)}{Soap}{1}{Soap_Factory}
+		\connect{Pigs}{Tallow}
+		\connect{Tallow}{Soap}
+		\chemnodeoldcons{(6,-1.5)}{Shampoo}{1}{Tourists/2000}
+		\connect{Coconut_Oil}{Shampoo}
+		\connect{Cinnamon}{Shampoo}
+		\connect{Soap}{Shampoo}
+	\end{tikzpicture}}
+	\tcbox[nodebox, %Lemonade
+		raster multicolumn=3,
+		raster multirow=3]{
+	\begin{tikzpicture}
+        \farmnode{(0,0)}{Sugar_cane}{1}{Sugar_Cane_Plantation}{1×1}{128}
+		\prodnode{(2,0)}{Sugar}{1}{Sugar_Refinery}
+		\connect{Sugar_cane}{Sugar}
+		\orchnodenew{(2,-1.5)}{Citrus}{1}
+        \prodnode{(2,-3)}{Saltpeter}{4}{Saltpeter_Works}
+		\chemnodeoldcons{(4,-1.5)}{Lemonade}{1}{Tourists/1000}
+		\connect{Sugar}{Lemonade}
+		\connect{Citrus}{Lemonade}
+		\connect{Saltpeter}{Lemonade}
+	\end{tikzpicture}}
+	\tcbox[nodebox, %Souvenirs
+		raster multicolumn=3,
+		raster multirow=3]{
+	\begin{tikzpicture}
+		\orchnodenew{(2,-1.5)}{Camphor_Wax}{1}
+		\prodnode{(0,0)}{Quartz_sand}{1}{Sand_Mine}
+		\prodnode{(2,0)}{Glass}{1}{Glassmakers}
+		\connect{Quartz_sand}{Glass}
+		\farmnode{(2,-3)}{Cotton}{2}{Cotton_Plantation}{1×1}{144}
+		\chemnodeoldcons{(4,-1.5)}{Souvenirs}{1}{Tourists/500}
+		\connect{Camphor_Wax}{Souvenirs}
+		\connect{Glass}{Souvenirs}
+		\connect{Cotton}{Souvenirs}
+	\end{tikzpicture}}
+\end{tcbraster}
+
+\tcbline
+

@@ -170,22 +170,84 @@
           hyperlink node=\thewiki/wiki/#4] (#7) at #1 {\icon{#2}};
 }
 
-% ORCHARD NODE
+% MultiFac Node
 % #1 (x,y)
 % #2 Object_Name (filename without .png)
 % #3 Amount
-% #4 anno1800 wiki path (../wiki/<HERE>)
-% #5 field-size (e.g. 1×1)
-% #6 amount of fields needed (e.g. 72)
-% #7 node identifier
-% #8 label (e.g. New World)
-\newcommand{\orchnode}[8]{
+% #4 Multi_Type
+% #5 Multi_Type(link)
+\newcommand{\multifac}[5]{
 	\node[outer ysep=\nodepadding,
 	label={[label distance=\facnumdist]\facnumdegs:#3×},
-	label={[label distance=\fldnumdist]\fldnumdegs:#6 (#5)},
-	label={[label distance=\lblmrkdist]\lblmrkdegs:#8},
-	hyperlink node=\thewiki/wiki/#4] (#7) at #1 {\icon{#2}};
+	label={[label distance=\lblmrkdist]\lblmrkdegs:\smallicon{#4}},
+	hyperlink node=\thewiki/wiki/#5] (#2) at #1 {\icon{#2}};
 }
+% MultiFac Node
+% #6 Comma Separated list: <stratum>:<amount>,<stratum>:<amount>, ...
+\newcommand{\multifaccons}[6]{
+	\consstratalist{#6}
+	\node[outer ysep=\nodepadding,
+	label={[label distance=\facnumdist]\facnumdegs:#3×},
+	label={[label distance=\lblmrkdist]\lblmrkdegs:\smallicon{#4}},
+	hyperlink node=\thewiki/wiki/#5] (#2) at #1 {
+		\begin{tikzpicture}
+			\node[outer ysep=\nodepadding] at (0,0) {\icon{#2}};
+			\matrix[inner sep=2pt,
+			row sep=-2pt,
+			column sep=-1mm,
+			matrix of nodes,
+			ampersand replacement=\&] (#2) (output) at (0,{\stratalistmath}) {
+				\matrixcontents};
+	\end{tikzpicture}};;
+}
+
+% Old World ORCHARD NODE
+% #1 (x,y)
+% #2 Object_Name (filename without .png)
+% #3 Amount
+\newcommand{\orchnodeold}[3]{ \multifac{#1}{#2}{#3}{Orchard_Old}{Orchard} }
+% Old_World ORCHARD NODE End
+% #4 Comma Separated list: <stratum>:<amount>,<stratum>:<amount>, ...
+\newcommand{\orchnodeoldcons}[4]{ \multifaccons{#1}{#2}{#3}{Orchard_Old}{Orchard}{#4} }
+% New World ORCHARD NODE
+% #1 (x,y)
+% #2 Object_Name (filename without .png)
+% #3 Amount
+\newcommand{\orchnodenew}[3]{ \multifac{#1}{#2}{#3}{Orchard_New}{Orchard} }
+
+% Old World Chemical Plant NODE
+% #1 (x,y)
+% #2 Object_Name (filename without .png)
+% #3 Amount
+\newcommand{\chemnodeold}[3]{ \multifac{#1}{#2}{#3}{Chemical_Plant_Old}{Chemical_Plant} }
+% Old_World Chemical Plant NODE End
+% #4 Comma Separated list: <stratum>:<amount>,<stratum>:<amount>, ...
+\newcommand{\chemnodeoldcons}[4]{ \multifaccons{#1}{#2}{#3}{Chemical_Plant_Old}{Chemical_Plant}{#4} }
+% New World Chemical Plant NODE
+% #1 (x,y)
+% #2 Object_Name (filename without .png)
+% #3 Amount
+\newcommand{\chemnodenew}[3]{ \multifac{#1}{#2}{#3}{Chemical_Plant_New}{Chemical_Plant} }
+% New_World Chemical Plant NODE End
+% #4 Comma Separated list: <stratum>:<amount>,<stratum>:<amount>, ...
+\newcommand{\chemnodenewcons}[4]{ \multifaccons{#1}{#2}{#3}{Chemical_Plant_New}{Chemical_Plant}{#4} }
+
+% AssemblyLine NODE
+% #1 (x,y)
+% #2 Object_Name (filename without .png)
+% #3 Amount
+\newcommand{\asslnode}[3]{ \multifac{#1}{#2}{#3}{AssemblyLine}{AssemblyLine} }
+% AssemblyLine NODE End
+% #4 Comma Separated list: <stratum>:<amount>,<stratum>:<amount>, ...
+\newcommand{\asslnodecons}[4]{ \multifaccons{#1}{#2}{#3}{AssemblyLine}{AssemblyLine}{#4} }
+% Artisans_Workshopt NODE
+% #1 (x,y)
+% #2 Object_Name (filename without .png)
+% #3 Amount
+\newcommand{\arwsnode}[3]{ \multifac{#1}{#2}{#3}{Artisans_Workshop}{Artisans_Workshop} }
+% Artisans_Workshop NODE End
+% #4 Comma Separated list: <stratum>:<amount>,<stratum>:<amount>, ...
+\newcommand{\arwsnodecons}[4]{ \multifaccons{#1}{#2}{#3}{Artisans_Workshop}{Artisans_Workshop}{#4} }
 
 % C O N S N O D E
 \newcounter{strata}
@@ -526,7 +588,7 @@
         \begin{tikzpicture}
             \farmnode{(0,0)}{Grain}{2}{Grain_Farm}{1×1}{144}
             \prodnode{(2,0)}{Flour}{1}{Flour_Mill}
-            \consnode{(4,0)}{Bread}{2}{Bakery}{Workers/1100,Artisans/825}
+            \consnode{(4,0)}{Bread}{2}{Bakery}{Workers/1100,Artisans/825,Tourists/1000}
             \connect{Grain}{Flour}
             \connect{Flour}{Bread}
         \end{tikzpicture}}
@@ -649,7 +711,7 @@
             \prodnodelbld{(1.75,-1.5)}{Furs}{1}{Hunting_Cabin}{Furs_a}{\arctic}
             \divider{Furs_o}{Furs_a}
 
-            \consnode{(4,-0.75)}{Fur_Coats}{2}{Fur_Dealer}{Artisans/2250,Engineers/1500}
+            \consnode{(4,-0.75)}{Fur_Coats}{2}{Fur_Dealer}{Artisans/2250,Engineers/1500,Tourists/500}
             \connect{Cotton_fabric}{Fur_Coats}
             \connect{Furs_a}{Fur_Coats}
         \end{tikzpicture}}
@@ -795,7 +857,7 @@
 
                     \prodnode{(3,-2.5)}{Pearls}{6}{Pearl_Farm}
 
-                    \consnode{(5,-1.5)}{Jewelry}{2}{Jewellers}{Investors/4750}
+                    \consnode{(5,-1.5)}{Jewelry}{2}{Jewellers}{Investors/4750,Tourists/1000}
                     \connect{Gold}{Jewelry}
                     \connect{Pearls}{Jewelry}
                 \end{tikzpicture}}
@@ -1045,6 +1107,8 @@ height=\paperwidth-2cm, % subtract margins manually
 page box]
 
 \include{scholars.tex}
+
+\include{Tourist.tex}
 
 
 
