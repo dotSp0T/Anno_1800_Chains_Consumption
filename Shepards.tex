@@ -2,10 +2,18 @@
 \begin{tcbraster}[raster columns=\portraitraster,
 	grid format]
 	\tcbox[nodebox, % Goat Milk
-	raster multicolumn=3,
-	raster multirow=2]{
-		\begin{tikzpicture}
-			\consnode{(0,0)}{Goat_Milk}{1}{Goat_Farm}{Shepherds/333,Elders/333}
+		raster multicolumn=3,
+		raster multirow=2]{
+	\begin{tikzpicture}
+		\consnode{(0,0)}{Goat_Milk}{1}{Goat_Farm}{Shepherds/333,Elders/333}
+	\end{tikzpicture}}
+	\tcbox[nodebox, % Hibiscus Tea
+		raster multicolumn=3,
+		raster multirow=2]{
+	\begin{tikzpicture}
+		\farmnode{(0,0)}{Hibiscus_Petals}{2}{Hibiscus_Farm}{1×1}{144}
+		\consnode{(2,0)}{Hibiscus_Tea}{3}{Tea_Spicer}{Shepherds/555.5,Elders/555.5,Scholars/750}
+		\connect{Hibiscus_Petals}{Hibiscus_Tea}
 	\end{tikzpicture}}
 	\tcbox[nodebox, %Finery
 	raster multicolumn=3,
@@ -27,15 +35,5 @@
 			\connect{Sanga_cow}{Dried_Meat}
 			\connect{Salt}{Dried_Meat}
 	\end{tikzpicture}}
-	\tcbox[nodebox, % Hibiscus Tea
-		raster multicolumn=3,
-		raster multirow=2]{
-	\begin{tikzpicture}
-		\farmnode{(0,0)}{Hibiscus_Petals}{2}{Hibiscus_Farm}{1×1}{144}
-		\consnode{(2,0)}{Hibiscus_Tea}{3}{Tea_Spicer}{Shepherds/555.5,Elders/555.5,Scholars/750}
-		\connect{Hibiscus_Petals}{Hibiscus_Tea}
-	\end{tikzpicture}}
+	
 \end{tcbraster}
-
-\tcbline
-

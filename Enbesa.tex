@@ -1,0 +1,20 @@
+\section{Enbesa Construction Materials}
+\begin{tcbraster}[raster columns=\portraitraster,
+	grid format]
+	\tcbox[nodebox, % Wanza_Timber
+	raster multicolumn=2,
+	raster multirow=2]{
+		\begin{tikzpicture}
+			\prodnodec{(0,0)}{Wansa_Wood}{1}{Wanza_Woodcutter}{15}
+	\end{tikzpicture}}
+	\tcbox[nodebox, % Mud_bricks
+		raster multicolumn=2,
+		raster multirow=2]{
+	\begin{tikzpicture}
+		\farmnode{(0,-1.5)}{Teff_Grass}{4}{Teff_Farm}{1×1}{144}
+		\prodnodelbld{(0,0)}{Clay}{1}{Clay Collector}{Clay}{\enbesa}
+		\prodnodec{(2,-0.75)}{Mud_bricks}{4}{Brick_Dry-House}{15}
+		\connect{Teff_Grass}{Mud_bricks}
+		\connect{Clay}{Mud_bricks}
+	\end{tikzpicture}}
+\end{tcbraster}

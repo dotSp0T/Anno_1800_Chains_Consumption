@@ -249,11 +249,11 @@
 % #1 (x,y)
 % #2 Object_Name (filename without .png)
 % #3 Amount
-\newcommand{\asslnode}[3]{ \multifac{#1}{#2}{\smallicon{Electricity}\textcolor{SkyBlue}{#3×}}{AssemblyLine}{AssemblyLine} }
+\newcommand{\asslnode}[3]{ \multifac{#1}{#2}{\smallicon{Electricity}\textcolor{SkyBlue}{#3}}{AssemblyLine}{AssemblyLine} }
 % AssemblyLine NODE End
 % #4 Comma Separated list: <stratum>:<amount>,<stratum>:<amount>, ...
-\newcommand{\asslnodecons}[4]{ \multifaccons{#1}{#2}{\smallicon{Electricity}\textcolor{SkyBlue}{#3×}}{AssemblyLine}{AssemblyLine}{#4} }
-\newcommand{\asslnodec}[4]{ \multifacc{#1}{#2}{\smallicon{Electricity}\textcolor{SkyBlue}{#3×}}{AssemblyLine}{AssemblyLine}{#4} }
+\newcommand{\asslnodecons}[4]{ \multifaccons{#1}{#2}{\smallicon{Electricity}\textcolor{SkyBlue}{#3}}{AssemblyLine}{AssemblyLine}{#4} }
+\newcommand{\asslnodec}[4]{ \multifacc{#1}{#2}{\smallicon{Electricity}\textcolor{SkyBlue}{#3}}{AssemblyLine}{AssemblyLine}{#4} }
 % Artisans_Workshopt NODE
 % #1 (x,y)
 % #2 Object_Name (filename without .png)
@@ -597,7 +597,7 @@
            raster multirow=2]{
         \begin{tikzpicture}
             \farmnode{(0,0)}{Potato}{1}{Potato_Farm}{1×1}{72}
-            \consnode{(2,0)}{Schnapps}{1}{Schnapps_Distillery}{Farmers/600,Workers/600,Explorers/1333,Technicians/1333}
+            \consnode{(2,0)}{Schnapps}{1}{Schnapps_Distillery}{Farmers/600,Workers/600,Explorers/1333,Technicians/1333,Jornaleros/600}
             \connect{Potato}{Schnapps}
         \end{tikzpicture}}
     \tcbox[nodebox, % Work Clothes
@@ -1122,34 +1122,7 @@
         \vspace{0.5\unitsize}}
 \end{tcbraster}
 % END Technician Consumables
-
 \tcbline
-
-\end{tcolorbox}
-\end{sidewaysfigure}
-
-\pagebreak
-
-\begin{sidewaysfigure} % SIDEWAYS PAGE
-\begin{tcolorbox}[raster height=\boxheight,
-height=\paperwidth-2cm, % subtract margins manually
-page box]
-
-\include{shepards.tex}
-
-\include{elders.tex}
-
-\end{tcolorbox}
-\end{sidewaysfigure}
-
-\pagebreak
-
-\begin{sidewaysfigure} % SIDEWAYS PAGE
-\begin{tcolorbox}[raster height=\boxheight,
-height=\paperwidth-2cm, % subtract margins manually
-page box]
-
-\include{scholars.tex}
 
 \include{Tourist.tex}
 
@@ -1163,7 +1136,11 @@ page box]
 height=\paperwidth-2cm, % subtract margins manually
 page box]
 
-\include{Restaurant.tex}
+\include{enbesa.tex}
+\tcbline
+\include{shepards.tex}
+\tcbline
+\include{elders.tex}
 
 \end{tcolorbox}
 \end{sidewaysfigure}
@@ -1171,14 +1148,28 @@ page box]
 \pagebreak
 
 \begin{sidewaysfigure} % SIDEWAYS PAGE
-\begin{tcolorbox}[raster height=\boxheight,
-height=\paperwidth-2cm, % subtract margins manually
-page box]
+	\begin{tcolorbox}[raster height=\boxheight,
+	height=\paperwidth-2cm, % subtract margins manually
+	page box]
+	
+		\include{SkyGeneral.tex}
+		\tcbline
+		\include{SkyEngineers.tex}
+	
+	\end{tcolorbox}
+\end{sidewaysfigure}
 
-\include{SkyGeneral.tex}
-\include{SkyEngineers.tex}
+\pagebreak
 
-\end{tcolorbox}
+\begin{sidewaysfigure} % SIDEWAYS PAGE
+	\begin{tcolorbox}[raster height=\boxheight,
+		height=\paperwidth-2cm, % subtract margins manually
+		page box]
+		\include{skyinvestors.tex}
+		\tcbline
+		\include{scholars.tex}
+		\tcbline
+	\end{tcolorbox}
 \end{sidewaysfigure}
 
 \pagebreak

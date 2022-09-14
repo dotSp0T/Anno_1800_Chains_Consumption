@@ -2,20 +2,20 @@
 \begin{tcbraster}[raster columns=\portraitraster,
 	grid format]
 	\tcbox[nodebox, %Jam
-		raster multicolumn=1,
-		raster multirow=3]{
+		raster multicolumn=2,
+		raster multirow=2]{
 	\begin{tikzpicture}
 		\orchnodeoldcons{(0,0)}{jam}{1}{Tourists/1000}
 	\end{tikzpicture}}
-	\tcbox[nodebox, %Lemonade
-		raster multicolumn=5,
-		raster multirow=3]{
+	\tcbox[nodebox, %Shampoo
+		raster multicolumn=4,
+		raster multirow=2]{
 	\begin{tikzpicture}
 		\orchnodenew{(4,0)}{Coconut_Oil}{1}
-		\orchnodenew{(4,-1.5)}{Cinnamon}{1}
-		\farmnode{(0,-3)}{Pigs}{2}{Pig_Farm}{2×3}{5}
-		\prodnode{(2,-3)}{Tallow}{2}{Rendering_Works}
-		\prodnode{(4,-3)}{Soap}{1}{Soap_Factory}
+		\orchnodenew{(4,-3)}{Cinnamon}{1}
+		\farmnode{(0,-1.5)}{Pigs}{2}{Pig_Farm}{2×3}{5}
+		\prodnode{(2,-1.5)}{Tallow}{2}{Rendering_Works}
+		\prodnode{(4,-1.5)}{Soap}{1}{Soap_Factory}
 		\connect{Pigs}{Tallow}
 		\connect{Tallow}{Soap}
 		\chemnodeoldcons{(6,-1.5)}{Shampoo}{1}{Tourists/2000}
