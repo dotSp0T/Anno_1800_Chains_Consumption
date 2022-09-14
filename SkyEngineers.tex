@@ -1,0 +1,66 @@
+\section{Engineer SkyScrapers Consumables}
+\begin{tcbraster}[raster columns=\portraitraster,
+	grid format]
+	
+	\tcbox[nodebox, %Type_Writers
+		raster multicolumn=3,
+		raster multirow=5]{
+	\begin{tikzpicture}
+		\prodnode{(0.75,0)}{Iron}{1}{Iron_Mine}
+		\prodnode{(0,-1.5)}{Charcoal_kiln}{2}{Charcoal_Kiln}
+		\prodnode{(1.5,-1.5)}{Coal}{1}{Coal_Mine}
+		\divider{Charcoal_kiln}{Coal}
+		\prodnode{(3,-0.75)}{Steel}{2}{Furnace}
+		\connect{Iron}{Steel}
+		\connect{Coal}{Steel}
+		
+	
+		\prodnode{(0.75,-3)}{Zinc}{2}{Zinc_Mine}
+		\prodnode{(0.75,-4.5)}{Copper}{2}{Copper_Mine}
+		\prodnode{(3, -3.75)}{Brass}{4}{Brass_Smeltery}
+		\connect{Zinc}{Brass}
+		\connect{Copper}{Brass}
+		
+		\chemnodeold{(3,-6)}{Lacquer}{2}
+		\asslnodecons{(5,-3.75)}{Typewriters}{1}{Engineers/?,Investors/?}
+		\connect{Brass}{Typewriters}
+		\connect{Steel}{Typewriters}
+		\connect{Lacquer}{Typewriters}
+	\end{tikzpicture}}
+	\tcbox[nodebox, %Violins
+		raster multicolumn=3,
+		raster multirow=5]{
+	\begin{tikzpicture}
+		\prodnode{(0.75,0)}{Iron}{1}{Iron_Mine}
+		\prodnode{(0,-1.5)}{Charcoal_kiln}{2}{Charcoal_Kiln}
+		\prodnode{(1.5,-1.5)}{Coal}{1}{Coal_Mine}
+		\divider{Charcoal_kiln}{Coal}
+		\prodnode{(3,-0.75)}{Steel}{2}{Furnace}
+		\connect{Iron}{Steel}
+		\connect{Coal}{Steel}
+		
+		\orchnodenew{(3,-3.5)}{Camphor_wax}{1}
+		
+		\chemnodeold{(3,-6)}{Lacquer}{2}
+		\arwsnodecons{(5,-3.75)}{Violins}{1}{Engineers/?,Investors/?}
+		\connect{Camphor_wax}{Violins}
+		\connect{Steel}{Violins}
+		\connect{Lacquer}{Violins}
+	\end{tikzpicture}}	
+	\tcbox[nodebox, %Chewing_Gum
+		raster multicolumn=3,
+		raster multirow=3]{
+	\begin{tikzpicture}
+		\farmnode{(0,0)}{Sugar_cane}{1}{Sugar_Cane_Plantation}{1×1}{128}
+		\prodnode{(2,0)}{Sugar}{1}{Sugar_Refinery}
+		\connect{Sugar_cane}{Sugar}
+		\orchnodenew{(2,-1.5)}{Cinnamon}{1}
+		\farmnode{(2,-3)}{Caoutchouc}{2}{Caoutchouc_Plantation}{1×1}{144}
+		\chemnodenewcons{(4,-1.5)}{Chewing_Gum}{1}{Engineers/?,Investors/?}
+		\connect{Sugar}{Chewing_Gum}
+		\connect{Cinnamon}{Chewing_Gum}
+		\connect{Caoutchouc}{Chewing_Gum}
+	\end{tikzpicture}}	
+\end{tcbraster}
+
+\tcbline

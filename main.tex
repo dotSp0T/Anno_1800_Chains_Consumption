@@ -200,6 +200,15 @@
 				\matrixcontents};
 	\end{tikzpicture}};;
 }
+% MultiFac Node Production
+% #6 Prod per min
+\newcommand{\multifacc}[6]{
+	\node[outer ysep=\nodepadding,
+	label={[label distance=\facnumdist]\facnumdegs:#3×},
+	label={[label distance=\facproddist]\facproddegs:@\prodpermin{#6}/min},
+	label={[label distance=\lblmrkdist]\lblmrkdegs:\smallicon{#4}},
+	hyperlink node=\thewiki/wiki/#5] (#2) at #1 {\icon{#2}};
+}
 
 % Old World ORCHARD NODE
 % #1 (x,y)
@@ -223,6 +232,7 @@
 % Old_World Chemical Plant NODE End
 % #4 Comma Separated list: <stratum>:<amount>,<stratum>:<amount>, ...
 \newcommand{\chemnodeoldcons}[4]{ \multifaccons{#1}{#2}{#3}{Chemical_Plant_Old}{Chemical_Plant}{#4} }
+\newcommand{\chemnodeoldc}[4]{ \multifacc{#1}{#2}{#3}{Chemical_Plant_Old}{Chemical_Plant}{#4} }
 % New World Chemical Plant NODE
 % #1 (x,y)
 % #2 Object_Name (filename without .png)
@@ -231,15 +241,19 @@
 % New_World Chemical Plant NODE End
 % #4 Comma Separated list: <stratum>:<amount>,<stratum>:<amount>, ...
 \newcommand{\chemnodenewcons}[4]{ \multifaccons{#1}{#2}{#3}{Chemical_Plant_New}{Chemical_Plant}{#4} }
+% New_World Chemical Plant NODE End
+% #4 Comma Separated list: <stratum>:<amount>,<stratum>:<amount>, ...
+\newcommand{\chemnodenewc}[4]{ \multifacc{#1}{#2}{#3}{Chemical_Plant_New}{Chemical_Plant}{#4} }
 
 % AssemblyLine NODE
 % #1 (x,y)
 % #2 Object_Name (filename without .png)
 % #3 Amount
-\newcommand{\asslnode}[3]{ \multifac{#1}{#2}{#3}{AssemblyLine}{AssemblyLine} }
+\newcommand{\asslnode}[3]{ \multifac{#1}{#2}{\smallicon{Electricity}\textcolor{SkyBlue}{#3×}}{AssemblyLine}{AssemblyLine} }
 % AssemblyLine NODE End
 % #4 Comma Separated list: <stratum>:<amount>,<stratum>:<amount>, ...
-\newcommand{\asslnodecons}[4]{ \multifaccons{#1}{#2}{#3}{AssemblyLine}{AssemblyLine}{#4} }
+\newcommand{\asslnodecons}[4]{ \multifaccons{#1}{#2}{\smallicon{Electricity}\textcolor{SkyBlue}{#3×}}{AssemblyLine}{AssemblyLine}{#4} }
+\newcommand{\asslnodec}[4]{ \multifacc{#1}{#2}{\smallicon{Electricity}\textcolor{SkyBlue}{#3×}}{AssemblyLine}{AssemblyLine}{#4} }
 % Artisans_Workshopt NODE
 % #1 (x,y)
 % #2 Object_Name (filename without .png)
@@ -252,16 +266,16 @@
 % Recipe Node
 % #1 (x,y)
 % #2 Object_Name (filename without .png)
-% #3 Recipe Name
-% #4 link
+% #3 Venue Name
+% #4 Venue link
 % #5 Comma Separated list: <stratum>:<amount>,<stratum>:<amount>, ...
-\newcommand{\recipenode}[5]{
+\newcommand{\venue}[5]{
 	\consstratalist{#5}
 	\node[outer ysep=\nodepadding,
 	label={[label distance=\lblmrkdist]\facnumdegs:},
 	hyperlink node=\thewiki/wiki/#4] (#2) at #1 {
 		\begin{tikzpicture}
-			\node[outer ysep=\nodepadding] at (0,0) {\icon{#2}};
+			\node[outer ysep=\nodepadding] at (0,0) {\icon{#3}}; %TODO change icon to #2 when available
 			\matrix[inner sep=2pt,
 			row sep=-2pt,
 			column sep=-1mm,
@@ -270,6 +284,13 @@
 				\matrixcontents};
 	\end{tikzpicture}};;
 }
+\newcommand{\restrecipe}[3]{ \venue{#1}{#2}{Restaurant}{Restaurant}{#3} }
+\newcommand{\barrecipe}[3]{ \venue{#1}{#2}{Bar}{Bar}{#3} }
+\newcommand{\caferecipe}[3]{ \venue{#1}{#2}{Cafe}{Cafe}{#3} }
+\newcommand{\drugpatent}[3]{ \venue{#1}{#2}{Drug_Store}{Drug_Store}{#3} }
+\newcommand{\deppatent}[3]{ \venue{#1}{#2}{Department_Store}{Department_Store}{#3} }
+\newcommand{\furpatent}[3]{ \venue{#1}{#2}{Furniture_Store}{Furniture_Store}{#3} }
+
 
 % C O N S N O D E
 \newcounter{strata}
@@ -663,7 +684,7 @@
         \begin{tikzpicture}
             \farmnode{(0,0)}{Sugar_cane}{2}{Sugar_Cane_Plantation}{1×1}{128}
             \prodnode{(0,-1.5)}{Wood}{1}{Lumberjack\%27s_Hut_(New_World)}
-            \consnode{(2,-0.75)}{Rum}{1}{Rum_Distillery}{Artisans/1050,Engineers/700,Jornaleros/1400,Obreros/1400,Scholars/10000}
+            \consnode{(2,-0.75)}{Rum}{2}{Rum_Distillery}{Artisans/1050,Engineers/700,Jornaleros/1400,Obreros/1400,Scholars/10000}
             \connect{Sugar_cane}{Rum}
             \connect{Wood}{Rum}
         \end{tikzpicture}}
@@ -1143,6 +1164,30 @@ height=\paperwidth-2cm, % subtract margins manually
 page box]
 
 \include{Restaurant.tex}
+
+\end{tcolorbox}
+\end{sidewaysfigure}
+
+\pagebreak
+
+\begin{sidewaysfigure} % SIDEWAYS PAGE
+\begin{tcolorbox}[raster height=\boxheight,
+height=\paperwidth-2cm, % subtract margins manually
+page box]
+
+\include{SkyGeneral.tex}
+\include{SkyEngineers.tex}
+
+\end{tcolorbox}
+\end{sidewaysfigure}
+
+\pagebreak
+
+\begin{sidewaysfigure} % SIDEWAYS PAGE
+\begin{tcolorbox}[raster height=\boxheight,
+height=\paperwidth-2cm, % subtract margins manually
+page box]
+
 
 
 

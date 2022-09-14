@@ -1,0 +1,62 @@
+\section{SkyScrapers Materials}
+\begin{tcbraster}[raster columns=\portraitraster,
+	grid format]
+		\tcbox[nodebox, %Ethanol
+		raster multicolumn=3,
+		raster multirow=2]{
+			\begin{tikzpicture}
+				\prodnode{(0,-2.5)}{Wood}{1}{Lumberjack\%27s_Hut_(Old_World)}
+				\chemnodenewc{(2,-3.5)}{Ethanol}{2}{15}
+				\farmnode{(0,-4.5)}{Corn}{4}{Corn_Farm}{1×1}{168}
+				\connect{Wood}{Ethanol}
+				\connect{Corn}{Ethanol}
+		\end{tikzpicture}}	
+		\tcbox[nodebox, %Celluloid
+		raster multicolumn=3,
+		raster multirow=3]{
+			\begin{tikzpicture}
+				\farmnode{(0,0)}{Cotton}{2}{Cotton_Plantation}{1×1}{144}
+				\orchnodenew{(0,-1.5)}{Camphor_wax}{1}
+				\chemnodenew{(0,-3)}{Ethanol}{1}
+				\chemnodenewc{(2,-1.5)}{Celluloid}{1}{30}
+				\connect{Cotton}{Celluloid}
+				\connect{Camphor_wax}{Celluloid}
+				\connect{Ethanol}{Celluloid}
+		\end{tikzpicture}}	
+	\tcbox[nodebox, %Elavators
+		raster multicolumn=3,
+		raster multirow=4]{
+	\begin{tikzpicture}
+		\prodnode{(0.75,0)}{Iron}{1}{Iron_Mine}
+		\prodnode{(0,-1.5)}{Charcoal_kiln}{2}{Charcoal_Kiln}
+		\prodnode{(1.5,-1.5)}{Coal}{1}{Coal_Mine}
+		\divider{Charcoal_kiln}{Coal}
+		\prodnode{(3,-0.75)}{Steel}{2}{Furnace}
+		\connect{Iron}{Steel}
+		\connect{Coal}{Steel}
+		
+		\prodnode{(0.75,-3.5)}{Wood}{1}{Lumberjack\%27s_Hut_(Old_World)}
+		\prodnode{(3,-3.5)}{Wood_veneers}{4}{Marquetry_Workshop_(Old_World)}
+		\connect{Wood}{Wood_veneers}
+		
+		\prodnodefe{(3, -5.5)}{Steam_motors}{3}{Motor_Assembly_Line}
+		\asslnodec{(5,-3.5)}{Elevators}{1}{15}
+		\connect{Steel}{Elevators}
+		\connect{Wood_veneers}{Elevators}
+		\connect{Steam_motors}{Elevators}
+	\end{tikzpicture}}	
+	\tcbox[nodebox, %Lacquer
+		raster multicolumn=3,
+		raster multirow=3]{
+	\begin{tikzpicture}
+		\chemnodenew{(0,-3)}{Ethanol}{1}
+		\orchnodeold{(0,-1.5)}{Resin}{1}
+		\prodnode{(0,-0)}{Quartz_sand}{1}{Sand_Mine}
+		\chemnodeoldc{(2,-1.5)}{Lacquer}{1}{30}
+		\connect{Ethanol}{Lacquer}
+		\connect{Resin}{Lacquer}
+		\connect{Quartz_sand}{Lacquer}
+\end{tikzpicture}}		
+\end{tcbraster}
+
+\tcbline
