@@ -24,3 +24,4 @@ Many thanks to my collaborators for helping me figure out how to make things in 
 
  - [McDonnough](https://github.com/McDonnough)
  - [René Kost](https://github.com/rkost)
+ - [kruzuahz](https://github.com/kruzuahz)
