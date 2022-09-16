@@ -273,9 +273,10 @@
 	\consstratalist{#5}
 	\node[outer ysep=\nodepadding,
 	label={[label distance=\lblmrkdist]\facnumdegs:#3x},
+	label={[label distance=\lblmrkdist]\lblmrkdegs:\smallicon{#4}},
 	hyperlink node=\thewiki/wiki/#4] (#2) at #1 {
 		\begin{tikzpicture}
-			\node[outer ysep=\nodepadding] at (0,0) {\icon{#4}}; %TODO change icon to #2 when available
+			\node[outer ysep=\nodepadding] at (0,0) {\icon{#2}}; 
 			\matrix[inner sep=2pt,
 			row sep=-2pt,
 			column sep=-1mm,
@@ -1168,7 +1169,14 @@
 \begin{tcolorbox}[height fill,
 	raster height=\boxheight,
 	page box]
-	\include{restaurant.tex}
+	\include{recipes.tex}
+\end{tcolorbox}
+\pagebreak
+
+\begin{tcolorbox}[height fill,
+	raster height=\boxheight,
+	page box]
+	\include{patents.tex}
 \end{tcolorbox}
 \pagebreak
 
