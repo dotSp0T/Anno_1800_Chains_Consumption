@@ -1,0 +1,185 @@
+\section{Patents}
+\begin{tcbraster}[raster columns=5, 
+	page box]
+	\tcbox[nodebox, %Toaster
+	raster multicolumn=1,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			 \prodnode{(0,-3)}{Zinc}{1}{Zinc_Mine}
+			\prodnode{(0,-1.5)}{Steel}{1}{Furnace}
+			 \prodnode{(0, 0)}{Carbon_filament}{2}{Filament_Factory}
+			\deppatent{(2.5,-1.5)}{Toasters}{2}{Happiness_positive/+2,Credits/+5\%,Jewelry/-10\%,Light_bulb/-15\%}
+			\connect{Zinc}{Toasters}
+			\connect{Steel}{Toasters}
+			\connect{Carbon_filament}{Toasters}
+	\end{tikzpicture}}			
+	\tcbox[nodebox, %Vacuum_Cleaner
+	raster multicolumn=1,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			\chemnodenew{(0,0)}{Celluloid}{1}
+			\prodnode{(0,-1.5)}{Steel}{1}{Furnace}
+			\farmnode{(0,-3)}{Wool}{1}{Sheep_Farm}{3×3}{3}
+			\deppatent{(2.5,-1.5)}{Vacuum_Cleaners}{2}{Happiness_positive/+5,Credits/+16\%,Glasses/-25\%,Steam_carriages/-15\%}
+			\connect{Celluloid}{Vacuum_Cleaners}
+			\connect{Steel}{Vacuum_Cleaners}
+			\connect{Wool}{Vacuum_Cleaners}
+	\end{tikzpicture}}
+	\tcbox[nodebox, %Crockery
+	raster multicolumn=1,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			\chemnodeold{(0,-1.5)}{Lacquer}{1}
+			\prodnode{(0,0)}{Clay}{1}{Clay_Pit_(Old_World)}			
+			\prodnode{(0,-3)}{Quartz_sand}{1}{Sand_Mine}			
+			\deppatent{(2.5,-1.5)}{Crockery}{2}{Happiness_positive/+4,Credits/+15\%,Gramophone/-10\%,Cigars/-25\%}
+			\connect{Lacquer}{Crockery}
+			\connect{Clay}{Crockery}
+			\connect{Quartz_sand}{Crockery}
+	\end{tikzpicture}}		
+	\tcbox[nodebox, %Refrigerator
+	raster multicolumn=1,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			\prodnode{(0,-3)}{Gas}{5}{Gas_Mine}
+			\prodnode{(0,-1.5)}{Steel}{2}{Furnace}
+			\farmnode{(0,0)}{Caoutchouc}{4}{Caoutchouc_Plantation}{1×1}{144}
+			\deppatent{(2.5,-1.5)}{Refrigerators}{4}{Happiness_positive/+4,Credits/+22\%,High_wheeler/-20\%,Light_bulb/-10\%}
+			\connect{Gas}{Refrigerators}
+			\connect{Steel}{Refrigerators}
+			\connect{Caoutchouc}{Refrigerators}
+	\end{tikzpicture}}	
+	\tcbox[nodebox, %Briefcases
+	raster multicolumn=1,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			\chemnodenew{(0,0)}{Celluloid}{1}
+			\farmnode{(0,-1.5)}{Sanga_cow}{2}{Sanga_Farm}{4×4}{5}
+			\prodnode{(0, -3)}{Brass}{2}{Brass_Smeltery}
+			\deppatent{(2.5,-1.5)}{Briefcases}{2}{Happiness_positive/+5,Credits/+12\%,Leather_Boots/-20\%,Cigars/-10\%}
+			\connect{Sanga_cow}{Briefcases}
+			\connect{Brass}{Briefcases}
+			\connect{Celluloid}{Briefcases}
+	\end{tikzpicture}}	
+	%bar recipes
+	\tcbox[nodebox, %Banker_lamps
+	raster multicolumn=1,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			\prodnode{(0,-1.5)}{Glass}{1}{Glassmakers}
+			\prodnode{(0, -3)}{Brass}{2}{Brass_Smeltery}
+			\prodnode{(0,0)}{Light_bulb}{2}{Light_Bulb_Factory}
+			\furpatent{(2.5,-1.5)}{Bankers_lamps}{2}{Happiness_positive/+4,Credits/+11\%,Jewelry/-15\%,Light_bulb/-25\%}
+			\connect{Glass}{Bankers_lamps}
+			\connect{Brass}{Bankers_lamps}
+			\connect{Light_bulb}{Bankers_lamps}
+	\end{tikzpicture}}			
+	\tcbox[nodebox, %Vanity_Screens
+	raster multicolumn=1,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			\chemnodeold{(0,-1.5)}{Lacquer}{1}
+			\prodnode{(0,0)}{Cotton_fabric}{1}{Cotton_Mill}	
+			\orchnodeold{(0,-3)}{Cherry_Wood}{1}
+			\furpatent{(2.5,-1.5)}{Vanity_Screens}{2}{Happiness_positive/+5,Credits/+15\%,Jewelry/-25\%,Pocket_watch/-20\%}
+			\connect{Lacquer}{Vanity_Screens}
+			\connect{Cotton_fabric}{Vanity_Screens}
+			\connect{Cherry_Wood}{Vanity_Screens}
+	\end{tikzpicture}}	
+	\tcbox[nodebox, %Writing_Desks
+	raster multicolumn=1,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			\chemnodeold{(0,-1.5)}{Lacquer}{1}
+			\prodnode{(0, -3)}{Brass}{2}{Brass_Smeltery}
+			\prodnode{(0,0)}{Wood_veneers}{2}{Marquetry_Workshop_(Old_World)}
+			\furpatent{(2.5,-1.5)}{Writing_Desks}{2}{Happiness_positive/+6,Credits/+14\%,High_wheeler/-25\%,cigars/-20\%}
+			\connect{Lacquer}{Writing_Desks}
+			\connect{Brass}{Writing_Desks}
+			\connect{Wood_veneers}{Writing_Desks}
+	\end{tikzpicture}}	
+	\tcbox[nodebox, %Four_Poster_Bed
+	raster multicolumn=1,
+	raster multirow=3]{
+		\begin{tikzpicture}
+		 	\prodnode{(0,-1.5)}{Bear_Skin}{3}{Bear_Hunting_Cabin}
+			\orchnodeold{(0,-3)}{Cherry_Wood}{1}
+			\farmnode{(0,0)}{Goose_Feathers}{4}{Goose Farm}{2x3}{5}
+			\furpatent{(2.5,-1.5)}{Four_Poster_Beds}{2}{Happiness_positive/+2,Credits/+21\%,Glasses/-20\%,light_bulb/-5\%}
+			\connect{Bear_Skin}{Four_Poster_Beds}
+			\connect{Cherry_Wood}{Four_Poster_Beds}
+			\connect{Goose_Feathers}{Four_Poster_Beds}
+	\end{tikzpicture}}	
+	\tcbox[nodebox, %Lounge_Seating
+	raster multicolumn=1,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			\prodnode{(0,-1.5)}{Wansa_Wood}{1}{Wanza_Woodcutter}
+			\farmnode{(0,0)}{Wool}{2}{Sheep_Farm}{3×3}{3}
+			\farmnode{(0,-3)}{Sanga_cow}{4}{Sanga_Farm}{4×4}{5}
+			\furpatent{(2.5,-1.5)}{Lounge_Seating}{4}{Happiness_positive/+1,Credits/+8\%,Pocket_watch/-10\%,Telephones/-20\%}
+			\connect{Wool}{Lounge_Seating}
+			\connect{Wansa_Wood}{Lounge_Seating}
+			\connect{Sanga_cow}{Lounge_Seating}
+	\end{tikzpicture}}	
+	\tcbox[nodebox, %ToothPaste
+	raster multicolumn=1,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			\prodnode{(0,-1.5)}{Coal}{1}{Coal_Mine}
+			\prodnode{(0,-3)}{Soap}{2}{Soap_Factory}
+			\prodnode{(0,0)}{Sugar}{2}{Sugar_Refinery}
+			\drugpatent{(2.5,-1.5)}{ToothPaste}{4}{Happiness_positive/+1,Credits/+6\%,Pocket_watch/-25\%,Sewing_Machines/-10\%}
+			\connect{Coal}{ToothPaste}
+			\connect{Soap}{ToothPaste}
+			\connect{Sugar}{ToothPaste}
+	\end{tikzpicture}}	
+	\tcbox[nodebox, %Detergent
+	raster multicolumn=1,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			\chemnodenew{(0,0)}{Ethanol}{1}
+			\orchnodenew{(0,-1.5)}{Citrus}{1}
+			\prodnode{(0,-3)}{Saltpeter}{4}{Saltpeter_Works}
+			\drugpatent{(2.5,-1.5)}{Detergent}{2}{Happiness_positive/+3,Credits/+12\%,Gramophone/-25\%,Steam_Carriages/-15\%}
+			\connect{Ethanol}{Detergent}
+			\connect{Citrus}{Plantains}
+			\connect{Saltpeter}{Detergent}
+	\end{tikzpicture}}	
+	\tcbox[nodebox, %Lipstick
+	raster multicolumn=1,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			\chemnodeold{(0,0)}{Lacquer}{1}
+			\orchnodenew{(0,-1.5)}{Coconut_Oil}{1}
+			\prodnode{(0,-3)}{Fish_Oil}{1}{Fish_Oil_Factory}
+			\drugpatent{(2.5,-1.5)}{Lipstick}{2}{Happiness_positive/+4,Credits/+19\%,Light_bulb/-5\%,Steam_Carriages/-25\%}
+			\connect{Lacquer}{Lipstick}
+			\connect{Coconut_Oil}{Lipstick}
+			\connect{Fish_Oil}{Lipstick}
+	\end{tikzpicture}}	
+	\tcbox[nodebox, %Face_Cream
+	raster multicolumn=1,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			\orchnodenew{(0,0)}{Citrus}{1}
+			\orchnodenew{(0,-1.5)}{Coconut_Oil}{1}
+			\prodnode{(0,-3)}{Whale_Oil}{2}{Whaling Station}
+			\drugpatent{(2,-1.5)}{Face_Cream}{2}{Happiness_positive/+2,Credits/+17\%,Gramophone/-10\%,High_wheeler/-10\%}
+			\connect{Citrus}{Face_Cream}
+			\connect{Coconut_Oil}{Face_Cream}
+			\connect{Whale_Oil}{Face_Cream}
+	\end{tikzpicture}}	
+	\tcbox[nodebox, %Pomade
+	raster multicolumn=1,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			\farmnode{(0,-1.5)}{Hibiscus_Petals}{2}{Hibiscus_Farm}{1×1}{144}
+			\orchnodenew{(0,-3)}{Camphor_wax}{1}		
+			\farmnode{(0,0)}{Beeswax}{1}{Apiary}{1×1}{192}
+			\drugpatent{(2.5,-1.5)}{Pomade}{2}{Happiness_positive/+1,Credits/+16\%,Glasses/-10\%,Tailored_Suits/-20\%}
+			\connect{Camphor_wax}{Pomade}
+			\connect{Beeswax}{Pomade}
+			\connect{Hibiscus_Petals}{Pomade}
+	\end{tikzpicture}}	
+\end{tcbraster}

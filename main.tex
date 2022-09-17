@@ -266,16 +266,17 @@
 % Recipe Node
 % #1 (x,y)
 % #2 Object_Name (filename without .png)
-% #3 Venue Name
+% #3 Amount 
 % #4 Venue link
 % #5 Comma Separated list: <stratum>:<amount>,<stratum>:<amount>, ...
 \newcommand{\venue}[5]{
 	\consstratalist{#5}
 	\node[outer ysep=\nodepadding,
-	label={[label distance=\lblmrkdist]\facnumdegs:},
+	label={[label distance=\lblmrkdist]\facnumdegs:#3x},
+	label={[label distance=\lblmrkdist]\lblmrkdegs:\smallicon{#4}},
 	hyperlink node=\thewiki/wiki/#4] (#2) at #1 {
 		\begin{tikzpicture}
-			\node[outer ysep=\nodepadding] at (0,0) {\icon{#3}}; %TODO change icon to #2 when available
+			\node[outer ysep=\nodepadding] at (0,0) {\icon{#2}}; 
 			\matrix[inner sep=2pt,
 			row sep=-2pt,
 			column sep=-1mm,
@@ -284,12 +285,12 @@
 				\matrixcontents};
 	\end{tikzpicture}};;
 }
-\newcommand{\restrecipe}[3]{ \venue{#1}{#2}{Restaurant}{Restaurant}{#3} }
-\newcommand{\barrecipe}[3]{ \venue{#1}{#2}{Bar}{Bar}{#3} }
-\newcommand{\caferecipe}[3]{ \venue{#1}{#2}{Cafe}{Cafe}{#3} }
-\newcommand{\drugpatent}[3]{ \venue{#1}{#2}{Drug_Store}{Drug_Store}{#3} }
-\newcommand{\deppatent}[3]{ \venue{#1}{#2}{Department_Store}{Department_Store}{#3} }
-\newcommand{\furpatent}[3]{ \venue{#1}{#2}{Furniture_Store}{Furniture_Store}{#3} }
+\newcommand{\restrecipe}[4]{ \venue{#1}{#2}{#3}{Restaurant}{#4} }
+\newcommand{\barrecipe}[4]{  \venue{#1}{#2}{#3}{Bar}{#4} }
+\newcommand{\caferecipe}[4]{ \venue{#1}{#2}{#3}{Cafe}{#4} }
+\newcommand{\drugpatent}[4]{ \venue{#1}{#2}{#3}{Drug_Store}{#4} }
+\newcommand{\deppatent}[4]{ \venue{#1}{#2}{#3}{Department_Store}{#4} }
+\newcommand{\furpatent}[4]{ \venue{#1}{#2}{#3}{Furniture_Store}{#4} }
 
 
 % C O N S N O D E
@@ -1124,74 +1125,59 @@
 \tcbline
 
 \include{Tourist.tex}
-
 \end{tcolorbox}
 \end{sidewaysfigure}
-
-\pagebreak
-
-\begin{sidewaysfigure} % SIDEWAYS PAGE
-\begin{tcolorbox}[raster height=\boxheight,
-height=\paperwidth-2cm, % subtract margins manually
-page box]
-
-\include{enbesa.tex}
-\tcbline
-\include{shepards.tex}
-\tcbline
-\include{elders.tex}
-
-\end{tcolorbox}
-\end{sidewaysfigure}
-
 \pagebreak
 
 \begin{sidewaysfigure} % SIDEWAYS PAGE
 	\begin{tcolorbox}[raster height=\boxheight,
 	height=\paperwidth-2cm, % subtract margins manually
 	page box]
-	
-		\include{SkyGeneral.tex}
+		\include{enbesa.tex}
 		\tcbline
-		\include{SkyEngineers.tex}
-	
+		\include{shepards.tex}
+		\tcbline
+		\include{elders.tex}
 	\end{tcolorbox}
 \end{sidewaysfigure}
-
 \pagebreak
 
 \begin{sidewaysfigure} % SIDEWAYS PAGE
 	\begin{tcolorbox}[raster height=\boxheight,
-		height=\paperwidth-2cm, % subtract margins manually
-		page box]
+	height=\paperwidth-2cm, % subtract margins manually
+	page box]
+		\include{SkyGeneral.tex}
+		\tcbline
+		\include{SkyEngineers.tex}
+	\end{tcolorbox}
+\end{sidewaysfigure}
+\pagebreak
+
+\begin{sidewaysfigure} % SIDEWAYS PAGE
+	\begin{tcolorbox}[raster height=\boxheight,
+	height=\paperwidth-2cm, % subtract margins manually
+	page box]
 		\include{skyinvestors.tex}
 		\tcbline
 		\include{scholars.tex}
 		\tcbline
 	\end{tcolorbox}
 \end{sidewaysfigure}
-
 \pagebreak
 
-\begin{sidewaysfigure} % SIDEWAYS PAGE
-\begin{tcolorbox}[raster height=\boxheight,
-height=\paperwidth-2cm, % subtract margins manually
-page box]
+\begin{tcolorbox}[height fill,
+	raster height=\boxheight,
+	page box]
+	\include{recipes.tex}
+\end{tcolorbox}
+\pagebreak
 
-
-
-
-\section{Electrification \& Symbols}
-
-Almost all buildings in the \textbf{Old World}, excluding \textit{farms} and \textit{Lumberjacks}, can be electrified for up to \textit{200\%} productivity.
-\underline{Buildings marked with\smallicon{Electricity}require electricity by default}.\\
-\\
-Some buildings have variants with different statistics, these are markes with \oldworld{}Old World, \newworld{} New World, \arctic{} Artic and \enbesa{} Enbesa.
-\\
-
-\tcbline
-
-\section{Collaboration \& Thanks}
+\begin{tcolorbox}[height fill,
+	raster height=\boxheight,
+	page box]
+	\include{recipes.tex}
+\end{tcolorbox}
+\pagebreak
 
 If you would like to improve this document please check out the GitHub repository: \url{\thesourcerepository}\\
 \\
@@ -1202,7 +1188,33 @@ Many thanks to all collaborators:
     \item \x \space (\y)%
 }
 \end{itemize}
-\end{tcolorbox}
+
+\begin{sidewaysfigure} % SIDEWAYS PAGE
+	\begin{tcolorbox}[raster height=\boxheight,
+			height=\paperwidth-2cm, % subtract margins manually
+			page box]
+		\section{Electrification \& Symbols}
+		
+		Almost all buildings in the \textbf{Old World}, excluding \textit{farms} and \textit{Lumberjacks}, can be electrified for up to \textit{200\%} productivity.
+		\underline{Buildings marked with\smallicon{Electricity}require electricity by default}.\\
+		\\
+		Some buildings have variants with different statistics, these are marked with \oldworld{}Old World, \newworld{} New World, \arctic{} Artic and \enbesa{} Enbesa.
+		\\
+		
+		\tcbline
+		
+		\section{Collaboration \& Thanks}
+		
+		If you would like to improve this document please check out the GitHub repository: \url{\thesourcerepository}\\
+		\\
+		Many thanks to all collaborators:
+		\begin{itemize}[topsep=2pt, noitemsep]
+			\renewcommand\labelitemi{--}
+			\foreach \x/\y in {McDonnough/\url{https://github.com/McDonnough},René Kost/\url{https://github.com/rkost}} {
+			    \item \x \space (\y)%
+			}
+		\end{itemize}
+	\end{tcolorbox}
 \end{sidewaysfigure}
 
 \end{document}
