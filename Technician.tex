@@ -1,0 +1,53 @@
+\section{Technician Consumables}
+\begin{tcbraster}[raster columns=6,
+	grid format]
+	\tcbox[nodebox, % Parkas
+	raster multicolumn=3,
+	raster multirow=2]{
+		\begin{tikzpicture}
+			\consnode{(0,-1.5)}{Bear_Skin}{3}{Bear_Hunting_Cabin}{Investors/66.6/10/0/0}
+			\prodnode{(0,0)}{Seal_Skin}{1}{Seal_Hunting_Docks}
+			\consnode{(3,-0.75)}{Parkas}{3}{Parka_Factory}{Technicians/27.7/0/8/9}
+			\connect{Bear_Skin}{Parkas}
+			\connect{Seal_Skin}{Parkas}
+	\end{tikzpicture}}
+	\tcbox[nodebox, % Husky Sleds
+	raster multicolumn=3,
+	raster multirow=2]{
+		\begin{tikzpicture}
+			\prodnode{(0,0)}{Seal_Skin}{2}{Seal_Hunting_Docks}
+			\prodnode{(0,-1.5)}{Wood}{1}{Lumberjack\%27s_Hut}
+			\prodnode{(2,-0.75)}{Sleds}{4}{Sled_Frame_Factory}
+			\connect{Seal_Skin}{Sleds}
+			\connect{Wood}{Sleds}
+			\farmnode{(2,-2.5)}{Huskies}{8}{Husky_Farm}{3x4}{4}
+			\consnode{(4.75,-1.5)}{Husky_Sleds}{4}{Husky_Sled_Factory}{Technicians/55.55/4/0/16}
+			\connect{Sleds}{Husky_Sleds}
+			\connect{Huskies}{Husky_Sleds}
+		\end{tikzpicture}
+		\vspace{0.5\unitsize}}
+	\tcbox[nodebox, % Gas_power_plant
+	raster multicolumn=2,
+	raster multirow=1]{
+		\begin{tikzpicture}
+			\prodnode{(0,0)}{Gas}{6}{Gas_Pumps}
+			\prodnode{(2,0)}{Gas_power_plant}{1}{Gas-Fired_Power_Plant}
+			\connect{Gas}{Gas_power_plant}
+	\end{tikzpicture}}
+	\tcbox[nodebox, % Gold ratio
+		raster multicolumn=2,
+		raster multirow=1]{
+	\begin{tikzpicture}
+		\prodnodelbld{(0,0)}{Gold_Ore}{2.5}{Gold_Mine}{Gold_Ore_n}{\newworld}
+		\prodnodelbld{(2,0)}{Gold_Ore}{1}{Gold_Mine}{Gold_Ore_a}{\arctic}
+		\connect{Gold_Ore_n}{Gold_Ore_a}
+	\end{tikzpicture}}
+	\tcbox[nodebox, % Fur Ration
+		raster multicolumn=2,
+		raster multirow=1]{
+	\begin{tikzpicture}
+		\prodnodelbld{(0,0)}{Furs}{4}{Hunting_Cabin}{Furs_o}{\oldworld}
+		\prodnodelbld{(2,0)}{Furs}{1}{Hunting_Cabin}{Furs_a}{\arctic}
+		\connect{Furs_o}{Furs_a}
+\end{tikzpicture}}
+\end{tcbraster}

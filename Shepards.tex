@@ -1,39 +1,30 @@
 \section{Shepherd Consumables}
-\begin{tcbraster}[raster columns=\portraitraster,
+\begin{tcbraster}[raster columns=13,
 	grid format]
 	\tcbox[nodebox, % Goat Milk
 		raster multicolumn=3,
 		raster multirow=1]{
 	\begin{tikzpicture}
-		\consnode{(0,0)}{Goat_Milk}{1}{Goat_Farm}{Shepherds/333,Elders/333}
-	\end{tikzpicture}}
-	\tcbox[nodebox, % Hibiscus Tea
-		raster multicolumn=3,
-		raster multirow=2]{
-	\begin{tikzpicture}
-		\farmnode{(0,0)}{Hibiscus_Petals}{2}{Hibiscus_Farm}{1×1}{144}
-		\consnode{(2,0)}{Hibiscus_Tea}{3}{Tea_Spicer}{Shepherds/555.5,Elders/555.5,Scholars/750}
-		\connect{Hibiscus_Petals}{Hibiscus_Tea}
+		\consnode{(0,0)}{Goat_Milk}{1}{Goat_Farm}{Shepherds/33.3/3/0/1,Elders/16.6/3/0/2}
 	\end{tikzpicture}}
 	\tcbox[nodebox, %Finery
-	raster multicolumn=3,
-	raster multirow=2]{
+	raster multicolumn=6,
+	raster multirow=1]{
 		\begin{tikzpicture}
 			\farmnode{(0,0)}{Linseed}{2}{Linseed_Farm}{1×1}{96}
 			\prodnode{(2,0)}{Linen}{1}{Linen_Mill}
-			\consnode{(4,0)}{Finery}{2}{Embroiderer}{Shepherds/666,Elders/666}
+			\consnode{(4.5,0)}{Finery}{2}{Embroiderer}{Shepherds/66.6/2/0/1,Elders/33.3/2/0/2}
 			\connect{Linseed}{Linen}
 			\connect{Linen}{Finery}
 	\end{tikzpicture}}
 	\tcbox[nodebox, % Dried Meat
-	raster multicolumn=3,
-	raster multirow=2]{
+	raster multicolumn=4,
+	raster multirow=1]{
 		\begin{tikzpicture}
 			\farmnode{(0,-1.5)}{Sanga_cow}{2}{Sanga_Farm}{4×4}{5}
 			\prodnode{(0,0)}{Salt}{1}{Salt_Works}
-			\consnode{(2,-0.75)}{Dried_Meat}{1}{Dry-House}{Shepherds/952,Elders/952}
+			\consnode{(2.5,-0.75)}{Dried_Meat}{1}{Dry-House}{Shepherds/95.2/2/0/1,Elders/47.6/2/0/3}
 			\connect{Sanga_cow}{Dried_Meat}
 			\connect{Salt}{Dried_Meat}
 	\end{tikzpicture}}
-	
 \end{tcbraster}

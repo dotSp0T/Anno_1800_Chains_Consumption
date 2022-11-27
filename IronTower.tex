@@ -1,0 +1,78 @@
+\section{Iron Tower Recipes}
+\begin{tcbraster}[raster columns=5, 
+	page box]
+	\tcbox[nodebox, %Age_of_Exploration
+	raster multicolumn=1, left=0mm,
+	raster multirow=4]{
+		\begin{tikzpicture}
+			\prodnode{(0.75,-3)}{Gas}{1}{Gas_Mine}
+			\farmnode{(0.75,-1.5)}{Potato}{1}{Potato_Farm}{1×1}{72}
+			\farmnodelbld{(0,-4.5)}{Beef}{2}{Cattle_Farm}{3×4}{4}{Beef_o}{\oldworld}
+			\farmnodelbld{(1.5,-4.5)}{Beef}{1}{Cattle_Farm}{3×4}{6}{Beef_n}{\newworld}
+			\divider{Beef_o}{Beef_n}
+			\farmnode{(0.75,-0)}{Red_peppers}{2}{Red_Pepper_Farm}{1×1}{108}
+			\ironrecipe{(3,-2.25)}{Age_of_Exploration}{1}{Population/+10\%,Coffee/-15\%,Champagne/-15\%,Chocolate/-15\%}
+			\connect{Gas}{Age_of_Exploration}
+			\connect{Potato}{Age_of_Exploration}
+			\connect{Beef_n}{Age_of_Exploration}
+			\connect{Red_peppers}{Age_of_Exploration}
+	\end{tikzpicture}}			
+	\tcbox[nodebox, %Brioche_Royale
+	raster multicolumn=1, left= 0mm,
+	raster multirow=4]{
+		\begin{tikzpicture}
+			\prodnode{(0.75,0)}{Sausages}{1}{Slaughterhouse}
+			\prodnode{(0.75,-1.5)}{Bread}{1}{Bakery}
+			\prodnode{(0.75, -3)}{Gold}{1}{Goldsmiths}
+			\farmnodelbld{(0,-4.5)}{Beef}{2}{Cattle_Farm}{3×4}{4}{Beef_o}{\oldworld}
+			\farmnodelbld{(1.5,-4.5)}{Beef}{1}{Cattle_Farm}{3×4}{6}{Beef_n}{\newworld}
+			\divider{Beef_o}{Beef_n}
+			\ironrecipe{(3,-2.25)}{Brioche_Royale}{1}{Population/+10\%,Coffee/-10\%,Chocolate/-10\%,Rum/-10\%}
+			\connect{Sausages}{Brioche_Royale}
+			\connect{Bread}{Brioche_Royale}
+			\connect{Gold}{Brioche_Royale}
+			\connect{Beef_n}{Brioche_Royale}
+	\end{tikzpicture}}
+	\tcbox[nodebox, %Homard_Lit_de_Terroir
+	raster multicolumn=1,
+	raster multirow=4]{
+		\begin{tikzpicture}
+			\prodnode{(0,0)}{Lobsters}{1}{Lobster_Fishery}
+			\farmnode{(0,-1.5)}{Spices}{1}{Spice_Farm}{1×1}{144}
+			\farmnode{(0,-4.5)}{Potato}{1}{Potato_Farm}{1×1}{72}
+			\farmnode{(0,-3)}{Sanga_cow}{1}{Sanga_Farm}{4×4}{5}
+			\ironrecipe{(2.5,-2.25)}{Homard_Lit_de_Terroir}{1}{Population/+10\%,Seafood_Stew/-20\%,Hibiscus_Tea/-20\%,Canned_Food/-10\%}
+			\connect{Lobsters}{Homard_Lit_de_Terroir}
+			\connect{Sanga_cow}{Homard_Lit_de_Terroir}
+			\connect{Potato}{Homard_Lit_de_Terroir}
+			\connect{Spices}{Homard_Lit_de_Terroir}
+	\end{tikzpicture}}		
+	\tcbox[nodebox, %Lady_Marmelade
+	raster multicolumn=1,
+	raster multirow=4]{
+		\begin{tikzpicture}
+			\orchnodenew{(0,-4.5)}{Citrus}{1}
+			\orchnodeold{(0,-1.5)}{Jam}{1}
+			\prodnode{(0,-3)}{Rum}{1}{Rum_Distillery}
+			\prodnode{(0,0)}{Champagne}{1}{Champagne_Cellar}
+			\ironrecipe{(2.5,-2.25)}{Lady_Marmelade}{1}{Population/+10\%,Chocolate/-20\%,Bread/-10\%,Coffee/-10\%}
+			\connect{Rum}{Lady_Marmelade}
+			\connect{Citrus}{Lady_Marmelade}
+			\connect{Jam}{Lady_Marmelade}
+			\connect{Champagne}{Lady_Marmelade}
+	\end{tikzpicture}}	
+	\tcbox[nodebox, %Trifle_Tower
+	raster multicolumn=1,
+	raster multirow=4]{
+		\begin{tikzpicture}
+			\prodnode{(0,-3)}{Rum}{1}{Rum_Distillery}
+			\prodnode{(0,-1.5)}{Bread}{1}{Bakery}
+			\prodnode{(0,-4.5)}{Sugar}{1}{Sugar_Refinery}
+			\farmnode{(0,0)}{Grapes}{2}{Vineyard}{1×1}{128}
+			\ironrecipe{(2.5,-2.25)}{Trifle_Tower}{1}{Population/+10\%,Coffee/-10\%,Champagne/-20\%,Canned_Food/-10\%}
+			\connect{Rum}{Trifle_Tower}
+			\connect{Bread}{Trifle_Tower}
+			\connect{Sugar}{Trifle_Tower}
+			\connect{Grapes}{Trifle_Tower}
+	\end{tikzpicture}}	
+\end{tcbraster}

@@ -1,0 +1,51 @@
+\section{Explorer Consumables}
+\begin{tcbraster}[raster columns=4,
+	grid format]
+	\tcbox[nodebox, % Heater
+		raster multicolumn=2,
+		raster multirow=1]{
+	\begin{tikzpicture}
+		\prodnodelbld{(1.5,0)}{Charcoal_kiln}{1}{Charcoal_Kiln}{Coal_a}{\arctic}
+		\prodnodelbld{(0,0)}{Charcoal_kiln}{1}{Charcoal_Kiln}{Coal_o}{\oldworld}
+		\divider{Coal_o}{Coal_a}
+		\consnode{(3.5,0)}{Heater}{1}{Heater}{Explorers/x/0/32/0,Technicians/x/0/32/0}
+		\connect{Coal_a}{Heater}
+	\end{tikzpicture}}
+	\tcbox[nodebox, % Pemmican
+		raster multicolumn=2, left=17mm,
+		raster multirow=2]{
+	\begin{tikzpicture}
+		\prodnode{(0,0)}{Whale_Oil}{1}{Whaling Station}
+		\prodnode{(0,-1.5)}{Caribou_Meat}{1}{Caribou Hunting Cabin}
+		\consnode{(2.75,-0.75)}{Pemmican}{1}{Pemmican Cookhouse}{Explorers/83.3/3/0/4,Technicians/41.6/3/0/8}
+		\connect{Whale_Oil}{Pemmican}
+		\connect{Caribou_Meat}{Pemmican}
+	\end{tikzpicture}}
+	\tcbox[nodebox, % Sleeping Bags
+	raster multicolumn=2,
+	raster multirow=2]{
+		\begin{tikzpicture}
+			\prodnode{(0.25,0)}{Seal_Skin}{1}{Seal Hunting Docks}
+			\farmnodec{(0,-1.5)}{Goose_Feathers}{4}{Goose Farm}{2x3}{5}{Elders/533.3/3/0/0}
+			\consnode{(3.25,-0.75)}{Sleeping_Bags}{2}{Sleeping Bag Factory}{Explorers/111.1/0/16/5,Technicians/55.55/0/8/10}
+			\connect{Seal_Skin}{Sleeping_Bags}
+			\connect{Goose_Feathers}{Sleeping_Bags}
+	\end{tikzpicture}}
+	\tcbox[nodebox, % Oil Lamps
+	raster multicolumn=3,
+	raster multirow=2]{
+		\begin{tikzpicture}
+			\prodnode{(0,0)}{Copper}{1}{Copper_Mine}
+			\prodnode{(0,-1.5)}{Zinc}{1}{Zinc_Mine}
+			\prodnode{(2,-0.75)}{Brass}{2}{Brass_Smeltery}
+			\connect{Copper}{Brass}
+			\connect{Zinc}{Brass}
+			
+			\prodnode{(2,-2.5)}{Whale_Oil}{2}{Whaling_Station}
+			
+			\consnode{(4.75,-1.5)}{Oil_Lamps}{2}{Oil_Lamp_Factory}{Explorers/55.55/3/0/7,Technicians/27.25/3/0/14}
+			\connect{Brass}{Oil_Lamps}
+			\connect{Whale_Oil}{Oil_Lamps}
+		\end{tikzpicture}
+		\vspace{0.5\unitsize}}
+\end{tcbraster}

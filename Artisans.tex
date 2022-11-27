@@ -1,0 +1,57 @@
+\section{Artisan Consumables}
+\begin{tcbraster}[raster columns=\portraitraster,
+	grid format]
+	\tcbox[nodebox, % Sewing Machines
+	raster multicolumn=3,
+	raster multirow=2]{
+		\begin{tikzpicture}
+			\prodnode{(0.75,0)}{Iron}{1}{Iron_Mine}
+			\prodnode{(0,-1.5)}{Charcoal_kiln}{2}{Charcoal_Kiln}
+			\prodnode{(1.5,-1.5)}{Coal}{1}{Coal_Mine}
+			\divider{Charcoal_kiln}{Coal}
+			\prodnode{(3,-0.75)}{Steel}{2}{Furnace}
+			\connect{Iron}{Steel}
+			\connect{Coal}{Steel}
+			
+			\prodnode{(3,-2.5)}{Wood}{1}{Lumberjack\%27s_Hut_(Old_World)}
+			
+			\consnode{(5,-1.5)}{Sewing_machines}{2}{Sewing_Machine_Factory}{Artisans/70/2/0/12,Engineers/35/6/0/32,Obreros/80/2/0/5,Elders/166.6/3/0/0}
+			\connect{Steel}{Sewing_machines}
+			\connect{Wood}{Sewing_machines}
+	\end{tikzpicture}}
+	\tcbox[nodebox, % Fur Coats
+	raster multicolumn=3, left=6mm, top=6mm,
+	raster multirow=2]{
+		\begin{tikzpicture}
+			\farmnode{(0,0)}{Cotton}{4}{Cotton_Plantation}{1×1}{144}
+			\consnode{(2,0)}{Cotton_fabric}{2}{Cotton_Mill}{Elders/50/4/0/0}
+			\connect{Cotton}{Cotton_fabric}
+			
+			\consnodelbld{(0.25,-2.5)}{Furs}{4}{Hunting_Cabin}{Furs_o}{\oldworld}{Investors/20/0/0/0}
+			\consnodelbld{(1.75,-2.5)}{Furs}{1}{Hunting_Cabin}{Furs_a}{\arctic}{Investors/80/5/0/2.5}
+			\divider{Furs_o}{Furs_a}
+			
+			\consnode{(5.25,-1.25)}{Fur_Coats}{2}{Fur_Dealer}{Artisans/75/2/0/18,Engineers/37.5/6/0/48,Tourists/2/0/3/600}
+			\connect{Cotton_fabric}{Fur_Coats}
+			\connect{Furs_a}{Fur_Coats}
+	\end{tikzpicture}}
+	\tcbox[nodebox, % Canned Food
+	raster multicolumn=4,
+	raster multirow=3]{
+	\begin{tikzpicture}
+		\farmnodelbld{(0,0)}{Beef}{8}{Cattle_Farm}{3×4}{4}{Beef_o}{\oldworld}
+		\farmnodelbld{(1.5,0)}{Beef}{4}{Cattle_Farm}{3×4}{6}{Beef_n}{\newworld}
+		\divider{Beef_o}{Beef_n}
+		
+		\farmnode{(0.75,-1.5)}{Red_peppers}{8}{Red_Pepper_Farm}{1×1}{108}
+		\prodnode{(3.5,-0.75)}{Goulash}{8}{Artisanal_Kitchen}
+		\connect{Beef_n}{Goulash}
+		\connect{Red_peppers}{Goulash}
+		
+		\prodnode{(3.5,-2.5)}{Iron}{1}{Iron_Mine}
+		
+		\consnode{(6,-1.5)}{Canned_food}{6}{Cannery}{Artisans/65/4/0/6,Engineers/32.5/12/0/16,Technicians/55.55/3/0/10,Scholars/11.11/19/0/1}
+		\connect{Goulash}{Canned_food}
+		\connect{Iron}{Canned_food}
+\end{tikzpicture}}
+\end{tcbraster}

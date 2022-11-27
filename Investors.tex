@@ -1,0 +1,94 @@
+% START Investor Consumables
+\section{Investor Consumables}
+\begin{tcbraster}[raster columns=7,
+	grid format]
+	\tcbox[nodebox, % Champagne
+	raster multicolumn=3,
+	raster multirow=2]{
+		\begin{tikzpicture}
+			\prodnode{(0,0)}{Quartz_sand}{1}{Sand_Mine}
+			\prodnode{(2,0)}{Glass}{1}{Glassmakers}
+			\connect{Quartz_sand}{Glass}
+			
+			\farmnode{(2,-1.5)}{Grapes}{4}{Vineyard}{1×1}{128}
+			
+			\consnode{(4,-0.75)}{Champagne}{1}{Champagne_Cellar}{Investors/85/2/0/25}
+			\connect{Glass}{Champagne}
+			\connect{Grapes}{Champagne}
+	\end{tikzpicture}}
+	\tcbox[nodebox, % Steam Carriages
+	raster multicolumn=4, left=0mm,
+	raster multirow=5]{
+	\begin{tikzpicture}
+		\prodnode{(0.75,0)}{Iron}{1}{Iron_Mine}
+		\prodnode{(0,-1.5)}{Charcoal_kiln}{2}{Charcoal_Kiln}
+		\prodnode{(1.5,-1.5)}{Coal}{1}{Coal_Mine}
+		\divider{Charcoal_kiln}{Coal}
+		\prodnode{(3,-0.75)}{Steel}{2}{Furnace}
+		\connect{Iron}{Steel}
+		\connect{Coal}{Steel}
+		
+		\prodnode{(0.75,-3)}{Zinc}{2}{Zinc_Mine}
+		\prodnode{(0.75,-4.5)}{Copper}{2}{Copper_Mine}
+		\prodnode{(3, -3.75)}{Brass}{4}{Brass_Smeltery}
+		\connect{Zinc}{Brass}
+		\connect{Copper}{Brass}
+		
+		\prodnodefe{(5, -2.25)}{Steam_motors}{3}{Motor_Assembly_Line}
+		\connect{Steel}{Steam_motors}
+		\connect{Brass}{Steam_motors}
+		
+		\prodnode{(3,-6)}{Wood}{1}{Lumberjack\%27s_Hut_(Old_World)}
+		\farmnode{(3,-7.5)}{Caoutchouc}{4}{Caoutchouc_Plantation}{1×1}{144}
+		\prodnode{(5,-6.75)}{Chassis}{8}{Coachmakers}
+		\connect{Wood}{Chassis}
+		\connect{Caoutchouc}{Chassis}
+		
+		\consnodefe{(7,-4.5)}{Steam_carriages}{2}{Cab_Assembly_Line}{Investors/300/4/0/150}
+		\connect{Steam_motors}{Steam_carriages}
+		\connect{Chassis}{Steam_carriages}
+	\end{tikzpicture}}
+	
+	\tcbox[nodebox, % Jewellery
+		raster multicolumn=4,
+		raster multirow=3]{
+	\begin{tikzpicture}
+		\prodnodelbld{(0,0)}{Gold_Ore}{10}{Gold_Mine}{Gold_Ore_n}{\newworld}
+		\prodnodelbld{(1.5,0)}{Gold_Ore}{4}{Gold_Mine}{Gold_Ore_a}{\arctic}
+		\divider{Gold_Ore_n}{Gold_Ore_a}
+		
+		\prodnode{(0,-1.5)}{Charcoal_kiln}{2}{Charcoal_Kiln}
+		\prodnode{(1.5,-1.5)}{Coal}{1}{Coal_Mine}
+		\divider{Charcoal_kiln}{Coal}
+		
+		\prodnode{(3, -0.75)}{Gold}{4}{Goldsmiths}
+		\connect{Gold_Ore_a}{Gold}
+		\connect{Coal}{Gold}
+		
+		\prodnode{(3,-2.5)}{Pearls}{6}{Pearl_Farm}
+		
+		\consnode{(5.25,-1.5)}{Jewelry}{2}{Jewellers}{Investors/95/0/2/125,Tourists/2/0/5/1275}
+		\connect{Gold}{Jewelry}
+		\connect{Pearls}{Jewelry}
+	\end{tikzpicture}}
+	\tcbox[nodebox, % Gramophones
+	raster multicolumn=3, left=0mm,
+	raster multirow=3]{
+	\begin{tikzpicture}
+		\prodnode{(0,0)}{Wood}{1}{Lumberjack\%27s_Hut_(Old_World)}
+		\prodnode{(2,0)}{Wood_veneers}{4}{Marquetry_Workshop_(Old_World)}
+		\connect{Wood}{Wood_veneers}
+		
+		\prodnode{(0,-1.5)}{Zinc}{2}{Zinc_Mine}
+		\prodnode{(0,-3)}{Copper}{2}{Copper_Mine}
+		\prodnode{(2, -2.25)}{Brass}{4}{Brass_Smeltery}
+		\connect{Zinc}{Brass}
+		\connect{Copper}{Brass}
+		
+		\consnodefe{(4.5,-1.5)}{Gramophone}{4}{Gramophone_Factory}{Investors/190/0/4/75,Scholars/23.8/0/3/2,Tourists/100/25/0/0}
+		\connect{Wood_veneers}{Gramophone}
+		\connect{Brass}{Gramophone}
+	\end{tikzpicture}}
+	
+\end{tcbraster}
+% END Investor Consumables

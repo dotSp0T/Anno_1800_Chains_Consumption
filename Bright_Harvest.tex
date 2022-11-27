@@ -1,0 +1,42 @@
+\section{Bright Harvest}
+\begin{tcbraster}[raster columns=4,
+	grid format]
+	\tcbox[nodebox, % Tractorbarn
+		raster multicolumn=2,
+		raster multirow=1]{
+		\begin{tikzpicture}
+			\prodnode{(0,0)}{Oilwell}{1}{Oil_Well}
+			\prodnode{(2,0)}{Fuel}{1}{Fuel_Station}
+			\prodnode{(4,0)}{Tractorbarn}{20}{Tractor_Barn}
+			\connect{Oilwell}{Fuel}
+			\connect{Fuel}{Tractorbarn}
+		\end{tikzpicture}}
+	\tcbox[nodebox, % Tractorbarn_ratio
+		raster multicolumn=2,
+		raster multirow=1]{
+		\begin{tikzpicture}
+			\prodnode{(2,0)}{Grain}{4}{Production_buildings}
+			\prodnodelbld{(0,0)}{Grain}{1}{Production_buildings}{Grain_t}{\smallicon{Tractorbarn}}
+			\connect{Grain}{Grain_t}
+		\end{tikzpicture}}
+	\tcbox[nodebox, % Silos
+		raster multicolumn=2,
+		raster multirow=1]{
+		\begin{tikzpicture}
+			\farmnode{(0,0)}{Grain}{1}{Grain_Farm}{1×1}{144}
+			\farmnode{(2,0)}{Corn}{1}{Corn_Farm}{1×1}{168}
+			\farmnode{(4,0)}{Teff_Grass}{1}{Teff_Farm}{1×1}{144}
+			\divider{Grain}{Corn}
+			\divider{Corn}{Teff_Grass}
+			\prodnode{(6,0)}{Silo}{5}{Silo}
+			\connect{Teff_Grass}{Silo}
+		\end{tikzpicture}}
+	\tcbox[nodebox, % Silos ratio
+	raster multicolumn=2,
+	raster multirow=1]{
+	\begin{tikzpicture}
+		\prodnode{(2,0)}{Pigs}{2.66}{Production_buildings}
+		\prodnodelbld{(0,0)}{Pigs}{1}{Production_buildings}{Pigs_s}{\smallicon{Silo}}
+		\connect{Pigs}{Pigs_s}
+	\end{tikzpicture}}
+\end{tcbraster}
