@@ -401,6 +401,15 @@
 
 % #1 (x,y)
 % #2 Object_Name (filename without .png)
+% #3 Amount attrativeness
+\newcommand{\cultnode}[3]{
+	\node[outer ysep=\nodepadding,
+	label={[label distance=\lblmrkdist]\lblmrkdegs:\textcolor{olive}{#3}\smallicon{attractiveness}}]
+	 (#2) at #1 {\icon{#2}};
+}
+
+% #1 (x,y)
+% #2 Object_Name (filename without .png)
 % #3 Amount
 % #4 anno1800 wiki path (../wiki/<HERE>)
 % #5 node identifier
@@ -674,6 +683,14 @@
 	\include{ironTower.tex}
 	\tcbline
 	\include{dropSupplies.tex}
+\end{tcolorbox}
+\pagebreak
+
+\begin{tcolorbox}[height fill,
+	raster height=\boxheight,
+	page box]
+	\include{zoo.tex}
+	\tcbline
 \end{tcolorbox}
 \pagebreak
 
