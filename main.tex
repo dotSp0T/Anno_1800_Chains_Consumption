@@ -404,7 +404,7 @@
 % #3 Amount attrativeness
 \newcommand{\cultnode}[3]{
 	\node[outer ysep=\nodepadding,
-	label={[label distance=\lblmrkdist]\lblmrkdegs:\textcolor{olive}{#3}}]
+	label={[label distance=\fldnumdist]\fldnumdegs:\textcolor{olive}{#3}}]
 	 (#2) at #1 {\icon{#2}};
 }
 
@@ -414,7 +414,8 @@
 % #4 musicsoreyear
 \newcommand{\cultnodelbld}[4]{
 	\node[outer ysep=\nodepadding,
-	label={[label distance=\lblmrkdist]\lblmrkdegs:\textcolor{olive}{#3}\smallicon{music_score_#4}}]
+	label={[label distance=\lblmrkdist]\lblmrkdegs:\smallicon{music_score_#4}},
+	label={[label distance=\fldnumdist]\fldnumdegs:\textcolor{olive}{#3}}]
 	(#2) at #1 {\icon{#2}};
 }
 
@@ -700,6 +701,22 @@
 	raster height=\boxheight,
 	page box]
 	\include{zoo.tex}
+	\tcbline
+\end{tcolorbox}
+\pagebreak
+
+\begin{tcolorbox}[height fill,
+	raster height=\boxheight,
+	page box]
+	\include{museum.tex}
+	\tcbline
+\end{tcolorbox}
+\pagebreak
+
+\begin{tcolorbox}[height fill,
+	raster height=\boxheight,
+	page box]
+	\include{garden.tex}
 	\tcbline
 \end{tcolorbox}
 \pagebreak

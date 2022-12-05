@@ -1,0 +1,126 @@
+\section{Garden}
+\begin{tcbraster}[raster columns=5, 
+	grid format]
+	\tcbox[nodebox, %skip
+ 		raster multicolumn=1,
+	 	raster multirow=2]{
+		\begin{tikzpicture}
+		\consnode{(0,0)}{botanical_garden}{1}{botanical_garden}{Tourists/-/0/3/375}
+		\end{tikzpicture}  	
+ 	}
+	\tcbox[nodebox, %Andean
+		raster multicolumn=1,
+		raster multirow=2]{
+		\begin{tikzpicture}
+			\cultnode{(0,0)}{frailejones}{30}
+			\cultnode{(1.5,0)}{guayacan_de_manizales}{20}
+			\cultnodelbld{(3,0)}{queen_of_andes}{30}{1701}
+		\end{tikzpicture}
+		\smallicon{old_world} +25\%\smallicon{Grain} fertility\\
+        \smallicon{new_world} +25\%\smallicon{Coffee_beans} fertility\\
+	}
+	\tcbox[nodebox, %Marshland
+	raster multicolumn=1,
+	raster multirow=2]{
+		\begin{tikzpicture}
+			\cultnode{(0,0)}{lilies}{20}
+			\cultnode{(1.5,0)}{reeds}{10}
+			\cultnode{(3,0)}{marsh_mallow}{30}
+		\end{tikzpicture}
+		All residences:\\
+		+2 \smallicon{Happiness_positive} \\
+		Chance of Illness -50\% 
+	}		
+	\tcbox[nodebox, %Medicinal
+	raster multicolumn=1,
+	raster multirow=2]{
+		\begin{tikzpicture}
+			\cultnode{(0,0)}{dandelion}{10}
+			\cultnode{(1.5,0)}{foxglove}{10}
+			\cultnodelbld{(3,0)}{peppermint}{10}{1800}
+		\end{tikzpicture}
+		All Hospitals:\\
+		+15\%  Unit movement\\
+		+2 doctors\\
+	}
+	\tcbox[nodebox, %Subalpine
+	raster multicolumn=1,
+	raster multirow=2]{
+		\begin{tikzpicture}
+			\cultnode{(0,0)}{mountain_fir}{10}
+			\cultnode{(1.5,0)}{saxifraga}{20}
+			\cultnodelbld{(3,0)}{snow_gum}{30}{2205}
+		\end{tikzpicture}
+		\smallicon{old_world} +25\%\smallicon{Furs} fertility\\
+		\smallicon{new_world} +25\%\smallicon{Caoutchouc} fertility\\
+	}
+	\tcbox[nodebox, %Amazonas
+	raster multicolumn=1,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			\cultnode{(0,0)}{brazil_nut_tree}{50}
+			\cultnode{(1.5,0)}{giant_water_lily}{30}
+			\cultnodelbld{(3,0)}{hevea}{20}{1701}
+			\cultnode{(0,-1.5)}{lianas}{30}
+			\cultnode{(1.5,-1.5)}{purple_pitcher}{30}
+			\cultnode{(3,-1.5)}{metaxya}{30}
+		\end{tikzpicture}
+		\smallicon{old_world} +25\%\smallicon{Grapes} fertility\\
+		\smallicon{new_world} +25\%\smallicon{Plantains} fertility\\
+	}
+	\tcbox[nodebox, %Enchanted
+	raster multicolumn=1,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			\cultnode{(0,0)}{hemp}{10}
+			\cultnode{(1.5,0)}{jujube}{50}
+			\cultnodelbld{(3,0)}{perrys_giant_sunburst}{40}{1404}
+			\cultnode{(0,-1.5)}{poppy}{10}
+			\cultnode{(1.5,-1.5)}{salvia}{20}
+			\cultnode{(3,-1.5)}{star_bright_lotus}{30}
+		\end{tikzpicture}
+		\smallicon{old_world} +25\%\smallicon{Hops} fertility\\
+		\smallicon{new_world} +25\%\smallicon{Tobacco} fertility\\
+	}
+	\tcbox[nodebox, %Near East
+	raster multicolumn=1,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			\cultnode{(0,0)}{blue_lotus}{40}
+			\cultnode{(1.5,0)}{rhododendron}{20}
+			\cultnodelbld{(3,0)}{tiger_lotus}{40}{1404}
+			\cultnode{(0,-1.5)}{vines}{10}
+			\cultnode{(1.5,-1.5)}{papyrus}{20}
+			\cultnode{(3,-1.5)}{water_hyacinth}{20}
+		\end{tikzpicture}
+		\smallicon{old_world} +25\%\smallicon{Red_peppers} fertility\\
+		\smallicon{new_world} +25\%\smallicon{Sugar_Cane} fertility\\
+	}		
+	\tcbox[nodebox, %Sargasso Sea
+	raster multicolumn=1,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			\cultnode{(0,0)}{coco_tree}{20}
+			\cultnode{(1.5,0)}{great_star_coral}{30}
+			\cultnodelbld{(3,0)}{palm_tree}{20}{2070}
+			\cultnode{(0,-1.5)}{pillar_coral}{20}
+			\cultnode{(1.5,-1.5)}{sea_lavender}{20}
+			\cultnode{(3,-1.5)}{staghorn_coral}{20}
+		\end{tikzpicture}
+		Attractiveness of Public Mooring +50, Increased Visits +10\% 
+	}
+	\tcbox[nodebox, %Sacred
+	raster multicolumn=1,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			\cultnode{(0,0)}{banyan}{50}
+			\cultnode{(1.5,0)}{cherry_blossom}{20}
+			\cultnodelbld{(3,0)}{downy_jasmine}{20}{1404}
+			\cultnode{(0,-1.5)}{magnolia_champaca}{20}
+			\cultnode{(1.5,-1.5)}{sacred_lotus}{40}
+			\cultnode{(3,-1.5)}{tulsi}{20}
+		\end{tikzpicture}
+	    Harbor activity +100\%, Passive Trade chance for 5t of Coffee Beans, Cocoa, Plantains, Pearls, Felt, Bread, Grapes, or Chocolate 
+	}
+\end{tcbraster}
+

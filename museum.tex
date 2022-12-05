@@ -1,0 +1,244 @@
+\section{Museum}
+\begin{tcbraster}[raster columns=5, 
+	grid format]
+	\tcbox[nodebox, %skip
+ 		raster multicolumn=1,
+	 	raster multirow=3]{
+		\begin{tikzpicture}
+		\consnode{(0,0)}{museum}{1}{museum}{Tourists/-/0/3/375}
+		\end{tikzpicture}  	
+ 	}
+	\tcbox[blankest,
+		raster multicolumn=4,left=0mm, top=-15mm,
+		raster multirow=3]{ 
+		\begin{tcbraster}[raster height=\boxheight,
+			raster columns=4,
+			grid format]	
+		\tcbox[nodebox, %Battle of Trelawney
+		raster multicolumn=1,
+		raster multirow=2]{
+			\begin{tikzpicture}
+				\cultnode{(0,0)}{empire_figurehead}{40}
+				\cultnode{(1.5,0)}{nadaskys_medal}{40}
+				\cultnode{(3,0)}{nadaskys_sword}{40}
+			\end{tikzpicture}
+			 +20\% increased damage to sailing ships
+		}
+		\tcbox[nodebox, %Empire of the Eagle
+		raster multicolumn=1,
+		raster multirow=2]{
+			\begin{tikzpicture}
+				\cultnode{(0,0)}{eagle_mosaik}{40}
+				\cultnode{(1.5,0)}{roman_sanctuary}{40}
+				\cultnodelbld{(3,0)}{augustan_forum}{50}{1800}
+			\end{tikzpicture}
+			All Residences:\\
+			+5\%\smallicon{credits}\\
+			-10\% chance of fires, illness, riots and explosions.
+	    }	
+		\tcbox[nodebox, %Gods of the Delta
+		raster multicolumn=1,
+		raster multirow=2]{
+			\begin{tikzpicture}
+				\cultnode{(0,0)}{anpu_statue}{40}
+				\cultnode{(1.5,0)}{hor_statue}{40}
+				\cultnodelbld{(3,0)}{temple_of_nafir}{50}{1800}
+			\end{tikzpicture}
+			Town Halls \& Trade Unions:\\
+			+30 Attractiveness\\
+			+10 Influence 
+		}		
+		\tcbox[nodebox, %Heirlooms of the Gold-Realm
+		raster multicolumn=1,
+		raster multirow=2]{
+			\begin{tikzpicture}
+				\cultnode{(0,0)}{mansa_musas_souvenir}{30}
+				\cultnode{(1.5,0)}{mappamundi}{30}
+				\cultnode{(3,0)}{model_of_tambacto}{50}
+			\end{tikzpicture}
+			Harbor Activity: +20\%.\\ 
+			chance of gaining 5t of \smallicon{Gold}, \smallicon{Jewelry}
+		}		
+		\tcbox[nodebox, %Icebound
+			raster multicolumn=1,
+			raster multirow=2]{
+			\begin{tikzpicture}
+				\cultnode{(0,0)}{mammoth}{50}
+				\cultnode{(1.5,0)}{wolf_mummy}{40}
+				\cultnodelbld{(3,0)}{expedition_relic}{30}{1800}
+			\end{tikzpicture}
+		    All Food\&Drinks Production:\\
+		    Maintenance Cost: -20\%
+		}
+		\tcbox[nodebox, %New World Huaca
+		raster multicolumn=1,
+		raster multirow=2]{
+			\begin{tikzpicture}
+				\cultnode{(0,0)}{monkey_amulet}{20}
+				\cultnode{(1.5,0)}{mummy_nazcan}{20}
+				\cultnodelbld{(3,0)}{nascan_tomb}{30}{1701}
+			\end{tikzpicture}
+			 Public Moorings:\\ 
+			 Increased Visits: +5\%
+			 \hyperlink{https://anno1800.fandom.com/wiki/New_World_Huaca_specialists_pool}{unique item pool} 
+		}		
+		\tcbox[nodebox, %Skull and Bones
+		raster multicolumn=1,
+		raster multirow=2]{
+			\begin{tikzpicture}
+				\cultnode{(0,0)}{treasure_ben_sahid}{40}
+				\cultnode{(1.5,0)}{redbeard_skeleton}{40}
+				\cultnode{(3,0)}{pirate_sword}{40}
+			\end{tikzpicture}
+			All warships:\\
+			+3\% increased speed\\
+			-5\% maintenance cost\\
+			-10\% damage slowdown 
+		}	
+		\tcbox[nodebox, %Origin of Mankind
+		raster multicolumn=1,
+		raster multirow=2]{
+			\begin{tikzpicture}
+				\cultnode{(0,0)}{lascaux_painting}{40}
+				\cultnode{(1.5,0)}{neanderthaler}{50}
+				\cultnodelbld{(3,0)}{Valojoulx_painting}{50}{1800}
+			\end{tikzpicture}
+			Fisheries, Crop/Animal Farms, and Hunting Cabins:\\
+			+10\% productivity\\
+			-5\% workforce\\
+			-5\%\smallicon{balance}
+		}	
+		\end{tcbraster}
+	}
+	\tcbox[nodebox, % Thule Relics
+	raster multicolumn=1,top=-4mm,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			\cultnode{(0,0)}{flying_bear}{20}
+			\cultnode{(1.5,0)}{igluit}{40}
+			\cultnodelbld{(3,0)}{inukshuk}{30}{2070}
+			\cultnode{(0,-1.5)}{pirujaqarvik}{30}
+			\cultnode{(1.5,-1.5)}{qamutiik_toy}{30}
+			\cultnode{(3,-1.5)}{qilakitsoq_mummy}{40}
+		\end{tikzpicture}
+		Taiga forest, polar circle, arctic tundra, northern sagas, bronze age, thule relics, icebound, and sub-alpine:\\
+		+20\%\smallicon{Attractiveness}
+	}	
+	\tcbox[nodebox, %Aegean Cultures
+	raster multicolumn=1,top=12mm,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			\cultnode{(0,0)}{corinthian_mosaik}{40}
+			\cultnode{(1.5,0)}{corinthian_olympean}{40}
+			\cultnodelbld{(3,0)}{corinthian_temple_of_posseidon}{40}{1800}
+			\cultnode{(0,-1.5)}{scroll_anthology_myths}{40}
+			\cultnode{(1.5,-1.5)}{scroll_odyssey}{40}
+			\cultnode{(3,-1.5)}{statue_marble_statue}{30}
+		\end{tikzpicture}
+		Variety Theatres, Museums and Radio Towers:\\
+		+5\smallicon{Attractiveness}
+		-20\%\smallicon{balance}. 
+	}	
+	\tcbox[nodebox, %Atlantean
+	raster multicolumn=1, top=12mm,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			\cultnode{(0,0)}{atlantis_wall}{50}
+			\cultnode{(1.5,0)}{colums_of_law}{50}
+			\cultnodelbld{(3,0)}{orichalk_statue}{50}{2070}
+			\cultnode{(0,-1.5)}{temple_of_posseidon}{50}
+			\cultnode{(1.5,-1.5)}{yonaguni_pyramid}{50}
+			\cultnode{(3,-1.5)}{atlantis_tablet}{50}
+		\end{tikzpicture}
+		Salvager get increased chance of finding Epic and Legendary artefacts.
+	}		
+	\tcbox[nodebox, %Jurassic
+	raster multicolumn=1,top=12mm,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			\cultnode{(0,0)}{dinosaur_egg}{40}
+			\cultnode{(1.5,0)}{fossils}{30}
+			\cultnode{(3,0)}{mosasaurus}{50}
+			\cultnode{(0,-1.5)}{sauropodon}{50}
+			\cultnode{(1.5,-1.5)}{stegosaurus}{40}
+			\cultnode{(3,-1.5)}{t_rex}{50}
+		\end{tikzpicture}
+		All Residences:\\
+		+10\%\smallicon{credits} \\
+		+10\smallicon{Happiness_positive} \\
+	}	
+	\tcbox[nodebox, %Bronze Age
+	raster multicolumn=1,top=22mm,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			\cultnode{(0,0)}{celtic_carving}{40}
+			\cultnode{(1.5,0)}{celtic_dolmen}{40}
+			\cultnodelbld{(3,0)}{celtic_menhirs}{40}{2070}
+			\cultnode{(0,-1.5)}{celts_dyrnwyn}{50}
+			\cultnode{(1.5,-1.5)}{celts_stonehenge}{50}
+			\cultnode{(3,-1.5)}{tara_brooch}{30}
+		\end{tikzpicture}
+		Lumberjacks' Huts, Hunting Cabins, Quarries and Orchards:\\
+		+5\% productivity\\ 
+		+5\smallicon{Attractiveness}\\
+		extra goods (1/10)
+	}
+	\tcbox[nodebox, %Lost Cities
+	raster multicolumn=1,top=5mm,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			\cultnode{(0,0)}{mayan_calendar}{50}
+			\cultnode{(1.5,0)}{mayan_glyphs}{40}
+			\cultnodelbld{(3,0)}{mayan_house}{40}{1701}
+			\cultnode{(0,-1.5)}{mayan_seaport}{50}
+			\cultnode{(1.5,-1.5)}{mayan_temple}{50}
+			\cultnode{(3,-1.5)}{takal_necklace}{40}
+		\end{tikzpicture}
+		Harbour Activity +100\%.\\
+		gain 5t of \smallicon{Gold_Ore},\smallicon{Gold},\smallicon{Jewelry}
+	}	
+	\tcbox[nodebox, % Lost Tribes
+	raster multicolumn=1, top=5mm,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			\cultnode{(0,0)}{bovine_ivory_ring}{10}
+			\cultnode{(1.5,0)}{chiwara_figure}{20}
+			\cultnode{(3,0)}{giwoyo_mask}{20}
+			\cultnode{(0,-1.5)}{nuk_terracota_figure}{30}
+			\cultnode{(1.5,-1.5)}{phemba}{30}
+			\cultnode{(3,-1.5)}{yarobu_carving}{30}
+		\end{tikzpicture}
+	    All Residences:\\
+	    -5\% \smallicon{Sewing_Machines},\smallicon{Canned_Food},\smallicon{Coffee}.
+	}	
+	\tcbox[nodebox, %Northern Sagas
+	raster multicolumn=1, top=5mm,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			\cultnode{(0,0)}{viking_edda}{50}
+			\cultnode{(1.5,0)}{viking_nibelungen_ring}{50}
+			\cultnodelbld{(3,0)}{viking_valkyrie_helmet}{50}{2205}
+			\cultnode{(0,-1.5)}{viking_drakkar_carving}{40}
+			\cultnode{(1.5,-1.5)}{viking_uppsala_altar}{50}
+			\cultnode{(3,-1.5)}{ragnarsdrapa}{30}
+		\end{tikzpicture}
+		all of your warships:\\
+     	+5\% maximum hitpoints\\ 
+     	+3\% increased damage 
+	}	
+	\tcbox[nodebox, %Roots of Enbesa
+	raster multicolumn=1,top=5mm,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			\cultnode{(0,0)}{ark_of_the_covenant}{50}
+			\cultnode{(1.5,0)}{church_kidusi_antoni}{40}
+			\cultnode{(3,0)}{fasil_ghebbi}{40}
+			\cultnode{(0,-1.5)}{kebra_nagast}{20}
+			\cultnode{(1.5,-1.5)}{lion_of_judah}{30}
+			\cultnode{(3,-1.5)}{obelix_of_arksam}{30}
+		\end{tikzpicture}
+		Scholar Residences: +1\smallicon{research}
+	}	
+
+\end{tcbraster}
+
