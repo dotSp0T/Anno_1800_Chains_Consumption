@@ -14,6 +14,7 @@
 \usepackage{siunitx}
 \usepackage{enumitem}
 \usepackage{amsmath}
+\usepackage{pdflscape}
 
 % PAGE GEOMETRY
 \geometry{a4paper,
@@ -28,12 +29,6 @@
 \setlength{\headheight}{18pt}
 \tcbuselibrary{breakable, raster, skins}
 \usetikzlibrary{calc, matrix, backgrounds}
-
-\newenvironment{portraitpage}
-    {\global\pdfpageattr\expandafter{\the\pdfpageattr/Rotate 270}}
-    {\clearpage\pagebreak[4]\global\pdfpageattr\expandafter{\the\pdfpageattr/Rotate 0}}
-\BeforeBeginEnvironment{sidewaysfigure}{\begin{portraitpage}}
-\AfterEndEnvironment{sidewaysfigure}{\end{portraitpage}}
 % END PAGE GEOMETRY
 
 % META
@@ -554,7 +549,7 @@
 
 \pagebreak
 
-\begin{sidewaysfigure} % SIDEWAYS PAGE
+\begin{landscape} % SIDEWAYS PAGE
 \begin{tcolorbox}[raster height=\boxheight,
                   height=\paperwidth-2cm, % subtract margins manually
                   page box]
@@ -595,11 +590,11 @@
 \tcbline
 \include{Bright_harvest.tex}
 \end{tcolorbox}
-\end{sidewaysfigure}
+\end{landscape}
 
 \pagebreak
 
-\begin{sidewaysfigure} % SIDEWAYS PAGE
+\begin{landscape} % SIDEWAYS PAGE
 	\begin{tcolorbox}[raster height=\boxheight,
 	height=\paperwidth-2cm, % subtract margins manually
 	page box]
@@ -607,10 +602,10 @@
 		\tcbline
 		\include{investors.tex}
 	\end{tcolorbox}
-\end{sidewaysfigure}
+\end{landscape}
 \pagebreak
 
-\begin{sidewaysfigure} % SIDEWAYS PAGE
+\begin{landscape} % SIDEWAYS PAGE
 	\begin{tcolorbox}[raster height=\boxheight,
 	height=\paperwidth-2cm, % subtract margins manually
 	page box]
@@ -621,10 +616,10 @@
 		\include{Hacienda.tex}
 		\tcbline
 	\end{tcolorbox}
-\end{sidewaysfigure}
+\end{landscape}
 \pagebreak
 
-\begin{sidewaysfigure} % SIDEWAYS PAGE
+\begin{landscape} % SIDEWAYS PAGE
 	\begin{tcolorbox}[raster height=\boxheight,
 	height=\paperwidth-2cm, % subtract margins manually
 	page box]
@@ -635,10 +630,10 @@
 		\include{Airmail.tex}
 		\tcbline
 	\end{tcolorbox}
-\end{sidewaysfigure}
+\end{landscape}
 \pagebreak
 
-\begin{sidewaysfigure} % SIDEWAYS PAGE
+\begin{landscape} % SIDEWAYS PAGE
 	\begin{tcolorbox}[raster height=\boxheight,
 	height=\paperwidth-2cm, % subtract margins manually
 	page box]
@@ -648,10 +643,10 @@
 		\tcbline
 		\include{Scholars.tex}
 	\end{tcolorbox}
-\end{sidewaysfigure}
+\end{landscape}
 \pagebreak
 
-\begin{sidewaysfigure} % SIDEWAYS PAGE
+\begin{landscape} % SIDEWAYS PAGE
 	\begin{tcolorbox}[raster height=\boxheight,
 	height=\paperwidth-2cm, % subtract margins manually
 	page box]
@@ -660,10 +655,10 @@
 		\include{SkyGeneral.tex}
 		\tcbline
 	\end{tcolorbox}
-\end{sidewaysfigure}
+\end{landscape}
 \pagebreak
 
-\begin{sidewaysfigure} % SIDEWAYS PAGE
+\begin{landscape} % SIDEWAYS PAGE
 	\begin{tcolorbox}[raster height=\boxheight,
 	height=\paperwidth-2cm, % subtract margins manually
 	page box]
@@ -671,7 +666,7 @@
 		\tcbline
 		\include{skyinvestors.tex}
 	\end{tcolorbox}
-\end{sidewaysfigure}
+\end{landscape}
 \pagebreak
 
 \begin{tcolorbox}[height fill,
@@ -721,7 +716,7 @@
 \end{tcolorbox}
 \pagebreak
 
-\begin{sidewaysfigure} % SIDEWAYS PAGE
+\begin{landscape} % SIDEWAYS PAGE
 	\begin{tcolorbox}[raster height=\boxheight,
 		height=\paperwidth-2cm, % subtract margins manually
 		page box]
@@ -746,6 +741,6 @@
 			}
 		\end{itemize}
 	\end{tcolorbox}
-\end{sidewaysfigure}
+\end{landscape}
 
 \end{document}
