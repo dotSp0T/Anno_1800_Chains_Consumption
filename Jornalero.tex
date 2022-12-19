@@ -17,7 +17,7 @@
 		\begin{tikzpicture}
 			\farmnode{(0,0)}{Sugar_cane}{2}{Sugar_Cane_Plantation}{1×1}{128}
 			\prodnode{(0,-1.5)}{Wood}{1}{Lumberjack\%27s_Hut_(New_World)}
-			\consnode{(3,-0.75)}{Rum}{2}{Rum_Distillery}{Artisans/35/0/4/15,Engineers/17.5/0/4/40,Jornaleros/140/0/6/2,Obreros/70/0/3/5,Scholars/84/0/2/2,Workers/100/4/0/2.4,Technicians/50/3/10/2.4}
+			\consnode{(3,-0.75)}{Rum}{2}{Rum_Distillery}{Artisans/35/0/4/15,Engineers/17.5/0/4/40,Jornaleros/140/0/6/2,Obreros/70/0/3/5,Scholars/84/0/2/2,Workers/100/2/0/2.4,Technicians/50/3/10/2.4}
 			\connect{Sugar_cane}{Rum}
 			\connect{Wood}{Rum}
 	\end{tikzpicture}}
@@ -25,8 +25,8 @@
 	raster multicolumn=2,
 	raster multirow=2]{
 		\begin{tikzpicture}
-			\prodnode{(0,0)}{Alpaca_wool}{1}{Alpaca_Farm}
-			\consnode{(2.5,0)}{Poncho}{1}{Poncho_Darner}{Jornaleros/80/2/0/2,Obreros/40/2/0/5,Shepherds/111/2/0/0}
+			\farmnode{(0,0)}{Alpaca_wool}{1}{Alpaca_Farm}{3×3}{4}
+			\consnode{(2.5,0)}{Poncho}{1}{Poncho_Darner}{Jornaleros/80/2/0/2,Obreros/40/2/0/5,Shepherds/62.5/2/0/0.4}
 			\connect{Alpaca_wool}{Poncho}
 	\end{tikzpicture}}
 \end{tcbraster}

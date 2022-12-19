@@ -15,13 +15,13 @@
 			\end{tikzpicture}}
 			\tcbox[nodebox, raster multicolumn=1, raster multirow=1]{ % Bricks
 				\begin{tikzpicture}
-					\prodnodelbld{(0,0)}{Clay}{1}{Clay_Pit_(Old_World)}{Clay}{\oldworld}
+					\consnodelbld{(0,0)}{Clay}{1}{Clay_Pit_(Old_World)}{Clay}{\oldworld}{Artisans/25/1/0/7.5}
 					\prodnodec{(3,0)}{Bricks}{2}{Brick_Factory_(Old_World)}{60}
 					\connect{Clay}{Bricks}
 			\end{tikzpicture}}
 			\tcbox[nodebox, raster multicolumn=1, raster multirow=1]{% Wanza_Timber
 				\begin{tikzpicture}
-					\prodnodec{(0,0)}{Wansa_Wood}{1}{Wanza_Woodcutter}{15}
+					\consnodec{(0,0)}{Wansa_Wood}{1}{Wanza_Woodcutter}{15}{Shepherds/50/1/0/0.5}
 				\end{tikzpicture}}
 			\tcbox[nodebox, raster multicolumn=1, raster multirow=2]{% Mud_bricks
 				\begin{tikzpicture}
@@ -149,7 +149,7 @@
 				\connect{Pigs}{Tallow}
 				
 				\prodnode{(2,-1.5)}{Saltpeter}{8}{Saltpeter_Works}
-				\prodnode{(3.5,-0.75)}{Dynamite}{4}{Dynamite_Factory}
+				\consnode{(4.5,-0.75)}{Dynamite}{4}{Dynamite_Factory}{Technicians/166.67/3/0/0}
 				\connect{Tallow}{Dynamite}
 				\connect{Saltpeter}{Dynamite}
 				
@@ -160,7 +160,7 @@
 				\prodnode{(3.5,-3.75)}{Steel}{2}{Furnace}
 				\connect{Iron}{Steel}
 				\connect{Coal}{Steel}
-				\prodnodefec{(5,-2.25)}{Advanced_weapons}{4}{Heavy_Weapons_Factory}{60}
+				\prodnodefec{(6,-2.75)}{Advanced_weapons}{4}{Heavy_Weapons_Factory}{60}
 				\connect{Dynamite}{Advanced_weapons}
 				\connect{Steel}{Advanced_weapons}
 		\end{tikzpicture}}

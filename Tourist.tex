@@ -5,7 +5,7 @@
 		raster multicolumn=2,
 		raster multirow=1]{
 	\begin{tikzpicture}
-		\orchnodeoldcons{(0,0)}{jam}{1}{Tourists/2/35/0/270,Farmers/125/3/0/0}
+		\orchnodeoldcons{(0,0)}{jam}{1}{Tourists/2/35/0/270,Farmers/100/2/0/1.2,Shepherds/133.33/1/0/1.2}
 	\end{tikzpicture}}
 	\tcbox[nodebox, %Shampoo
 		raster multicolumn=4,
@@ -18,7 +18,7 @@
 		\prodnode{(4,-1.5)}{Soap}{1}{Soap_Factory}
 		\connect{Pigs}{Tallow}
 		\connect{Tallow}{Soap}
-		\chemnodeoldcons{(7,-1.5)}{Shampoo}{1}{Tourists/4/105/0/330,Engineers/80/8/0/0}
+		\chemnodeoldcons{(7,-1.5)}{Shampoo}{1}{Tourists/4/105/0/330,Engineers/101/5/0/6.8}
 		\connect{Coconut_Oil}{Shampoo}
 		\connect{Cinnamon}{Shampoo}
 		\connect{Soap}{Shampoo}
@@ -31,7 +31,7 @@
 		\prodnode{(2,0)}{Sugar}{1}{Sugar_Refinery}
 		\connect{Sugar_cane}{Sugar}
 		\orchnodenew{(1.75,-1.5)}{Citrus}{1}
-        \consnode{(1.75,-3)}{Saltpeter}{4}{Saltpeter_Works}{Scholars/100/5/0/1}
+        \consnode{(1.75,-3)}{Saltpeter}{4}{Saltpeter_Works}{Scholars/45/4/0/1.2}
 		\chemnodeoldcons{(5,-1.5)}{Lemonade}{1}{Tourists/2/0/4/450}
 		\connect{Sugar}{Lemonade}
 		\connect{Citrus}{Lemonade}
@@ -46,7 +46,7 @@
 		\prodnode{(2,0)}{Glass}{1}{Glassmakers}
 		\connect{Quartz_sand}{Glass}
 		\farmnode{(2,-3)}{Cotton}{2}{Cotton_Plantation}{1×1}{144}
-		\chemnodeoldcons{(5,-1.5)}{Souvenirs}{1}{Tourists/1/0/4/1025}
+		\chemnodeoldcons{(5,-1.5)}{Souvenirs}{1}{Tourists/1/0/4/1025,Artistas/100/4/0/9.6}
 		\connect{Camphor_Wax}{Souvenirs}
 		\connect{Glass}{Souvenirs}
 		\connect{Cotton}{Souvenirs}

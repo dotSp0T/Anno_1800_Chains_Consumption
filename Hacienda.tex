@@ -1,25 +1,25 @@
 \section{Hacienda Consumables}
 \begin{tcbraster}[raster columns=3,
 	grid format]
-	\tcbox[nodebox, % Hot_sauce
-		raster multicolumn=1, left=0mm,
-		raster multirow=2]{
-	\begin{tikzpicture}
-			\hacbrewnode{(0,0)}{Spices}{1}{1×1}{64}
-			\hacbrewnodecons{(2.75,0)}{Hot_sauce}{2}{Jornaleros/10/4/0/2,Obreros/8.75/4/0/4,Workers/100/2/0/0}
-			\connect{Spices}{Hot_sauce}
-	\end{tikzpicture}}
-	\tcbox[nodebox, % Schnapps
-		raster multicolumn=1,
-		raster multirow=2]{
-	\begin{tikzpicture}
-		\hacbrewnode{(0,0)}{Potato}{1}{1×1}{64}
-		\hacbrewnode{(2,0)}{Schnapps}{2}
-		\connect{Potato}{Schnapps}
-	\end{tikzpicture}}
 	\tcbox[nodebox, % empty
 		raster multicolumn=1,
 		raster multirow=2]{}
+	\tcbox[nodebox, % Schnapps
+		raster multicolumn=1,
+		raster multirow=2]{
+		\begin{tikzpicture}
+			\hacbrewnode{(0,0)}{Potato}{1}{1×1}{64}
+			\hacbrewnode{(2,0)}{Schnapps}{2}
+			\connect{Potato}{Schnapps}
+		\end{tikzpicture}}
+	\tcbox[nodebox, % Hot_sauce
+		raster multicolumn=1, left=0mm, top=-7mm,
+		raster multirow=2]{
+	\begin{tikzpicture}
+			\hacbrewnode{(0,0)}{Spices}{1}{1×1}{64}
+			\hacbrewnodecons{(2.75,0)}{Hot_sauce}{2}{Jornaleros/10/4/0/2,Obreros/8.75/4/0/4,Workers/50/1/0/0,Explorers/25/3/2/0,Shepherds/100/2/0/1.5}
+			\connect{Spices}{Hot_sauce}
+	\end{tikzpicture}}
 	\tcbox[nodebox, % Atole
 		raster multicolumn=1, left=0mm,
 		raster multirow=2]{

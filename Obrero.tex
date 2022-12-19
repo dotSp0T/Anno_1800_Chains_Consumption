@@ -2,68 +2,68 @@
 \begin{tcbraster}[raster columns=8,
 	grid format]
 	\tcbox[nodebox, % Tortillas
-	raster multicolumn=3, left=-3mm,
+	raster multicolumn=4, left=0mm, top=3mm,
 	raster multirow=2]{
 		\begin{tikzpicture}
-			\farmnode{(0.75,0)}{Corn}{2}{Corn_Farm}{1×1}{168}a
+			\farmnode{(0.75,0)}{Corn}{2}{Corn_Farm}{1×1}{168}
 			
-			\farmnodelbld{(0,-1.5)}{Beef}{4}{Cattle_Farm}{3×4}{4}{Beef_o}{\oldworld}
-			\farmnodelbld{(1.5,-1.5)}{Beef}{2}{Cattle_Farm}{3×4}{6}{Beef_n}{\newworld}
+			\farmnodelbld{(0,-2)}{Beef}{4}{Cattle_Farm}{3×4}{4}{Beef_o}{\oldworld}
+			\farmnodelbld{(1.5,-2)}{Beef}{2}{Cattle_Farm}{3×4}{6}{Beef_n}{\newworld}
 			\divider{Beef_o}{Beef_n}
 			
-			\consnode{(3.5,-0.75)}{Tortilla}{1}{Tortilla_Maker}{Obreros/70/4/0/2}
+			\consnode{(4,-1)}{Tortilla}{1}{Tortilla_Maker}{Obreros/70/4/0/2,Artistas/70/5/0/8}
 			\connect{Corn}{Tortilla}
 			\connect{Beef_n}{Tortilla}
 	\end{tikzpicture}}
+	\tcbox[nodebox, % Coffee
+		raster multicolumn=4, left=-8mm, top=-7mm,
+		raster multirow=2]{
+	\begin{tikzpicture}
+		\farmnode{(0,0)}{Coffee_beans}{2}{Coffee_Plantation}{1×1}{168}
+		\consnode{(3.25,0)}{Coffee}{1}{Coffee_Roaster}{Obreros/170/2/0/2,Artistas/170/5/0/8,Engineers/42.5/2/0/16,Investors/21.25/8/0/40,Technicians/83.3/0/6/12}
+		\connect{Coffee_beans}{Coffee}
+	\end{tikzpicture}}
 	\tcbox[nodebox, % Cigars
-	raster multicolumn=3, left=-9mm, top=7mm,
+	raster multicolumn=4, left=0mm, 
 	raster multirow=2]{
 		\begin{tikzpicture}
 			\prodnode{(0,0)}{Wood}{1}{Lumberjack\%27s_Hut_(New_World)}
 			\prodnode{(1.75,0)}{Wood_veneers}{4}{Marquetry_Workshop_(New_World)}
 			\connect{Wood}{Wood_veneers}
 			\farmnode{(1.5,-1.5)}{Tobacco}{8}{Tobacco_Plantation}{1×1}{192}
-			\consnode{(4,-0.75)}{Cigars}{2}{Cigar_Factory}{Obreros/180/0/2/7,Investors/90/2/0/25}
+			\consnode{(4.25,-0.75)}{Cigars}{2}{Cigar_Factory}{Obreros/180/0/2/7,Artistas/180/0/3/14,Investors/90/2/0/25}
 			\connect{Wood_veneers}{Cigars}
 			\connect{Tobacco}{Cigars}
 	\end{tikzpicture}}
-	\tcbox[nodebox, % Coffee
-	raster multicolumn=2, left=-7mm,
-	raster multirow=2]{
-		\begin{tikzpicture}
-			\farmnode{(0,0)}{Coffee_beans}{2}{Coffee_Plantation}{1×1}{168}
-			\consnode{(2.5,0)}{Coffee}{1}{Coffee_Roaster}{Obreros/170/2/0/2,Engineers/42.5/2/0/16,Investors/21.25/8/0/40,Technicians/83.3/0/6/12}
-			\connect{Coffee_beans}{Coffee}
-	\end{tikzpicture}}
 	\tcbox[nodebox, % Chocolate
-	raster multicolumn=4, left=0mm, top=7mm,
+	raster multicolumn=4, left=0mm,
 	raster multirow=2]{
 	\begin{tikzpicture}
-		\farmnode{(0,0)}{Sugar_cane}{1}{Sugar_Cane_Plantation}{1×1}{128}
-		\consnode{(2.25,0)}{Sugar}{1}{Sugar_Refinery}{Farmers/333.3/2/0/0}
+		\farmnode{(0,-1.75)}{Sugar_cane}{1}{Sugar_Cane_Plantation}{1×1}{128}
+		\consnode{(2.75,-2)}{Sugar}{1}{Sugar_Refinery}{Farmers/166.6/1/0/1.9}
 		\connect{Sugar_cane}{Sugar}
 		
-		\farmnode{(2.5,-2)}{Cocoa}{2}{Cocoa_Plantation}{1×1}{128}
+		\farmnode{(2.75,0)}{Cocoa}{2}{Cocoa_Plantation}{1×1}{128}
 		
-		\consnode{(5.25,-1)}{Chocolate}{1}{Chocolate_Factory}{Investors/37.5/2/0/25,Engineers/100/5/0/0}
-		\connect{Sugar}{Chocolate}
+		\consnode{(5.75,-1)}{Chocolate}{1}{Chocolate_Factory}{Investors/37.5/2/0/25,Engineers/100/5/0/0}
+		\connect{Chocolate}{Sugar}
 		\connect{Cocoa}{Chocolate}
 	\end{tikzpicture}}
 	\tcbox[nodebox, % Bowler Hats
-	raster multicolumn=4, left=0mm, top=7mm,
+	raster multicolumn=5, left=0mm, top=5mm,
 	raster multirow=2]{
-		\begin{tikzpicture}
-			\farmnode{(0,0)}{Cotton}{2}{Cotton_Plantation}{1×1}{144}
-			\consnode{(2.5,0)}{Cotton_fabric}{1}{Cotton_Mill}{Elders/50/4/0/0}
-			\connect{Cotton}{Cotton_fabric}
-			
-			\farmnode{(0,-2)}{Alpaca_wool}{1}{Alpaca_Farm}{3×3}{4}
-			\consnode{(2.5,-2)}{Felt}{1}{Felt_Producer}{Jornaleros/200/1/0/0}
-			\connect{Alpaca_wool}{Felt}
-			
-			\consnode{(5.5,-1)}{Bowler_hats}{1}{Bombin_Weaver}{Obreros/75/2/0/2,Scholars/41.7/0/3/2,Tourists/16.6/25/0/0}
-			\connect{Cotton_fabric}{Bowler_hats}
-			\connect{Felt}{Bowler_hats}
+	\begin{tikzpicture}
+		\farmnode{(0,0)}{Cotton}{2}{Cotton_Plantation}{1×1}{144}
+		\consnode{(2.5,0)}{Cotton_fabric}{1}{Cotton_Mill}{Elders/33.33/3/0/3.4}
+		\connect{Cotton}{Cotton_fabric}
+		
+		\farmnode{(0,-2)}{Alpaca_wool}{1}{Alpaca_Farm}{3×3}{4}
+		\consnode{(2.5,-2)}{Felt}{1}{Felt_Producer}{Jornaleros/88.8/1/0/1.4}
+		\connect{Alpaca_wool}{Felt}
+		
+		\consnode{(6.5,-1)}{Bowler_hats}{1}{Bombin_Weaver}{Obreros/75/2/0/2,Artistas/75/5/0/4,Scholars/41.7/0/3/2,Tourists/10/15/0/90}
+		\connect{Cotton_fabric}{Bowler_hats}
+		\connect{Felt}{Bowler_hats}
 	\end{tikzpicture}}
 
 \end{tcbraster}

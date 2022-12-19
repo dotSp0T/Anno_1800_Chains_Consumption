@@ -1,8 +1,8 @@
 \section{Recipes}
-\begin{tcbraster}[raster columns=5, 
+\begin{tcbraster}[raster columns=6, 
 	page box]
 	\tcbox[nodebox, %ArchDuke_Schitel
-	raster multicolumn=1,
+	raster multicolumn=1, left=0mm,
 	raster multirow=3]{
 		\begin{tikzpicture}
 			\prodnode{(0,-3)}{Tallow}{2}{Rendering_Works}
@@ -14,7 +14,7 @@
 			\connect{Potato}{ArchDukes_Schnitzel}
 	\end{tikzpicture}}			
 	\tcbox[nodebox, %Venison en Croute
-	raster multicolumn=1,
+	raster multicolumn=1, left=0mm,
 	raster multirow=3]{
 		\begin{tikzpicture}
 			\prodnode{(0,0)}{Flour}{1}{Flour_Mill}
@@ -40,7 +40,7 @@
 			\connect{Beef_n}{Stroggof_Goulash}
 	\end{tikzpicture}}		
 	\tcbox[nodebox, %Fish_and_Frites
-	raster multicolumn=1, left=4mm,
+	raster multicolumn=1, left=0mm,
 	raster multirow=3]{
 		\begin{tikzpicture}
 			\prodnode{(0,0)}{Fish}{1}{Fishery}
@@ -52,7 +52,7 @@
 			\connect{Potato}{Fish_and_Frites}
 	\end{tikzpicture}}	
 	\tcbox[nodebox, %Lobster_Cheminee
-	raster multicolumn=1,
+	raster multicolumn=1,left=0mm,
 	raster multirow=3]{
 		\begin{tikzpicture}
 			\prodnode{(0,0)}{Lobsters}{2}{Lobster_Fishery}
@@ -63,9 +63,24 @@
 			\connect{Citrus}{Lobster_Cheminee}
 			\connect{Tobacco}{Lobster_Cheminee}
 	\end{tikzpicture}}	
+	\tcbox[nodebox, %Empanadas
+	raster multicolumn=1,left=0mm,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			\farmnode{(0.75,-1.5)}{Corn}{1}{Corn_Farm}{1×1}{168}
+			\farmnodelbld{(0,0)}{Beef}{2}{Cattle_Farm}{3×4}{4}{Beef_o}{\oldworld}
+			\farmnodelbld{(1.5,0)}{Beef}{1}{Cattle_Farm}{3×4}{2}{Beef_n}{\newworld}
+			\divider{Beef_o}{Beef_n}
+			\prodnode{(0.75,-1.5)}{Flour}{1}{Flour_Mill}
+			\farmnode{(0.75,-3)}{Herbs}{1}{Herb_Garden}{1×1}{128}
+			\restrecipe{(3,-1.5)}{Empanadas}{2}{Happiness_positive/+4,Fish/-10\%,Sausages/-15\%,Mezcal/-30\%}
+			\connect{Herbs}{Empanadas}
+			\connect{Flour}{Empanadas}
+			\connect{Beef_n}{Empanadas}
+	\end{tikzpicture}}	
 	%bar recipes
 	\tcbox[nodebox, %Donut_Fourre
-	raster multicolumn=1,
+	raster multicolumn=1,left=0mm,
 	raster multirow=3]{
 		\begin{tikzpicture}
 			\prodnode{(0,-3)}{Tallow}{2}{Rendering_Works}
@@ -77,7 +92,7 @@
 			\connect{Flour}{Donut_Fourre}
 	\end{tikzpicture}}			
 	\tcbox[nodebox, %Palmier_Biscuit
-	raster multicolumn=1,
+	raster multicolumn=1,left=0mm,
 	raster multirow=3]{
 		\begin{tikzpicture}
 			\prodnode{(0,-3)}{Tallow}{2}{Rendering_Works}
@@ -89,7 +104,7 @@
 			\connect{Flour}{Palmier_Biscuit}
 	\end{tikzpicture}}	
 	\tcbox[nodebox, %Venison_Tartare
-	raster multicolumn=1,
+	raster multicolumn=1,left=0mm,
 	raster multirow=3]{
 		\begin{tikzpicture}
 			\farmnode{(0,-1.5)}{Grapes}{4}{Vineyard}{1×1}{128}
@@ -101,7 +116,7 @@
 			\connect{Citrus}{Venison_Tartare}
 	\end{tikzpicture}}	
 	\tcbox[nodebox, %Banana_Surprise
-	raster multicolumn=1,
+	raster multicolumn=1,left=0mm,
 	raster multirow=3]{
 		\begin{tikzpicture}
 			\farmnode{(0,-1.5)}{Plantains}{1}{Plantain_Plantation}{1×1}{128}
@@ -113,7 +128,7 @@
 			\connect{Goat_Milk}{Banana_Surprise}
 	\end{tikzpicture}}	
 	\tcbox[nodebox, %Eclair
-	raster multicolumn=1,
+	raster multicolumn=1,left=0mm,
 	raster multirow=3]{
 		\begin{tikzpicture}
 			\prodnode{(0,0)}{Flour}{1}{Flour_Mill}
@@ -124,8 +139,20 @@
 			\connect{Sugar}{Eclair}
 			\connect{Flour}{Eclair}
 	\end{tikzpicture}}	
+	\tcbox[nodebox, %Cone_OCopia
+		raster multicolumn=1,left=0mm,
+		raster multirow=3]{
+	\begin{tikzpicture}
+		\orchnodeold{(0,-1.5)}{Jam}{3}
+		\farmnodep{(0,-3)}{Milk}{1}{Cattle_Farm}{3×4}{6}{Beef}
+		\farmnode{(0,0)}{Orchid}{3}{Orchid_Farm}{1×1}{128}
+		\caferecipe{(2.5,-1.5)}{Cone_OCopia}{6}{Happiness_positive/+3,Ice_Cream/-65\%,Coffee/-15\%,Chocolate/-15\%}
+		\connect{Jam}{Cone_OCopia}
+		\connect{Milk}{Cone_OCopia}
+		\connect{Orchid}{Cone_OCopia}
+	\end{tikzpicture}}	
 	\tcbox[nodebox, %Enbesa Sunrise
-	raster multicolumn=1,
+	raster multicolumn=1,left=0mm,
 	raster multirow=3]{
 		\begin{tikzpicture}
 			\prodnode{(0,-3)}{Rum}{1}{Rum_Distillery}
@@ -137,7 +164,7 @@
 			\connect{Spices}{Enbesa_Sunrise}
 	\end{tikzpicture}}	
 	\tcbox[nodebox, %Daiquiri_Tropic
-	raster multicolumn=1,
+	raster multicolumn=1,left=0mm,
 	raster multirow=3]{
 		\begin{tikzpicture}
 			\prodnode{(0,-3)}{Rum}{1}{Rum_Distillery}
@@ -149,7 +176,7 @@
 			\connect{Plantains}{Daiquiri_Tropic}
 	\end{tikzpicture}}	
 	\tcbox[nodebox, %Black_Muscovy
-	raster multicolumn=1,
+	raster multicolumn=1,left=0mm,
 	raster multirow=3]{
 		\begin{tikzpicture}
 			\prodnode{(0,-1.5)}{Rum}{1}{Rum_Distillery}
@@ -161,7 +188,7 @@
 			\connect{Schnapps}{Black_Muscovy}
 	\end{tikzpicture}}	
 	\tcbox[nodebox, %Glogg
-	raster multicolumn=1,
+	raster multicolumn=1,left=0mm,
 	raster multirow=3]{
 		\begin{tikzpicture}
 			\farmnode{(0,-1.5)}{Grapes}{4}{Vineyard}{1×1}{128}
@@ -174,7 +201,7 @@
 			\connect{Cinnamon}{Glogg}
 	\end{tikzpicture}}	
 	\tcbox[nodebox, %Montmartre
-	raster multicolumn=1,
+	raster multicolumn=1,left=0mm,
 	raster multirow=3]{
 		\begin{tikzpicture}
 			\prodnode{(0,-1.5)}{Sugar}{1}{Sugar_Refinery}
@@ -184,5 +211,17 @@
 			\connect{Citrus}{Montmartre_75}
 			\connect{Champagne}{Montmartre_75}
 			\connect{Sugar}{Montmartre_75}
+	\end{tikzpicture}}	
+	\tcbox[nodebox, %Absinthe
+		raster multicolumn=1,left=0mm,
+		raster multirow=3]{
+	\begin{tikzpicture}
+		\prodnode{(0,-1.5)}{Sugar}{1}{Sugar_Refinery}
+		\farmnode{(0,0)}{Herbs}{1}{Herb_Garden}{1×1}{128}
+		\prodnode{(0,-3)}{Schnapps}{1}{Schnapps_Distillery}
+		\barrecipe{(2.5,-1.5)}{Absinthe}{2}{Happiness_positive/+2,Rum/-15\%,Schnapps/-15\%,Mezcal/-35\%}
+		\connect{Herbs}{Absinthe}
+		\connect{Sugar}{Absinthe}
+		\connect{Schnapps}{Absinthe}
 	\end{tikzpicture}}	
 \end{tcbraster}

@@ -44,10 +44,6 @@
 \newcommand{\thewiki}{https://anno1800.fandom.com}
 
 % texts
-% better textcircling than \textcircled, https://tex.stackexchange.com/a/7045/186115
-\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
-            \node[shape=circle,draw,inner sep=1pt] (char) {{\tiny #1}};}}
-
 \newcommand{\oldworld}{\smallicon{Old_World}}
 \newcommand{\newworld}{\smallicon{New_World}}
 \newcommand{\arctic}{\smallicon{Arctic}}
@@ -175,6 +171,15 @@
           label={[label distance=\fldnumdist]\fldnumdegs:#6 (#5)},
           label={[label distance=\lblmrkdist]\lblmrkdegs:#8},
           hyperlink node=\thewiki/wiki/#4] (#7) at #1 {\icon{#2}};
+}
+
+% #7 source farm
+\newcommand{\farmnodep}[7]{
+	\node[outer ysep=\nodepadding,
+	label={[label distance=\facnumdist]\facnumdegs:\smallicon{Electricity}\textcolor{SkyBlue}{#3×}},
+	label={[label distance=\fldnumdist]\fldnumdegs:#6 (#5)},
+	label={[label distance=\lblmrkdist]\lblmrkdegs:\smallicon{#7}},
+	hyperlink node=\thewiki/wiki/#4] (#2) at #1 {\icon{#2}};
 }
 
 % #1 (x,y)
@@ -307,7 +312,7 @@
 	\conseffectlist{#5}
 	\node[outer ysep=\nodepadding,
 	label={[label distance=\lblmrkdist]\facnumdegs:#3x},
-	label={[label distance=\lblmrkdist]\lblmrkdegs:\smallicon{#4}},
+	label={[label distance=-(0.55*\unitsize)]80:\smallicon{#4}},
 	hyperlink node=\thewiki/wiki/#4] (#2) at #1 {
 		\begin{tikzpicture}
 			\node[outer ysep=\nodepadding] at (0,0) {\icon{#2}}; 
@@ -392,6 +397,26 @@
                     ampersand replacement=\&] (output) at (0,{\stratalistmath}) {
                 \matrixcontents};
         \end{tikzpicture}};
+}
+
+% #5 amount of units produced per factory per minute
+% #6 Comma Separated list: <stratum>:<amount>,<stratum>:<amount>, ...
+\newcommand{\consnodec}[6]{
+	\consstratalist{#6}
+	
+	\node[outer sep=-1mm,
+	label={[label distance=\facnumdist]\facnumdegs:#3×},
+	label={[label distance=\facproddist]\facproddegs:@\prodpermin{#5}/min},
+	hyperlink node=\thewiki/wiki/#4] (#2) at #1 {
+		\begin{tikzpicture}
+			\node[outer ysep=\nodepadding] at (0,0) {\icon{#2}};
+			\matrix[inner sep=2pt,
+			row sep=-2pt,
+			column sep=-1mm,
+			matrix of nodes,
+			ampersand replacement=\&] (output) at (0,{\stratalistmath}) {
+				\matrixcontents};
+	\end{tikzpicture}};
 }
 
 % #1 (x,y)
@@ -576,8 +601,8 @@
            raster multicolumn=2,
            raster multirow=2]{
         \begin{tikzpicture}
-            \farmnodec{(0,0)}{Wool}{1}{Sheep_Farm}{3×3}{3}{Artisans/33.3/2/0/0}
-            \consnode{(3,0)}{Work_clothes}{1}{Framework_Knitters}{Farmers/65/2/0/3,Workers/32.5/2/0/6,Jornaleros/50/3/0/0.5}
+            \farmnodec{(0,0)}{Wool}{1}{Sheep_Farm}{3×3}{3}{Artisans/32.33/1/0/0}
+            \consnode{(3.25,0)}{Work_clothes}{1}{Framework_Knitters}{Farmers/65/2/0/3,Workers/32.5/2/0/6,Jornaleros/133.33/2/0/1.1}
             \connect{Wool}{Work_clothes}
         \end{tikzpicture}}
 \end{tcbraster}
@@ -614,7 +639,16 @@
 		\include{Obrero.tex}
 		\tcbline
 		\include{Hacienda.tex}
-		\tcbline
+
+	\end{tcolorbox}
+\end{landscape}
+\pagebreak
+
+\begin{landscape} % SIDEWAYS PAGE
+	\begin{tcolorbox}[raster height=\boxheight,
+		height=\paperwidth-2cm, % subtract margins manually
+		page box]
+		\include{Artistas.tex}
 	\end{tcolorbox}
 \end{landscape}
 \pagebreak
@@ -672,15 +706,25 @@
 \begin{tcolorbox}[height fill,
 	raster height=\boxheight,
 	page box]
-	\include{patents.tex}
+	\include{recipes.tex}
 \end{tcolorbox}
 \pagebreak
 
 \begin{tcolorbox}[height fill,
 	raster height=\boxheight,
 	page box]
-	\include{recipes.tex}
+	\include{patents.tex}
 \end{tcolorbox}
+\pagebreak
+
+\begin{landscape} % SIDEWAYS PAGE
+	\begin{tcolorbox}[height fill,
+		raster height=\boxheight,
+		page box]
+		\include{palace.tex}
+		\tcbline
+	\end{tcolorbox}
+\end{landscape} % SIDEWAYS PAGE
 \pagebreak
 
 \begin{tcolorbox}[height fill,
@@ -715,6 +759,7 @@
 	\tcbline
 \end{tcolorbox}
 \pagebreak
+
 
 \begin{landscape} % SIDEWAYS PAGE
 	\begin{tcolorbox}[raster height=\boxheight,
