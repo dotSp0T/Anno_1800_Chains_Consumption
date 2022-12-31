@@ -1,11 +1,10 @@
 \section{Artistas Consumables}
-\begin{tcbraster}[raster columns=12,
-	grid format]
+\begin{tcbraster}[raster columns=12,	grid format]
 	\tcbox[nodebox, %Soccer Balls
 	raster multicolumn=4, left=0mm,
 	raster multirow=2]{
 		\begin{tikzpicture}
-			\farmnode{(0,0)}{nandu_leather}{1}{Nandu_Farm}{3×3}{4}
+			\farmnode{(0,0)}{nandu_leather}{1}{Nandu_Farm}{4×4}{4}
 			\farmnode{(0,-2)}{Caoutchouc}{2}{Caoutchouc_Plantation}{1×1}{144}
 			\consnode{(2.75,-1)}{soccer_balls}{1}{Ball_Manufactory}{Artistas/80/3/0/8,Workers/200/3/0/3.6,Artisans/100/2/0/5.1,Jornaleros/100/2/0/1.2}
 			\connect{nandu_leather}{soccer_balls}
@@ -64,40 +63,33 @@
 		\connect{Ethanol}{Perfumes}
 		\connect{Coconut_Oil}{Perfumes}
 	\end{tikzpicture}}
-	\tcbox[nodebox, %Costumes
-		raster multicolumn=7, left=-10mm,
+	\tcbox[nodebox, %Sewing Machine
+		raster multicolumn=6,
 		raster multirow=3]{
 	\begin{tikzpicture}
-		\farmnode{(0,0)}{Cotton}{4}{Cotton_Plantation}{1×1}{144}
-		\prodnode{(2,0)}{Cotton_fabric}{2}{Cotton_Mill}
-		\connect{Cotton}{Cotton_fabric}
-		\farmnodep{(2,-1.5)}{Nandu_Feathers}{2}{Nandu_Farm}{3×4}{6}{nandu_leather}
-		\farmnodep{(0,-3.75)}{Saltpeter}{4}{Alpaca_Farm}{3×3}{4}{Alpaca_wool}
-		\prodnode{(0,-2.25)}{Minerals}{1}{Mineral_Mine}
-		\prodnode{(2,-3)}{Pigments}{2}{Arsenal}
-		\connect{Saltpeter}{Pigments}
-		\connect{Minerals}{Pigments}
+		\prodnodelbld{(0,-1.5)}{Charcoal_kiln}{6}{Charcoal_Kiln}{Coal}{\newworld}
+		\prodnode{(0,-3)}{Bauxite}{2}{Bauxite_Mine}
+		\prodnode{(2,-2.25)}{Aluminium_Profiles}{18}{Aluminium_Smelter}
+		\connect{Coal}{Aluminium_Profiles}
+		\connect{Bauxite}{Aluminium_Profiles}
+		\prodnode{(2,0)}{Wood}{3}{Lumberjack\%27s_Hut_(New_World)}
+		\consnode{(5,-1.125)}{Sewing_machines}{6}{Sewing_Machine_Factory}{Artisans/70/2/0/12,Engineers/35/6/0/32,Obreros/80/2/0/5,Artistas/80/5/0/16,Elders/111.11/2/0/6.4}			
+		\connect{Wood}{Sewing_machines}
+		\connect{Aluminium_Profiles}{Sewing_machines}
+	\end{tikzpicture}}
+	\tcbox[nodebox, %Jalea
+		raster multicolumn=6,
+		raster multirow=3]{
+	\begin{tikzpicture}
+		\prodnode{(0,-1.5)}{Calamari}{2}{Calamari_Fishery}
+		\farmnode{(0,0)}{Corn}{2}{Corn_Farm}{1×1}{168}
+		\farmnodec{(0,-3.75)}{Herbs}{1}{Herb_Garden}{1×1}{128}{Farmers/119/2/0/4.5,Elders/30.8/3/0/2.4}
 		
-		\prodnode{(4,-1.5)}{Costumes}{4}{Costume_Shop}
-		\consnode{(6,-1.5)}{samba_school}{8}{Samba_School}{Artistas/-/0/4/12,Obreros/-/2/0/2.8}
-		\connect{Cotton_fabric}{Costumes}
-		\connect{Nandu_Feathers}{Costumes}
-		\connect{Pigments}{Costumes}
-		\connect{Costumes}{samba_school}
-	\end{tikzpicture}}
-	\tcbox[nodebox, %Film Reals
-		raster multicolumn=5, left=-15mm,
-		raster multirow=3]{
-	\begin{tikzpicture}
-	
-		\chemnodenew{(0,-2)}{Celluloid}{2}
-		\farmnodep{(0,0)}{Saltpeter}{4}{Alpaca_Farm}{3×3}{4}{Alpaca_wool}
-		\chemnodenewcons{(2.5,-1)}{film_reel}{8}{Investors/89/5/0/8.5,Scholars/80/4/0/4.8}
-		\consnode{(5.85,-1)}{Cinema}{12}{Cinema}{Artistas/-/0/4/12,Jornaleros/-/2/0/1.6}
-		\connect{Celluloid}{film_reel}
-		\connect{Saltpeter}{film_reel}
-		\connect{film_reel}{Cinema}
-	\end{tikzpicture}}
+		\consnode{(3,-1.5)}{Jalea}{1}{Jalea_Kitchen}{Artistas/60.6/2/0/12}
+		\connect{Calamari}{Jalea}
+		\connect{Corn}{Jalea}
+		\connect{Herbs}{Jalea}
+\end{tikzpicture}}
 	\tcbox[nodebox, %Motors
 		raster multicolumn=6,
 		raster multirow=4]{
@@ -120,36 +112,9 @@
 		\connect{Electric_Cables}{Motor}
 		\connect{Steel}{Motor}
 	\end{tikzpicture}}
-	\tcbox[nodebox, %Jalea
+	\tcbox[nodebox, %Empty
 		raster multicolumn=6,
-		raster multirow=4]{
-	\begin{tikzpicture}
-		\prodnode{(0,-1.5)}{Calamari}{2}{Calamari_Fishery}
-		\farmnode{(0,0)}{Corn}{2}{Corn_Farm}{1×1}{168}
-		\farmnodec{(0,-3.75)}{Herbs}{1}{Herb_Garden}{1×1}{128}{Farmers/119/2/0/4.5,Elders/30.8/3/0/2.4}
-		
-		\consnode{(3,-1.5)}{Jalea}{1}{Jalea_Kitchen}{Artistas/60.6/2/0/12}
-		\connect{Calamari}{Jalea}
-		\connect{Corn}{Jalea}
-		\connect{Herbs}{Jalea}
-	\end{tikzpicture}}
-	\tcbox[nodebox, %Scooters
-		raster multicolumn=6, left=0mm,
-		raster multirow=2]{
-	\begin{tikzpicture}
-		\farmnodep{(0,-0.75)}{Saltpeter}{4}{Alpaca_Farm}{3×3}{4}{Alpaca_wool}
-		\prodnode{(0,-2.25)}{Minerals}{1}{Mineral_Mine}
-		\prodnode{(2,-1.5)}{Pigments}{2}{Arsenal}
-		\connect{Saltpeter}{Pigments}
-		\connect{Minerals}{Pigments}
-
-		\prodnodefe{(2,0)}{Motor}{2}{Motor_Assembly_Plant}
-		\farmnode{(2,-3)}{Caoutchouc}{4}{Caoutchouc_Plantation}{1×1}{144}
-		\consnodefe{(5,-1.5)}{Scooter}{4}{Scooter_Factory}{Artistas/575/5/0/36,Artisans/153.85/7/0/13.5,Scholars/80/7/0/3.6}				
-		\connect{Motor}{Scooter}
-		\connect{Caoutchouc}{Scooter}
-		\connect{Pigments}{Scooter}
-	\end{tikzpicture}}
+		raster multirow=2]{}
 	\tcbox[nodebox, %Fans
 		raster multicolumn=6,
 		raster multirow=2]{
@@ -164,5 +129,22 @@
 		\consnodefe{(5,-1.125)}{Fans}{3}{Fan_Factory}{Artistas/641/3/0/32,Investors/133.33/10/0/10,Obreros/200/6/0/11.6,Scholars/200/5/0/2.4}				
 		\connect{Motor}{Fans}
 		\connect{Aluminium_Profiles}{Fans}
+	\end{tikzpicture}}
+	\tcbox[nodebox, %Scooters
+		raster multicolumn=6, left=0mm,
+		raster multirow=2]{
+	\begin{tikzpicture}
+		\farmnodep{(0,-0.75)}{Saltpeter}{4}{Alpaca_Farm}{3×3}{4}{Alpaca_wool}
+		\prodnode{(0,-2.25)}{Minerals}{1}{Mineral_Mine}
+		\prodnode{(2,-1.5)}{Pigments}{2}{Arsenal}
+		\connect{Saltpeter}{Pigments}
+		\connect{Minerals}{Pigments}
+		
+		\prodnodefe{(2,0)}{Motor}{2}{Motor_Assembly_Plant}
+		\farmnode{(2,-3)}{Caoutchouc}{4}{Caoutchouc_Plantation}{1×1}{144}
+		\consnodefe{(5,-1.5)}{Scooter}{4}{Scooter_Factory}{Artistas/575/5/0/36,Artisans/153.85/7/0/13.5,Scholars/80/7/0/3.6}				
+		\connect{Motor}{Scooter}
+		\connect{Caoutchouc}{Scooter}
+		\connect{Pigments}{Scooter}
 	\end{tikzpicture}}
 \end{tcbraster}
