@@ -648,24 +648,6 @@
 	\begin{tcolorbox}[raster height=\boxheight,
 		height=\paperwidth-2cm, % subtract margins manually
 		page box]
-		\include{Artistas.tex}
-	\end{tcolorbox}
-\end{landscape}
-\pagebreak
-
-\begin{landscape} % SIDEWAYS PAGE
-	\begin{tcolorbox}[raster height=\boxheight,
-		height=\paperwidth-2cm, % subtract margins manually
-		page box]
-		\include{Services.tex}
-	\end{tcolorbox}
-\end{landscape}
-\pagebreak
-
-\begin{landscape} % SIDEWAYS PAGE
-	\begin{tcolorbox}[raster height=\boxheight,
-	height=\paperwidth-2cm, % subtract margins manually
-	page box]
 		\include{Explorer.tex}
 		\tcbline
 		\include{Technician.tex}
@@ -678,8 +660,8 @@
 
 \begin{landscape} % SIDEWAYS PAGE
 	\begin{tcolorbox}[raster height=\boxheight,
-	height=\paperwidth-2cm, % subtract margins manually
-	page box]
+		height=\paperwidth-2cm, % subtract margins manually
+		page box]
 		\include{shepards.tex}
 		\tcbline
 		\include{elders.tex}
@@ -688,6 +670,28 @@
 	\end{tcolorbox}
 \end{landscape}
 \pagebreak
+
+\begin{landscape} % SIDEWAYS PAGE
+	\begin{tcolorbox}[raster height=\boxheight,
+		height=\paperwidth-2cm, % subtract margins manually
+		page box]
+		\include{Artistas.tex}
+	\end{tcolorbox}
+\end{landscape}
+\pagebreak
+
+\begin{landscape} % SIDEWAYS PAGE
+	\begin{tcolorbox}[raster height=\boxheight,
+		height=\paperwidth-2cm, % subtract margins manually
+		page box]
+		\include{Services.tex}
+		\tcbline
+		\include{dropSupplies.tex}
+	\end{tcolorbox}
+\end{landscape}
+\pagebreak
+
+
 
 \begin{landscape} % SIDEWAYS PAGE
 	\begin{tcolorbox}[raster height=\boxheight,
@@ -726,6 +730,13 @@
 \end{tcolorbox}
 \pagebreak
 
+\begin{tcolorbox}[height fill,
+	raster height=\boxheight,
+	page box]
+	\include{ironTower.tex}
+\end{tcolorbox}
+\pagebreak
+
 \begin{landscape} % SIDEWAYS PAGE
 	\begin{tcolorbox}[height fill,
 		raster height=\boxheight,
@@ -734,15 +745,6 @@
 		\tcbline
 	\end{tcolorbox}
 \end{landscape} % SIDEWAYS PAGE
-\pagebreak
-
-\begin{tcolorbox}[height fill,
-	raster height=\boxheight,
-	page box]
-	\include{ironTower.tex}
-	\tcbline
-	\include{dropSupplies.tex}
-\end{tcolorbox}
 \pagebreak
 
 \begin{tcolorbox}[height fill,
@@ -776,14 +778,36 @@
 		page box]
 
 		\section{Electrification \& Symbols}
-		Almost all buildings in the \textbf{Old World}, excluding \textit{farms} and \textit{Lumberjacks}, can be electrified for up to \textit{200\%} productivity.
-		\underline{Buildings marked with\smallicon{Electricity}require electricity by default}.\\
+		Almost all buildings in the \oldworld{}Old World and \newworld{} New World, excluding \textit{farms} and \textit{Lumberjacks}, can be electrified for up to \textit{200\%} productivity. \underline{Buildings marked with\smallicon{Electricity}require electricity by default}. \newworld{} New World \textit{animal farms} supply a bonus good when electrified, Farms building are marked with \smallicon{Electricity} and the base farm type.
 		\\
-		Some buildings have variants with different statistics, these are marked with \oldworld{}Old World, \newworld{} New World, \arctic{} Artic and \enbesa{} Enbesa.
 		\\
+		Some buildings have variants with different statistics, these are marked with \oldworld{}Old World, \newworld{} New World, \arctic{} Artic and \enbesa{} Enbesa.\\
+		\\
+		Goods that can be consumed by residences show these following values: Type of residence consuming this need, Consumption rate,  Workforce, \smallicon{credits}Income, \smallicon{happiness_positive}Happiness, \smallicon{research}Research points, \smallicon{heater}Heat.\\
+		\\
+		Consumption rate displayed is the amount of basic residences can be supplied by one 100\% factory. Hacienda Quarters and Skyscrapers have different rates. Skyscraper rates are also dependant on panorama effects. Items that give bonus residents also increase the consumption rate for those residences.\\
+		\begin{tabular}{| l | l |}
+		\hline
+		Residence & consumption rate (relative to basic) \\
+		\hline
+		Hacienda Journalero Quarter & x2 \\
+		Hacienda Obrero Quarter & x2 \\
+		Hacienda Artista Quarter & x2 \\
+		\hline
+		Engineer level 1 & x[1.5 - 4] \\
+		Engineer level 2 & x[2 - 4.5] \\
+		Engineer level 3 & x[2.5 - 5] \\
+		\hline
+		Investor level 1 & x[1.5 - 4] \\
+		Investor level 2 & x[2 - 4.5] \\
+		Investor level 3 & x[2.5 - 5] \\
+		Investor level 4 & x[3 - 5.5] \\
+		Investor level 5 & x[3.5 - 6] \\
+		\hline
+		\end{tabular}\\
+		
 		
 		\tcbline
-		
 		\section{Collaboration \& Thanks}
 		If you would like to improve this document please check out the GitHub repository: \url{\thesourcerepository}\\
 		\\

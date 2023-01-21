@@ -1,12 +1,6 @@
 \section{Drop Supplies}
-\begin{tcbraster}[raster columns=5, 
-	page box]
-	\tcbox[nodebox, %Water_Drop
-	raster multicolumn=1,
-	raster multirow=3]{
-		\begin{tikzpicture}
-			\prodnode{(0,0)}{Water_Drop}{1}{Supply_Factory}
-	\end{tikzpicture}}			
+\begin{tcbraster}[raster columns=4,	grid format]
+
 	\tcbox[nodebox, %Bombs
 	raster multicolumn=1,
 	raster multirow=3]{
@@ -14,7 +8,7 @@
 			\prodnode{(0,0)}{Saltpeter}{4}{Saltpeter_Works}
 			\prodnode{(0,-1.5)}{Dynamite}{2}{Dynamite_Factory}
 			\prodnode{(0,-3)}{Steel}{1}{Furnace}
-			\prodnode{(3,-1.5)}{Bombs}{2}{Supply_Factory}
+			\prodnode{(2,-1.5)}{Bombs}{2}{Supply_Factory}
 			\connect{Saltpeter}{Bombs}
 			\connect{Dynamite}{Bombs}
 			\connect{Steel}{Bombs}
@@ -26,7 +20,7 @@
 			\prodnode{(0,0)}{Copper}{1}{Copper_Mine}
 			\prodnode{(0,-1.5)}{Dynamite}{2}{Dynamite_Factory}
 			\prodnode{(0,-3)}{Steel}{1}{Furnace}
-			\prodnode{(3,-1.5)}{Sea_Mines}{2}{Supply_Factory}
+			\prodnode{(2,-1.5)}{Sea_Mines}{2}{Supply_Factory}
 			\connect{Copper}{Sea_Mines}
 			\connect{Dynamite}{Sea_Mines}
 			\connect{Steel}{Sea_Mines}
@@ -38,7 +32,7 @@
 			\prodnode{(0,0)}{Canned_food}{3}{Cannery}
 			\prodnode{(0,-1.5)}{Chocolate}{1}{Chocolate_Factory}
 			\prodnode{(0,-3)}{Schnapps}{1}{Schnapps_Distillery}
-			\prodnode{(3,-1.5)}{Care_Packages}{2}{Supply_Factory}
+			\prodnode{(2,-1.5)}{Care_Packages}{2}{Supply_Factory}
 			\connect{Canned_food}{Care_Packages}
 			\connect{Chocolate}{Care_Packages}
 			\connect{Schnapps}{Care_Packages}
@@ -49,7 +43,7 @@
 		\begin{tikzpicture}
 			\prodnode{(0,-3)}{Wood}{1}{Lumberjack\%27s_Hut_(New_World)}
 			\farmnode{(0,0)}{Cotton}{4}{Cotton_Plantation}{1×1}{144}
-			\prodnode{(3,-1.5)}{Pamphlets}{4}{Supply_Factory}
+			\prodnode{(2,-1.5)}{Pamphlets}{4}{Supply_Factory}
 			\connect{Wood}{Pamphlets}
 			\connect{Cotton}{Pamphlets}
 	\end{tikzpicture}}	

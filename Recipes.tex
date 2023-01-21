@@ -151,18 +151,6 @@
 		\connect{Milk}{Cone_OCopia}
 		\connect{Orchid}{Cone_OCopia}
 	\end{tikzpicture}}	
-	\tcbox[nodebox, %Enbesa Sunrise
-	raster multicolumn=1,left=0mm,
-	raster multirow=3]{
-		\begin{tikzpicture}
-			\prodnode{(0,-3)}{Rum}{1}{Rum_Distillery}
-			\farmnode{(0,0)}{Hibiscus_Petals}{2}{Hibiscus_Farm}{1×1}{144}
-			\farmnode{(0,-1.5)}{Spices}{2}{Spice_Farm}{1×1}{144}
-			\barrecipe{(2.5,-1.5)}{Enbesa_Sunrise}{2}{Happiness_positive/+2,Schnapps/-15\%,Rum/-10\%,Champagne/-25\%}
-			\connect{Rum}{Enbesa_Sunrise}
-			\connect{Hibiscus_Petals}{Enbesa_Sunrise}
-			\connect{Spices}{Enbesa_Sunrise}
-	\end{tikzpicture}}	
 	\tcbox[nodebox, %Daiquiri_Tropic
 	raster multicolumn=1,left=0mm,
 	raster multirow=3]{
@@ -187,30 +175,42 @@
 			\connect{Coffee}{Black_Muscovy}
 			\connect{Schnapps}{Black_Muscovy}
 	\end{tikzpicture}}	
-	\tcbox[nodebox, %Glogg
-	raster multicolumn=1,left=0mm,
-	raster multirow=3]{
-		\begin{tikzpicture}
-			\farmnode{(0,-1.5)}{Grapes}{4}{Vineyard}{1×1}{128}
-			\prodnode{(0,-3)}{Whale_Oil}{2}{Whaling Station}
-			\orchnodenew{(0,0)}{Cinnamon}{1}
-			
-			\barrecipe{(2,-1.5)}{Glogg}{2}{Happiness_positive/+2,Beer/-20\%,Coffee/-10\%,Champagne/-10\%}
-			\connect{Grapes}{Glogg}
-			\connect{Whale_Oil}{Glogg}
-			\connect{Cinnamon}{Glogg}
-	\end{tikzpicture}}	
 	\tcbox[nodebox, %Montmartre
 	raster multicolumn=1,left=0mm,
 	raster multirow=3]{
-		\begin{tikzpicture}
-			\prodnode{(0,-1.5)}{Sugar}{1}{Sugar_Refinery}
-			\orchnodenew{(0,-3)}{Citrus}{1}		
-			\prodnode{(0,0)}{Champagne}{1}{Champagne_Cellar}
-			\barrecipe{(2.5,-1.5)}{Montmartre_75}{2}{Happiness_positive/+2,Canned_Food/-30\%,Rum/-25\%,Beer/-10\%}
-			\connect{Citrus}{Montmartre_75}
-			\connect{Champagne}{Montmartre_75}
-			\connect{Sugar}{Montmartre_75}
+	\begin{tikzpicture}
+		\prodnode{(0,-1.5)}{Sugar}{1}{Sugar_Refinery}
+		\orchnodenew{(0,-3)}{Citrus}{1}		
+		\prodnode{(0,0)}{Champagne}{1}{Champagne_Cellar}
+		\barrecipe{(2.5,-1.5)}{Montmartre_75}{2}{Happiness_positive/+2,Canned_Food/-30\%,Rum/-25\%,Beer/-10\%}
+		\connect{Citrus}{Montmartre_75}
+		\connect{Champagne}{Montmartre_75}
+		\connect{Sugar}{Montmartre_75}
+	\end{tikzpicture}}	
+	\tcbox[nodebox, %Glogg
+		raster multicolumn=1,left=0mm,
+		raster multirow=3]{
+	\begin{tikzpicture}
+		\farmnode{(0,-1.5)}{Grapes}{4}{Vineyard}{1×1}{128}
+		\prodnode{(0,-3)}{Whale_Oil}{2}{Whaling Station}
+		\orchnodenew{(0,0)}{Cinnamon}{1}
+		
+		\barrecipe{(2,-1.5)}{Glogg}{2}{Happiness_positive/+2,Beer/-20\%,Coffee/-10\%,Champagne/-10\%}
+		\connect{Grapes}{Glogg}
+		\connect{Whale_Oil}{Glogg}
+		\connect{Cinnamon}{Glogg}
+	\end{tikzpicture}}	
+	\tcbox[nodebox, %Enbesa Sunrise
+	raster multicolumn=1,left=0mm,
+	raster multirow=3]{
+	\begin{tikzpicture}
+		\prodnode{(0,-3)}{Rum}{1}{Rum_Distillery}
+		\farmnode{(0,0)}{Hibiscus_Petals}{2}{Hibiscus_Farm}{1×1}{144}
+		\farmnode{(0,-1.5)}{Spices}{2}{Spice_Farm}{1×1}{144}
+		\barrecipe{(2.5,-1.5)}{Enbesa_Sunrise}{2}{Happiness_positive/+2,Schnapps/-15\%,Rum/-10\%,Champagne/-25\%}
+		\connect{Rum}{Enbesa_Sunrise}
+		\connect{Hibiscus_Petals}{Enbesa_Sunrise}
+		\connect{Spices}{Enbesa_Sunrise}
 	\end{tikzpicture}}	
 	\tcbox[nodebox, %Absinthe
 		raster multicolumn=1,left=0mm,

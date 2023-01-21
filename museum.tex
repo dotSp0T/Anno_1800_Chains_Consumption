@@ -9,7 +9,7 @@
 		\end{tikzpicture}  	
  	}
 	\tcbox[blankest,
-		raster multicolumn=4,left=0mm, top=-15mm,
+		raster multicolumn=4,left=0mm, top=-5mm,
 		raster multirow=3]{ 
 		\begin{tcbraster}[raster height=\boxheight,
 			raster columns=4,
@@ -24,29 +24,17 @@
 			\end{tikzpicture}
 			 +20\% increased damage to sailing ships
 		}
-		\tcbox[nodebox, %Empire of the Eagle
+		\tcbox[nodebox, %Icebound
 		raster multicolumn=1,
 		raster multirow=2]{
 			\begin{tikzpicture}
-				\cultnode{(0,0)}{eagle_mosaik}{40}
-				\cultnode{(1.5,0)}{roman_sanctuary}{40}
-				\cultnodelbld{(3,0)}{augustan_forum}{50}{1800}
+				\cultnode{(0,0)}{mammoth}{50}
+				\cultnode{(1.5,0)}{wolf_mummy}{40}
+				\cultnodelbld{(3,0)}{expedition_relic}{30}{1800}
 			\end{tikzpicture}
-			All Residences:\\
-			+5\%\smallicon{credits}\\
-			-10\%\smallicon{Chance_of_Fire},\smallicon{Chance_of_Illness},\smallicon{Chance_of_Riots},\smallicon{Chance_of_Explosion} 
-	    }	
-		\tcbox[nodebox, %Gods of the Delta
-		raster multicolumn=1,
-		raster multirow=2]{
-			\begin{tikzpicture}
-				\cultnode{(0,0)}{anpu_statue}{40}
-				\cultnode{(1.5,0)}{hor_statue}{40}
-				\cultnodelbld{(3,0)}{temple_of_nafir}{50}{1800}
-			\end{tikzpicture}
-			Town Halls \& Trade Unions:\\
-			+30\smallicon{Attractiveness} +10\smallicon{Influence}  
-		}		
+			All Food\&Drinks Production:\\
+			-20\%\smallicon{balance}
+		}	
 		\tcbox[nodebox, %Heirlooms of the Gold-Realm
 		raster multicolumn=1,
 		raster multirow=2]{
@@ -57,18 +45,30 @@
 			\end{tikzpicture}
 			Harbor Activity: +20\%.\\ 
 			Gain 5t of \smallicon{Gold},\smallicon{Jewelry}
-		}		
-		\tcbox[nodebox, %Icebound
+		}
+		\tcbox[nodebox, %Gods of the Delta
+		raster multicolumn=1,
+		raster multirow=2]{
+			\begin{tikzpicture}
+				\cultnode{(0,0)}{anpu_statue}{40}
+				\cultnode{(1.5,0)}{hor_statue}{40}
+				\cultnodelbld{(3,0)}{temple_of_nafir}{50}{1800}
+			\end{tikzpicture}
+			Town Halls \& Trade Unions:\\
+			+30\smallicon{Attractiveness} +10\smallicon{Influence}  
+		}	
+		\tcbox[nodebox, %Empire of the Eagle
 			raster multicolumn=1,
 			raster multirow=2]{
 			\begin{tikzpicture}
-				\cultnode{(0,0)}{mammoth}{50}
-				\cultnode{(1.5,0)}{wolf_mummy}{40}
-				\cultnodelbld{(3,0)}{expedition_relic}{30}{1800}
+				\cultnode{(0,0)}{eagle_mosaik}{40}
+				\cultnode{(1.5,0)}{roman_sanctuary}{40}
+				\cultnodelbld{(3,0)}{augustan_forum}{50}{1800}
 			\end{tikzpicture}
-		    All Food\&Drinks Production:\\
-		    -20\%\smallicon{credits}
-		}
+			All Residences:\\
+			-10\%\smallicon{Chance_of_Fire},\smallicon{Chance_of_Illness},\smallicon{Chance_of_Riots},\smallicon{Chance_of_Explosion} 
+			+5\%\smallicon{credits}\\
+		}			
 		\tcbox[nodebox, %New World Huaca
 		raster multicolumn=1,
 		raster multirow=2]{
@@ -80,6 +80,17 @@
 			 Public Moorings:\\ 
 			 Increased Visits: +5\%
 			 \hyperlink{https://anno1800.fandom.com/wiki/New_World_Huaca_specialists_pool}{unique item pool} 
+		}	
+		\tcbox[nodebox, %Origin of Mankind
+			raster multicolumn=1,
+			raster multirow=2]{
+			\begin{tikzpicture}
+				\cultnode{(0,0)}{lascaux_painting}{40}
+				\cultnode{(1.5,0)}{neanderthaler}{50}
+				\cultnodelbld{(3,0)}{Valojoulx_painting}{50}{1800}
+			\end{tikzpicture}
+			Fisheries, Crop/Animal Farms, Hunting Cabins:\\
+			+10\%\smallicon{productivity} -5\%\smallicon{workforce} -5\%\smallicon{balance}
 		}		
 		\tcbox[nodebox, %Skull and Bones
 		raster multicolumn=1,
@@ -93,17 +104,6 @@
 			+3\% increased speed\\
 			-5\% maintenance cost\\
 			-10\% damage slowdown 
-		}	
-		\tcbox[nodebox, %Origin of Mankind
-		raster multicolumn=1,
-		raster multirow=2]{
-			\begin{tikzpicture}
-				\cultnode{(0,0)}{lascaux_painting}{40}
-				\cultnode{(1.5,0)}{neanderthaler}{50}
-				\cultnodelbld{(3,0)}{Valojoulx_painting}{50}{1800}
-			\end{tikzpicture}
-			Fisheries, Crop/Animal Farms, Hunting Cabins:\\
-			+10\%\smallicon{productivity} -5\%\smallicon{workforce} -5\%\smallicon{balance}
 		}	
 		\end{tcbraster}
 	}
@@ -121,9 +121,22 @@
 		Taiga forest, polar circle, arctic tundra, northern sagas, bronze age, thule relics, icebound, and sub-alpine:\\
 		+20\%\smallicon{Attractiveness}
 	}	
+	\tcbox[nodebox, %Atlantean
+	raster multicolumn=1, top=12mm,
+	raster multirow=2]{
+		\begin{tikzpicture}
+			\cultnode{(0,0)}{atlantis_wall}{50}
+			\cultnode{(1.5,0)}{colums_of_law}{50}
+			\cultnodelbld{(3,0)}{orichalk_statue}{50}{2070}
+			\cultnode{(0,-1.5)}{temple_of_posseidon}{50}
+			\cultnode{(1.5,-1.5)}{yonaguni_pyramid}{50}
+			\cultnode{(3,-1.5)}{atlantis_tablet}{50}
+		\end{tikzpicture}
+		Salvager get increased chance of finding Epic and Legendary artefacts.
+	}	
 	\tcbox[nodebox, % Lost Tribes
 	raster multicolumn=1, top=12mm,
-	raster multirow=3]{
+	raster multirow=2]{
 		\begin{tikzpicture}
 			\cultnode{(0,0)}{bovine_ivory_ring}{10}
 			\cultnode{(1.5,0)}{chiwara_figure}{20}
@@ -137,7 +150,7 @@
 	}	
 	\tcbox[nodebox, %Roots of Enbesa
 	raster multicolumn=1,top=12mm,
-	raster multirow=3]{
+	raster multirow=2]{
 		\begin{tikzpicture}
 			\cultnode{(0,0)}{ark_of_the_covenant}{50}
 			\cultnode{(1.5,0)}{church_kidusi_antoni}{40}
@@ -149,23 +162,9 @@
 		Scholar Residences:\\
 		 +1\smallicon{research}
 	}
-	\tcbox[nodebox, %Jurassic
-	raster multicolumn=1,top=12mm,
-	raster multirow=3]{
-		\begin{tikzpicture}
-			\cultnode{(0,0)}{dinosaur_egg}{40}
-			\cultnode{(1.5,0)}{fossils}{30}
-			\cultnodelbld{(3,0)}{mosasaurus}{50}{1800}
-			\cultnode{(0,-1.5)}{sauropodon}{50}
-			\cultnode{(1.5,-1.5)}{stegosaurus}{40}
-			\cultnode{(3,-1.5)}{t_rex}{50}
-		\end{tikzpicture}
-		All Residences:\\
-		+10\%\smallicon{credits} +10\smallicon{Happiness_positive} \\
-	}	
 	\tcbox[nodebox, %Bronze Age
 	raster multicolumn=1,top=22mm,
-	raster multirow=3]{
+	raster multirow=2]{
 		\begin{tikzpicture}
 			\cultnode{(0,0)}{celtic_carving}{40}
 			\cultnode{(1.5,0)}{celtic_dolmen}{40}
@@ -178,20 +177,6 @@
 		+5\%\smallicon{productivity} +5\smallicon{Attractiveness}\\
 		extra goods (1/10)
 	}
-	\tcbox[nodebox, %Lost Cities
-	raster multicolumn=1,top=5mm,
-	raster multirow=3]{
-		\begin{tikzpicture}
-			\cultnode{(0,0)}{mayan_calendar}{50}
-			\cultnode{(1.5,0)}{mayan_glyphs}{40}
-			\cultnodelbld{(3,0)}{mayan_house}{40}{1701}
-			\cultnode{(0,-1.5)}{mayan_seaport}{50}
-			\cultnode{(1.5,-1.5)}{mayan_temple}{50}
-			\cultnode{(3,-1.5)}{takal_necklace}{40}
-		\end{tikzpicture}
-		Harbour Activity +100\%.\\
-		gain 5t of \smallicon{Gold_Ore},\smallicon{Gold},\smallicon{Jewelry}
-	}	
 	\tcbox[nodebox, %Aegean Cultures
 		raster multicolumn=1,top=5mm,
 		raster multirow=3]{
@@ -206,19 +191,20 @@
 	Variety Theatres, Museums and Radio Towers:\\
 	+5\smallicon{Attractiveness} -20\%\smallicon{balance}. 
 	}	
-	\tcbox[nodebox, %Atlantean
-		raster multicolumn=1, top=5mm,
-		raster multirow=3]{
-	\begin{tikzpicture}
-		\cultnode{(0,0)}{atlantis_wall}{50}
-		\cultnode{(1.5,0)}{colums_of_law}{50}
-		\cultnodelbld{(3,0)}{orichalk_statue}{50}{2070}
-		\cultnode{(0,-1.5)}{temple_of_posseidon}{50}
-		\cultnode{(1.5,-1.5)}{yonaguni_pyramid}{50}
-		\cultnode{(3,-1.5)}{atlantis_tablet}{50}
-	\end{tikzpicture}
-	Salvager get increased chance of finding Epic and Legendary artefacts.
-	}		
+	\tcbox[nodebox, %Lost Cities
+	raster multicolumn=1,top=2mm,
+	raster multirow=2]{
+		\begin{tikzpicture}
+			\cultnode{(0,0)}{mayan_calendar}{50}
+			\cultnode{(1.5,0)}{mayan_glyphs}{40}
+			\cultnodelbld{(3,0)}{mayan_house}{40}{1701}
+			\cultnode{(0,-1.5)}{mayan_seaport}{50}
+			\cultnode{(1.5,-1.5)}{mayan_temple}{50}
+			\cultnode{(3,-1.5)}{takal_necklace}{40}
+		\end{tikzpicture}
+		Harbour Activity +100\%.\\
+		gain 5t of \smallicon{Gold_Ore},\smallicon{Gold},\smallicon{Jewelry}
+	}	
 	\tcbox[nodebox, %Northern Sagas
 	raster multicolumn=1, top=5mm,
 	raster multirow=3]{
@@ -230,9 +216,23 @@
 			\cultnode{(1.5,-1.5)}{viking_uppsala_altar}{50}
 			\cultnode{(3,-1.5)}{ragnarsdrapa}{30}
 		\end{tikzpicture}
-		all warships:\\
+		All warships:\\
      	+5\% maximum hitpoints\\ 
      	+3\% increased damage 
-	}	
+	}
+	\tcbox[nodebox, %Jurassic
+	raster multicolumn=1,top=2mm,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			\cultnode{(0,0)}{dinosaur_egg}{40}
+			\cultnode{(1.5,0)}{fossils}{30}
+			\cultnodelbld{(3,0)}{mosasaurus}{50}{1800}
+			\cultnode{(0,-1.5)}{sauropodon}{50}
+			\cultnode{(1.5,-1.5)}{stegosaurus}{40}
+			\cultnode{(3,-1.5)}{t_rex}{50}
+		\end{tikzpicture}
+		All Residences:\\
+		+10\%\smallicon{credits} +10\smallicon{Happiness_positive} \\
+	}		
 \end{tcbraster}
 
