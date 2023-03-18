@@ -24,3 +24,26 @@ Many thanks to my collaborators for helping me figure out how to make things in 
 
  - [McDonnough](https://github.com/McDonnough)
  - [René Kost](https://github.com/rkost)
+ - [Steven Fitzpatrick](https://github.com/f1tzpatrick)
+
+ ---
+
+## Build instructions
+
+Want to render the PDF locally?
+
+First, install `pdflatex` on your system. This program is a part of [`texlive`](https://github.com/TeX-Live).
+After that, just `cd` into the repository and run `make`.
+
+```
+# For example, on WSL / Ubuntu:
+sudo apt install texlive-full
+
+# Clone the repository
+git clone https://github.com/dotSp0T/Anno_1800_Chains_Consumption.git
+
+cd Anno_1800_Chains_Consumption/
+
+make build
+```
+
