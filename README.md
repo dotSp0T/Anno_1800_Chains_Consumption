@@ -44,9 +44,9 @@ On Windows you also have the option of using [WSL](https://en.wikipedia.org/wiki
 2. Install git: `sudo apt install git`
 3. Install texlive: `sudo apt install texlive-full`
 3. Clone this repository onto your machine: `git clone https://github.com/dotSp0T/Anno_1800_Chains_Consumption.git anno1800_cheatsheet`
-4. Change into the newly created directory: `cd anno_cheatsheet`
+4. Change into the newly created directory: `cd anno1800_cheatsheet`
 5. Compile the pdf file from source: `pdflatex --job-name=anno1800_cheatsheet main.tex`
-6. Copy it over to your Windows system: `cp /mnt/c/Users/<your_username>/Documents/`
+6. Copy it over to your Windows system: `cp ./anno1800_cheatsheet.pdf /mnt/c/Users/<your_username>/Documents/`
 
 You can find the pdf in your 'Documents' directory now, enjoy!
 
