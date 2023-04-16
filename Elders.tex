@@ -1,0 +1,87 @@
+\section{Elder Consumables}
+\begin{tcbraster}[raster columns=6,
+	grid format]
+	\tcbox[nodebox, % Ceramic
+	raster multicolumn=2, left=-8mm,
+	raster multirow=2]{
+		\begin{tikzpicture}
+			\farmnode{(0,-1.5)}{Indigo}{4}{Indigo_Farm}{1×1}{144}
+			\prodnodelbld{(0,0)}{Clay}{1}{Clay Collector}{Clay}{\enbesa}
+			\consnode{(2.5,-0.75)}{Ceramics}{2}{Ceramics_Workshop}{Elders/83.3/2/0/2}
+			\connect{Indigo}{Ceramics}
+			\connect{Clay}{Ceramics}
+	\end{tikzpicture}}
+	\tcbox[nodebox, % Clay Pipes
+		raster multicolumn=2, left=-12mm,
+		raster multirow=2]{
+	\begin{tikzpicture}
+		\farmnode{(0,-1.5)}{Tobacco}{8}{Tobacco_Plantation}{1×1}{192}
+		\prodnodelbld{(0,0)}{Clay}{1}{Clay Collector}{Clay}{\enbesa}
+		\consnode{(2.75,-0.75)}{Clay_Pipes}{6}{PipeMaker}{Elders/111.1/0/2/4,Scholars/22.2/0/3/4,Workers/100/3/0/1.6}
+		\connect{Tobacco}{Clay_Pipes}
+		\connect{Clay}{Clay_Pipes}
+	\end{tikzpicture}}
+	\tcbox[nodebox, % Hibiscus Tea
+		raster multicolumn=2, left=-12mm,
+		raster multirow=2]{
+	\begin{tikzpicture}
+		\farmnodec{(0,0)}{Hibiscus_Petals}{2}{Hibiscus_Farm}{1×1}{144}{Farmers/100/3/0/1.2}
+		\consnode{(3.5,0)}{Hibiscus_Tea}{3}{Tea_Spicer}{Shepherds/55.5/0/8/2,Elders/27.78/0/6/4,Scholars/6.33/0/3/3}
+		\connect{Hibiscus_Petals}{Hibiscus_Tea}
+	\end{tikzpicture}}
+	\tcbox[nodebox, % Tapastries
+	raster multicolumn=3,
+	raster multirow=2]{
+	\begin{tikzpicture}
+		\farmnode{(0,0)}{Linseed}{2}{Linseed_Farm}{1×1}{96}
+		\prodnode{(2,0)}{Linen}{1}{Linen_Mill}
+		\connect{Linseed}{Linen}
+		\farmnode{(2,-1.5)}{Indigo}{2}{Indigo_Farm}{1×1}{144}
+		\consnode{(4.75,-0.75)}{Tapestries}{1}{Tapestry_Looms}{Elders/95.25/0/2/5,Scholars/26.7/0/3/3,Investors/200/4/0/11}
+		\connect{Indigo}{Tapestries}
+		\connect{Linen}{Tapestries}
+	\end{tikzpicture}}
+	\tcbox[nodebox, % Illiminated Script
+		raster multicolumn=3,
+		raster multirow=2]{
+	\begin{tikzpicture}
+		\prodnode{(0,-2)}{Wood}{1}{Lumberjack\%27s_Hut_(Old_World)}
+		\consnode{(2.25,-2)}{Paper}{1}{Paper_Mill}{Artisans/133.33/5/0/1.8}
+		\connect{Paper}{Wood}
+		\farmnode{(2.25,0)}{Indigo}{4}{Indigo_Farm}{1×1}{144}
+		\consnode{(5.5,-1)}{Scriptures}{4}{Luminer}{Elders/92.6/2/0/3,Obreros/133.33/3/0/5.2}
+		\connect{Indigo}{Scriptures}
+		\connect{Scriptures}{Paper}
+	\end{tikzpicture}}
+
+	\tcbox[nodebox, % Seafood Stew
+	raster multicolumn=3,
+	raster multirow=3]{
+	\begin{tikzpicture}
+		\farmnodec{(0,0)}{Teff_Grass}{2}{Teff_Farm}{1×1}{144}{Jornaleros/58.82/2/0/0}
+		\farmnode{(0,-2)}{Spices}{2}{Spice_Farm}{1×1}{144}
+		\prodnode{(2,-1)}{Teff_Flour}{1}{Teff_Mill}
+		\connect{Teff_Grass}{Teff_Flour}
+		\connect{Spices}{Teff_Flour}
+		\prodnode{(2,-3)}{Lobsters}{2}{Lobster_Fishery}
+		\consnode{(4.75,-2)}{Seafood_Stew}{2}{Wat_Kitchen}{Elders/45/3/0/3,Scholars/11.1/22/0/4}
+		\connect{Teff_Flour}{Seafood_Stew}
+		\connect{Lobsters}{Seafood_Stew}
+	\end{tikzpicture}}
+	\tcbox[nodebox, % Lantern
+	raster multicolumn=3,
+	raster multirow=3]{
+	\begin{tikzpicture}
+		\farmnode{(0,0)}{Beeswax}{1}{Apiary}{1×1}{192}
+		\farmnode{(0,-1.5)}{Cotton}{2}{Cotton_Plantation}{1×1}{144}
+		\prodnode{(2,-0.75)}{Candles}{1}{Chandler}
+		\connect{Cotton}{Candles}
+		\connect{Beeswax}{Candles}
+		\prodnode{(0,-3.25)}{Quartz_sand}{1}{Sand_Mine}
+		\prodnode{(2,-3.25)}{Glass}{1}{Glassmakers}
+		\connect{Quartz_sand}{Glass}
+		\consnode{(4.75,-1.75)}{Lanterns}{2}{Lanternsmith}{Elders/55.56/3/0/5,Artistas/55.56/4/0/0}
+		\connect{Glass}{Lanterns}
+		\connect{Candles}{Lanterns}
+	\end{tikzpicture}}
+\end{tcbraster}

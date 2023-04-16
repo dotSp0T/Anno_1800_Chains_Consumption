@@ -1,0 +1,80 @@
+\section{Scholar Consumables}
+\begin{tcbraster}[raster columns=14,
+	grid format]
+	\tcbox[nodebox, % Leather_Suits
+	raster multicolumn=7,
+	raster multirow=2]{
+	\begin{tikzpicture}
+		\farmnode{(0,0)}{Linseed}{2}{Linseed_Farm}{1×1}{96}
+		\prodnode{(2,0)}{Linen}{1}{Linen_Mill}
+		\connect{Linseed}{Linen}
+		\farmnode{(0,-1.5)}{Cotton}{2}{Cotton_Plantation}{1×1}{144}
+		\prodnode{(2,-1.5)}{Cotton_fabric}{1}{Cotton_Mill}
+		\connect{Cotton}{Cotton_fabric}
+		\consnode{(4.5,-0.75)}{Tailored_Suits}{2}{Tailor's_Shop}{Scholars/6.06/23/0/4}
+		\connect{Linen}{Tailored_Suits}
+		\connect{Cotton_fabric}{Tailored_Suits}
+	\end{tikzpicture}}
+	\tcbox[nodebox, % Telephones
+	raster multicolumn=7, left=1mm,
+	raster multirow=2]{
+	\begin{tikzpicture}
+		\prodnode{(0.75,0)}{Wood}{1}{Lumberjack\%27s_Hut_(Old_World)}
+		\prodnode{(3,0)}{Wood_veneers}{4}{Marquetry_Workshop_(Old_World)}
+		\connect{Wood}{Wood_veneers}
+		\prodnode{(0,-1.5)}{Charcoal_kiln}{2}{Charcoal_Kiln}
+		\prodnode{(1.5,-1.5)}{Coal}{1}{Coal_Mine}
+		\divider{Charcoal_kiln}{Coal}
+		\prodnode{(3, -1.5)}{Carbon_filament}{4}{Filament_Factory}
+		\connect{Coal}{Carbon_filament}
+		\consnodefe{(5.25,-0.75)}{Telephones}{3}{Telephone_Manufacturer}{Scholars/14.8/20/0/2}
+		\connect{Wood_veneers}{Telephones}
+		\connect{Carbon_filament}{Telephones}
+	\end{tikzpicture}}
+	\tcbox[blankest,
+	raster multicolumn=6,
+	raster multirow=3]{
+ 		\begin{tcbraster}[raster height=\boxheight,
+		raster columns=1, 
+		grid format]
+			\tcbox[nodebox, %Leather Boots
+			raster multicolumn=1, valign=bottom,
+			raster multirow=1]{
+			\begin{tikzpicture}
+				\farmnode{(0,0)}{Sanga_cow}{1}{Sanga_Farm}{4×4}{5}
+				\consnode{(2.5,0)}{Leather_Boots}{1}{BootMakers}{Scholars/8.3/0/3/3,Tourists/23.53/22/0/170}
+				\connect{Sanga_cow}{Leather_Boots}
+			\end{tikzpicture}}
+			\tcbox[nodebox, %Advanced_Coffee_Roaster
+			raster multicolumn=1, valign=top,
+			raster multirow=1]{
+			\begin{tikzpicture}
+				\farmnode{(0,0)}{Grain}{2}{Grain_Farm}{1×1}{144}
+				\prodnode{(2,0)}{Malt}{1}{Malthouse}
+				\prodnodelbldfe{(4,0)}{Coffee}{1}{Advanced_Coffee_Roaster}{Coffee}{\smallicon{Research}}
+				\connect{Grain}{Malt}
+				\connect{Malt}{Coffee}
+			\end{tikzpicture}}
+		\end{tcbraster}
+	}
+	\tcbox[nodebox, %Advanced_Cotton_Mill
+	raster multicolumn=4,
+	raster multirow=2]{
+	\begin{tikzpicture}
+		\prodnode{(0,0)}{Wood}{1}{Lumberjack\%27s_Hut_(Old_World)}
+		\farmnode{(0,-1.5)}{Wool}{2}{Sheep_Farm}{3×3}{3}
+		\prodnodelbldfe{(2,-0.75)}{Cotton_Fabric}{2}{Advanced_Cotton_Mill}{Cotton}{\smallicon{Research}}
+		\connect{Wood}{Cotton}
+		\connect{Wool}{Cotton}
+	\end{tikzpicture}}
+	\tcbox[nodebox, %Advanced_Rum_Distillery
+	raster multicolumn=4,
+	raster multirow=2]{
+		\begin{tikzpicture}
+		 	\farmnode{(0,-1.5)}{Potato}{2}{Potato_Farm}{1×1}{72}
+			\prodnode{(0,0)}{Coal}{1}{Coal_Mine}
+			\prodnodelbldfe{(2,-0.75)}{Rum}{2}{Advanced_Rum_Distillery}{Rum}{\smallicon{Research}}
+			\connect{Potato}{Rum}
+			\connect{Coal}{Rum}
+	\end{tikzpicture}}
+\end{tcbraster}

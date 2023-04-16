@@ -1,0 +1,58 @@
+\section{Artisan Consumables}
+\begin{tcbraster}[raster columns=\portraitraster,
+	grid format]
+	\tcbox[nodebox, % Canned Food
+	raster multicolumn=6, left=-5mm,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			\consnodelbld{(0,-2)}{Beef}{8}{Cattle_Farm}{Beef_o}{\oldworld}{Workers/40/2/0/5}
+			\consnodelbld{(1.5,-2)}{Beef}{4}{Cattle_Farm}{Beef_n}{\newworld}{Workers/20/0/0/0}
+			\divider{Beef_o}{Beef_n}
+			
+			\farmnode{(0.75,-0)}{Red_peppers}{8}{Red_Pepper_Farm}{1×1}{108}
+			\prodnode{(3.5,-0.75)}{Goulash}{8}{Artisanal_Kitchen}
+			\connect{Beef_n}{Goulash}
+			\connect{Red_peppers}{Goulash}
+			
+			\prodnode{(3.5,-2.5)}{Iron}{1}{Iron_Mine}
+			
+			\consnode{(7,-1.5)}{Canned_food}{6}{Cannery}{Artisans/65/4/0/6,Engineers/32.5/12/0/16,Technicians/55.55/3/0/10,Scholars/11.11/19/0/1,Shepherds/66.66/3/0/2.2}
+			\connect{Goulash}{Canned_food}
+			\connect{Iron}{Canned_food}
+	\end{tikzpicture}}
+
+	\tcbox[nodebox, % Fur Coats
+		raster multicolumn=3, left=0mm, top=6mm,
+		raster multirow=2]{
+	\begin{tikzpicture}
+		\farmnode{(0,0)}{Cotton}{4}{Cotton_Plantation}{1×1}{144}
+		\consnode{(2,0)}{Cotton_fabric}{2}{Cotton_Mill}{Elders/50/4/0/0}
+		\connect{Cotton}{Cotton_fabric}
+		
+		\consnodelbld{(1.75,-2.5)}{Furs}{4}{Hunting_Cabin}{Furs_o}{\oldworld}{Investors/62.5/3/0/3}
+		\consnodelbld{(0.0,-2.5)}{Furs}{1}{Hunting_Cabin}{Furs_a}{\arctic}{Investors/250/0/0/0}
+		\divider{Furs_a}{Furs_o}
+		
+		\consnode{(5.25,-1.25)}{Fur_Coats}{2}{Fur_Dealer}{Artisans/75/2/0/18,Engineers/37.5/6/0/48,Tourists/2/0/3/600}
+		\connect{Cotton_fabric}{Fur_Coats}
+		\connect{Furs_o}{Fur_Coats}
+	\end{tikzpicture}}
+	\tcbox[nodebox, % Sewing Machines
+		raster multicolumn=3, left=3mm, top=5mm,
+		raster multirow=2]{
+	\begin{tikzpicture}
+		\prodnode{(0.75,0)}{Iron}{1}{Iron_Mine}
+		\prodnode{(0,-1.5)}{Charcoal_kiln}{2}{Charcoal_Kiln}
+		\prodnode{(1.5,-1.5)}{Coal}{1}{Coal_Mine}
+		\divider{Charcoal_kiln}{Coal}
+		\prodnode{(3,-0.75)}{Steel}{2}{Furnace}
+		\connect{Iron}{Steel}
+		\connect{Coal}{Steel}
+		
+		\prodnode{(3,-2.5)}{Wood}{1}{Lumberjack\%27s_Hut_(Old_World)}
+		
+		\consnode{(5.5,-1.5)}{Sewing_machines}{2}{Sewing_Machine_Factory}{Artisans/70/2/0/12,Engineers/35/6/0/32,Obreros/80/2/0/5,Artistas/80/5/0/16,Elders/111.11/2/0/6.4}
+		\connect{Steel}{Sewing_machines}
+		\connect{Wood}{Sewing_machines}
+	\end{tikzpicture}}
+\end{tcbraster}

@@ -1,0 +1,64 @@
+\section{Engineer Skyscrapers Consumables}
+\begin{tcbraster}[raster columns=\portraitraster,
+	grid format]
+	
+	\tcbox[nodebox, %Type_Writers
+		raster multicolumn=3, left=-3mm,
+		raster multirow=5]{
+	\begin{tikzpicture}
+		\prodnode{(0.75,0)}{Iron}{1}{Iron_Mine}
+		\prodnode{(0,-1.5)}{Charcoal_kiln}{2}{Charcoal_Kiln}
+		\prodnode{(1.5,-1.5)}{Coal}{1}{Coal_Mine}
+		\divider{Charcoal_kiln}{Coal}
+		\prodnode{(3,-0.75)}{Steel}{2}{Furnace}
+		\connect{Iron}{Steel}
+		\connect{Coal}{Steel}
+		
+	
+		\prodnode{(0.75,-3)}{Zinc}{2}{Zinc_Mine}
+		\prodnode{(0.75,-4.5)}{Copper}{2}{Copper_Mine}
+		\prodnode{(2.5, -3.75)}{Brass}{4}{Brass_Smeltery}
+		\connect{Zinc}{Brass}
+		\connect{Copper}{Brass}
+		
+		\chemnodeold{(2.5,-6)}{Lacquer}{2}
+		\asslnodecons{(5.5,-3.75)}{Typewriters}{1}{Engineers/500/10/0/38,Investors/285.6/10/0/38,Obreros/500/5/0/7}
+		\connect{Brass}{Typewriters}
+		\connect{Steel}{Typewriters}
+		\connect{Lacquer}{Typewriters}
+	\end{tikzpicture}}
+	\tcbox[nodebox, %Violins
+		raster multicolumn=3,left=-3mm,
+		raster multirow=5]{
+	\begin{tikzpicture}
+		\prodnode{(0.75,0)}{Iron}{1}{Iron_Mine}
+		\prodnode{(0,-1.5)}{Charcoal_kiln}{2}{Charcoal_Kiln}
+		\prodnode{(1.5,-1.5)}{Coal}{1}{Coal_Mine}
+		\divider{Charcoal_kiln}{Coal}
+		\prodnode{(3,-0.75)}{Steel}{2}{Furnace}
+		\connect{Iron}{Steel}
+		\connect{Coal}{Steel}
+		
+		\orchnodenew{(2.5,-3.5)}{Cherry_Wood}{2}
+		
+		\chemnodeold{(2.5,-6)}{Lacquer}{2}
+		\arwsnodecons{(5.5,-3.75)}{Violins}{4}{Engineers/333.3/5/0/28.8,Investors/314.4/5/0/21}
+		\connect{Cherry_Wood}{Violins}
+		\connect{Steel}{Violins}
+		\connect{Lacquer}{Violins}
+	\end{tikzpicture}}	
+	\tcbox[nodebox, %Chewing_Gum
+		raster multicolumn=3,
+		raster multirow=3]{
+	\begin{tikzpicture}
+		\farmnode{(0,0)}{Sugar_cane}{1}{Sugar_Cane_Plantation}{1×1}{128}
+		\prodnode{(2,0)}{Sugar}{1}{Sugar_Refinery}
+		\connect{Sugar_cane}{Sugar}
+		\orchnodenew{(2,-1.5)}{Cinnamon}{1}
+		\farmnode{(2,-3)}{Caoutchouc}{2}{Caoutchouc_Plantation}{1×1}{144}
+		\chemnodenewcons{(5,-1.5)}{Chewing_Gum}{1}{Engineers/384.6/10/0/17.2,Investors/363.6/10/0/12.5}
+		\connect{Sugar}{Chewing_Gum}
+		\connect{Cinnamon}{Chewing_Gum}
+		\connect{Caoutchouc}{Chewing_Gum}
+	\end{tikzpicture}}	
+\end{tcbraster}

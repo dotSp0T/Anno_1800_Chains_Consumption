@@ -1,0 +1,189 @@
+\section{Building Materials}
+\begin{tcbraster}[raster columns=32,
+	grid format]
+	\tcbox[blankest,
+	raster multicolumn=10,left=0mm,
+	raster multirow=9]{
+		\begin{tcbraster}[raster height=\boxheight,
+			raster columns=1,
+			grid format]
+			\tcbox[nodebox, raster multicolumn=1, raster multirow=1]{ % Timber
+				\begin{tikzpicture}
+					\prodnode{(0,0)}{Wood}{1}{Lumberjack\%27s_Hut_(Old_World)}
+					\prodnodec{(3,0)}{Timber}{1}{Sawmill_(Old_World)}{15}
+					\connect{Wood}{Timber}
+			\end{tikzpicture}}
+			\tcbox[nodebox, raster multicolumn=1, raster multirow=1]{ % Bricks
+				\begin{tikzpicture}
+					\consnodelbld{(0,0)}{Clay}{1}{Clay_Pit_(Old_World)}{Clay}{\oldworld}{Artisans/25/1/0/7.5}
+					\prodnodec{(3,0)}{Bricks}{2}{Brick_Factory_(Old_World)}{60}
+					\connect{Clay}{Bricks}
+			\end{tikzpicture}}
+			\tcbox[nodebox, raster multicolumn=1, raster multirow=1]{% Wanza_Timber
+				\begin{tikzpicture}
+					\consnodec{(0,0)}{Wansa_Wood}{1}{Wanza_Woodcutter}{15}{Shepherds/50/1/0/0.5}
+				\end{tikzpicture}}
+			\tcbox[nodebox, raster multicolumn=1, raster multirow=2]{% Mud_bricks
+				\begin{tikzpicture}
+					\farmnode{(0,-1.5)}{Teff_Grass}{4}{Teff_Farm}{1×1}{144}
+					\prodnodelbld{(0,0)}{Clay}{1}{Clay Collector}{Clay}{\enbesa}
+					\prodnodec{(2,-0.75)}{Mud_bricks}{4}{Brick_Dry-House}{15}
+					\connect{Teff_Grass}{Mud_bricks}
+					\connect{Clay}{Mud_bricks}
+				\end{tikzpicture}}
+			\tcbox[nodebox, % Sails
+			raster multicolumn=1,
+			raster multirow=1]{
+				\begin{tikzpicture}
+					\farmnode{(0,0)}{Wool}{1}{Sheep_Farm}{3×3}{3}
+					\prodnodec{(3,0)}{Sails}{1}{Sailmakers_(Old_World)}{30}
+					\connect{Wool}{Sails}
+			\end{tikzpicture}}
+			\tcbox[nodebox, % Sails
+			raster multicolumn=1,
+			raster multirow=1]{
+				\begin{tikzpicture}
+					\farmnode{(0,2)}{Cotton}{2}{Cotton_Plantation}{1×1}{144}
+					\prodnode{(2,2)}{Cotton_fabric}{1}{Cotton_Mill}
+					\connect{Cotton}{Cotton_fabric}
+					\prodnodec{(4,2)}{Sails}{1}{Sailmakers_(Old_World)}{30}
+					\connect{Cotton_fabric}{Sails}
+			\end{tikzpicture}}
+			\tcbox[nodebox, raster multicolumn=1, raster multirow=2, top=0mm,=]{% Aluminium_Profiles
+			\begin{tikzpicture}
+				\prodnodelbld{(0,0)}{Charcoal_kiln}{3}{Charcoal_Kiln}{Coal}{\newworld}
+				\prodnode{(0,-1.5)}{Bauxite}{1}{Bauxite_Mine}
+				\prodnodec{(2,-0.75)}{Aluminium_Profiles}{9}{Aluminium_Smelter}{90}	
+				\connect{Coal}{Aluminium_Profiles}
+				\connect{Bauxite}{Aluminium_Profiles}
+			\end{tikzpicture}}
+		\end{tcbraster}}
+	\tcbox[blankest,
+	raster multicolumn=11, left=0mm, 
+	raster multirow=9]{
+		\begin{tcbraster}[raster height=\boxheight,
+		raster columns=1,
+		grid format]
+		\tcbox[nodebox, raster multicolumn=1, raster multirow=2, top=-10mm]{% Steel Beams
+		\begin{tikzpicture}
+			\prodnode{(0.75,0)}{Iron}{1}{Iron_Mine}
+			\prodnode{(0,-1.5)}{Charcoal_kiln}{2}{Charcoal_Kiln}
+			\prodnode{(1.5,-1.5)}{Coal}{1}{Coal_Mine}
+			\divider{Charcoal_kiln}{Coal}
+			\prodnode{(3,-0.75)}{Steel}{2}{Furnace}
+			\connect{Iron}{Steel}
+			\connect{Coal}{Steel}
+			\prodnodec{(5,-0.75)}{Steel_beams}{3}{Steelworks}{45}
+			\connect{Steel}{Steel_beams}
+		\end{tikzpicture}}
+		\tcbox[nodebox, raster multicolumn=1, raster multirow=2, top=-10mm]{% Windows
+		\begin{tikzpicture}
+			\prodnode{(0,0)}{Quartz_sand}{2}{Sand_Mine}
+			\prodnode{(2,0)}{Glass}{2}{Glassmakers}
+			\connect{Quartz_sand}{Glass}
+			
+			\prodnode{(2,-1.5)}{Wood}{1}{Lumberjack\%27s_Hut_(Old_World)}
+			\prodnodec{(4,-0.75)}{Windows}{4}{Window_Makers}{60}
+			\connect{Glass}{Windows}
+			\connect{Wood}{Windows}
+		\end{tikzpicture}}
+		\tcbox[nodebox, % Concrete
+			raster multicolumn=3, top=-2mm,
+			raster multirow=2]{
+		\begin{tikzpicture}
+			\prodnode{(0.75,0)}{Iron}{1}{Iron_Mine}
+			\prodnode{(0,-1.5)}{Charcoal_kiln}{2}{Charcoal_Kiln}
+			\prodnode{(1.5,-1.5)}{Coal}{1}{Coal_Mine}
+			\divider{Charcoal_kiln}{Coal}
+			\prodnode{(3,-0.75)}{Steel}{2}{Furnace}
+			\connect{Iron}{Steel}
+			\connect{Coal}{Steel}
+			
+			\prodnode{(3,-2.5)}{Cement}{2}{Limestone_Quarry}
+			\prodnodec{(5,-1.5)}{Reinforced_concrete}{4}{Concrete_Factory}{60}
+			\connect{Steel}{Reinforced_concrete}
+			\connect{Cement}{Reinforced_concrete}
+		\end{tikzpicture}}
+		
+		\tcbox[nodebox, % Helium
+		raster multicolumn=1, top=6mm,
+		raster multirow=2]{
+			\begin{tikzpicture}
+				\prodnode{(0,-0.75)}{Fish_Oil}{1}{Fish_Oil_Factory}
+				\prodnode{(0,-2.25)}{Saltpeter}{4}{Saltpeter_Works}
+				\prodnode{(2,-1.5)}{Industrial_Lubricant}{1}{Industrial_Oil_Press}
+				\prodnodelbld{(2,0)}{Clay}{2}{Clay_Pit_}{Clay}{\newworld}
+				\prodnodec{(4,-0.75)}{Helium}{1}{Helium_Extractor}{15}	
+				\connect{Fish_Oil}{Industrial_Lubricant}
+				\connect{Saltpeter}{Industrial_Lubricant}
+				\connect{Clay}{Helium}
+				\connect{Industrial_Lubricant}{Helium}
+		\end{tikzpicture}}
+	\end{tcbraster}}
+   	\tcbox[blankest,
+    raster multicolumn=11, left=0mm,
+    raster multirow=9]{
+    	\begin{tcbraster}[raster height=\boxheight,
+    		raster columns=1,
+    		grid format]
+		\tcbox[nodebox, % Weapons
+		raster multicolumn=1, top=-20mm,
+		raster multirow=2]{
+		\begin{tikzpicture}
+			\prodnode{(0.75,0)}{Iron}{1}{Iron_Mine}
+			\prodnode{(0,-1.5)}{Charcoal_kiln}{2}{Charcoal_Kiln}
+			\prodnode{(1.5,-1.5)}{Coal}{1}{Coal_Mine}
+			\divider{Charcoal_kiln}{Coal}
+			\prodnode{(3,-0.75)}{Steel}{2}{Furnace}
+			\connect{Iron}{Steel}
+			\connect{Coal}{Steel}
+			\prodnodec{(5,-0.75)}{Weapons}{6}{Weapon_Factory}{90}
+			\connect{Steel}{Weapons}
+		\end{tikzpicture}}
+		\tcbox[nodebox, % Advanced Weapons
+		raster multicolumn=1,top=-10mm,
+		raster multirow=3]{
+			\begin{tikzpicture}
+				\farmnode{(0,0)}{Pigs}{4}{Pig_Farm}{2×3}{5}
+				\prodnode{(2,0)}{Tallow}{4}{Rendering_Works}
+				\connect{Pigs}{Tallow}
+				
+				\prodnode{(2,-1.5)}{Saltpeter}{8}{Saltpeter_Works}
+				\consnode{(4.5,-0.75)}{Dynamite}{4}{Dynamite_Factory}{Technicians/166.67/3/0/0}
+				\connect{Tallow}{Dynamite}
+				\connect{Saltpeter}{Dynamite}
+				
+				\prodnode{(1,-3)}{Iron}{1}{Iron_Mine}
+				\prodnode{(0.25,-4.5)}{Charcoal_kiln}{2}{Charcoal_Kiln}
+				\prodnode{(1.75,-4.5)}{Coal}{1}{Coal_Mine}
+				\divider{Charcoal_kiln}{Coal}
+				\prodnode{(3.5,-3.75)}{Steel}{2}{Furnace}
+				\connect{Iron}{Steel}
+				\connect{Coal}{Steel}
+				\prodnodefec{(6,-2.75)}{Advanced_weapons}{4}{Heavy_Weapons_Factory}{60}
+				\connect{Dynamite}{Advanced_weapons}
+				\connect{Steel}{Advanced_weapons}
+		\end{tikzpicture}}
+		\tcbox[nodebox, % Steam Engines
+		raster multicolumn=1, top=10mm,
+		raster multirow=3]{
+			\begin{tikzpicture}
+				\prodnode{(0.75,0)}{Iron}{1}{Iron_Mine}
+				\prodnode{(0,-1.5)}{Charcoal_kiln}{2}{Charcoal_Kiln}
+				\prodnode{(1.5,-1.5)}{Coal}{1}{Coal_Mine}
+				\divider{Charcoal_kiln}{Coal}
+				\prodnode{(3,-0.75)}{Steel}{2}{Furnace}
+				\connect{Iron}{Steel}
+				\connect{Coal}{Steel}
+				
+				\prodnode{(0.75,-3)}{Zinc}{2}{Zinc_Mine}
+				\prodnode{(0.75,-4.5)}{Copper}{2}{Copper_Mine}
+				\prodnode{(3, -3.75)}{Brass}{4}{Brass_Smeltery}
+				\connect{Zinc}{Brass}
+				\connect{Copper}{Brass}
+				\prodnodefec{(5, -2.25)}{Steam_motors}{3}{Motor_Assembly_Line}{45}
+				\connect{Steel}{Steam_motors}
+				\connect{Brass}{Steam_motors}
+		\end{tikzpicture}}
+	\end{tcbraster}}
+\end{tcbraster}

@@ -1,0 +1,93 @@
+\section{Public Services}
+\begin{tcbraster}[raster columns=12, grid format]
+	\tcbox[nodebox, %Fire_Extinguishers
+		raster multicolumn=6, left=0mm,
+		raster multirow=3]{
+	\begin{tikzpicture}
+		\prodnode{(0,0)}{Iron}{1}{Iron_Mine}
+		\prodnode{(0,-1.5)}{Charcoal_kiln}{2}{Charcoal_Kiln}
+		\prodnode{(2,-0.75)}{Steel}{2}{Furnace}
+		\connect{Charcoal_kiln}{Steel}
+		\connect{Iron}{Steel}
+		\farmnode{(2,-2.25)}{Caoutchouc}{4}{Caoutchouc_Plantation}{1×1}{144}
+		
+		\prodnode{(4,-1.5)}{Fire_Extinguishers}{3}{Arsenal}
+		\prodnode{(6,-1.5)}{Fire_Department}{24}{Fire_department}
+		\connect{Caoutchouc}{Fire_Extinguishers}
+		\connect{Steel}{Fire_Extinguishers}
+		\connect{Fire_Extinguishers}{Fire_Department}
+	\end{tikzpicture}}
+	\tcbox[nodebox, %Film Reals
+	raster multicolumn=6, left=-6mm, top=0mm,
+	raster multirow=3]{
+	\begin{tikzpicture}
+		\chemnodenew{(0,-2)}{Celluloid}{2}
+		\farmnodep{(0,0)}{Saltpeter}{4}{Alpaca_Farm}{3×3}{4}{Alpaca_wool}
+		\chemnodenewcons{(2.75,-1)}{film_reel}{2}{Investors/189/5/0/8.5,Scholars/160/4/0/4.8}
+		\consnode{(6.25,-1)}{Cinema}{12}{Cinema}{Artistas/-/0/4/12,Jornaleros/-/2/0/1.6}
+		\connect{Celluloid}{film_reel}
+		\connect{Saltpeter}{film_reel}
+		\connect{film_reel}{Cinema}
+	\end{tikzpicture}}
+	\tcbox[nodebox, %Police_Equipment
+		raster multicolumn=6, left=0mm,
+		raster multirow=3]{
+	\begin{tikzpicture}
+		\prodnode{(2,-2.25)}{Wood}{1}{Lumberjack\%27s_Hut_(Old_World)}
+		\prodnode{(0,0)}{Iron}{1}{Iron_Mine}
+		\prodnode{(0,-1.5)}{Charcoal_kiln}{2}{Charcoal_Kiln}
+		\prodnode{(2,-0.75)}{Steel}{2}{Furnace}
+		\connect{Charcoal_kiln}{Steel}
+		\connect{Iron}{Steel}
+		\farmnode{(0,-3.75)}{Cotton}{2}{Cotton_Plantation}{1×1}{144}
+		\prodnode{(2,-3.75)}{Cotton_fabric}{1}{Cotton_Mill}
+		\connect{Cotton}{Cotton_fabric}
+		
+		\prodnode{(4,-2.25)}{Police_Equipment}{4}{Supply_Factory}
+		\prodnode{(6,-2.25)}{Police_Headquarters}{24}{Police_Headquarters}
+		\connect{Steel}{Police_Equipment}
+		\connect{Wood}{Police_Equipment}
+		\connect{Cotton_fabric}{Police_Equipment}
+		\connect{Police_Equipment}{Police_Headquarters}
+	\end{tikzpicture}}
+	\tcbox[nodebox, %Costumes
+		raster multicolumn=6, left=-6mm, top=0mm,
+		raster multirow=3]{
+	\begin{tikzpicture}
+		\farmnode{(0,0)}{Cotton}{4}{Cotton_Plantation}{1×1}{144}
+		\prodnode{(2,0)}{Cotton_fabric}{2}{Cotton_Mill}
+		\connect{Cotton}{Cotton_fabric}
+		\farmnodep{(2,-1.75)}{Nandu_Feathers}{2}{Nandu_Farm}{4×4}{4}{nandu_leather}
+		\farmnodep{(0,-4.25)}{Saltpeter}{4}{Alpaca_Farm}{3×3}{4}{Alpaca_wool}
+		\prodnode{(0,-2.75)}{Minerals}{1}{Mineral_Mine}
+		\prodnode{(2,-3.5)}{Pigments}{3}{Arsenal}
+		\connect{Saltpeter}{Pigments}
+		\connect{Minerals}{Pigments}
+		
+		\prodnode{(4,-1.75)}{Costumes}{4}{Costume_Shop}
+		\consnode{(6.25,-1.75)}{samba_school}{8}{Samba_School}{Artistas/-/0/4/12,Obreros/-/2/0/2.8}
+		\connect{Cotton_fabric}{Costumes}
+		\connect{Nandu_Feathers}{Costumes}
+		\connect{Pigments}{Costumes}
+		\connect{Costumes}{samba_school}
+	\end{tikzpicture}}
+	\tcbox[nodebox, %Medicine
+		raster multicolumn=6, left=0mm,
+		raster multirow=3]{
+	\begin{tikzpicture}
+		\prodnode{(0,-1)}{Wood}{1}{Lumberjack\%27s_Hut_(Old_World)}
+		\farmnode{(0,-2.5)}{Corn}{4}{Corn_Farm}{1×1}{168}
+		\chemnodenew{(2,-1.75)}{Ethanol}{2}
+		\connect{Wood}{Ethanol}
+		\connect{Corn}{Ethanol}
+		\farmnode{(2,0)}{Herbs}{1}{Herb_Garden}{1×1}{128}
+		\farmnode{(2,-3.5)}{Orchid}{2}{Orchid_Farm}{1×1}{128}
+		
+		\consnode{(4.75,-1.75)}{Medicine}{3}{Arsenal}{engineers/80/7/0/6.4}
+		\prodnode{(7.5,-1.75)}{City_Hospital}{24}{City_Hospital}
+		\connect{Orchid}{Medicine}
+		\connect{Ethanol}{Medicine}
+		\connect{Herbs}{Medicine}
+		\connect{Medicine}{City_Hospital}
+	\end{tikzpicture}}
+\end{tcbraster}

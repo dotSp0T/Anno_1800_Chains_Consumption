@@ -1,0 +1,248 @@
+\section{Zoo}
+\begin{tcbraster}[raster columns=5, 
+	grid format]
+	\tcbox[nodebox, %skip
+ 		raster multicolumn=1,
+	 	raster multirow=3]{
+	\begin{tikzpicture}
+		\consnode{(0,0)}{zoo}{1}{Zoo}{Tourists/-/0/3/375}
+	\end{tikzpicture} 	
+ 	
+ 	}
+	\tcbox[blankest,
+		raster multicolumn=4,left=0mm, top=-5mm,
+		raster multirow=3]{ 
+		\begin{tcbraster}[raster height=\boxheight,
+			raster columns=4,
+			grid format]
+		\tcbox[nodebox, %Luminaries
+		raster multicolumn=1, top=-2mm,
+		raster multirow=2]{
+			\begin{tikzpicture}
+				\cultnode{(0,0)}{Dragonfish}{30}
+				\cultnode{(1.5,0)}{Firefly_Squid}{30}
+				\cultnodelbld{(3,0)}{Luminescent_Fish}{30}{2205}
+			\end{tikzpicture}
+			+3\smallicon{Attractiveness} from \smallicon{Pub},\smallicon{Variety_Theatre},\smallicon{Members_Club},\smallicon{department_store},\smallicon{drug_store},\smallicon{furniture_store},\smallicon{Restaurant}
+		}	
+		\tcbox[nodebox, %Arctic Tundra
+		raster multicolumn=1,
+		raster multirow=2]{
+			\begin{tikzpicture}
+				\cultnode{(0,0)}{arctic_wolf}{30}
+				\cultnode{(1.5,0)}{musk_oxen}{30}
+				\cultnodelbld{(3,0)}{reindeer}{30}{2205}
+			\end{tikzpicture}
+			 Public Moorings:\\ 
+			 Increased Visits: +5\%\\
+ 			 +100\smallicon{Attractiveness}\\
+		}
+		\tcbox[nodebox, %Teeming Lakes
+		raster multicolumn=1,
+		raster multirow=2]{
+			\begin{tikzpicture}
+				\cultnode{(0,0)}{flamingo}{20}
+				\cultnode{(1.5,0)}{grey_crowned_crane}{30}
+				\cultnode{(3,0)}{hippotanamus}{40}
+			\end{tikzpicture}
+			all Coastal Buildings:\\
+			+20\%\smallicon{Productivity}
+		}	
+		\tcbox[nodebox, %Great Desert
+		raster multicolumn=1,
+		raster multirow=2]{
+			\begin{tikzpicture}
+				\cultnode{(0,0)}{dromedary}{20}
+				\cultnode{(1.5,0)}{fennec}{30}
+				\cultnode{(3,0)}{scorpion}{30}
+			\end{tikzpicture}
+			Fire Station:\\
+			Extinguish Speed: +30\%\\
+			Movement Speed: +10\%
+		}		
+		\tcbox[nodebox, %Cordillera
+		raster multicolumn=1, top=-2mm,
+		raster multirow=2]{
+			\begin{tikzpicture}
+				\cultnode{(0,0)}{alpaca}{20}
+				\cultnode{(1.5,0)}{spectacled_bear}{40}
+				\cultnodelbld{(3,0)}{vulture}{20}{1701}
+			\end{tikzpicture}
+			Farmers and Jornaleros:\\
+			+10\%\smallicon{workforce}	+10\%\smallicon{credits}
+		}	
+		\tcbox[nodebox, %Taiga Forest
+		raster multicolumn=1,
+		raster multirow=2]{
+			\begin{tikzpicture}
+				\cultnode{(0,0)}{black_bear}{20}
+				\cultnode{(1.5,0)}{brown_bear}{20}
+				\cultnodelbld{(3,0)}{elk}{30}{2205}
+			\end{tikzpicture}
+			 Residents consume 5\% less \smallicon{Fish},\smallicon{Bread},\smallicon{Canned_Food},\smallicon{Sausages},\smallicon{Chocolate},\smallicon{Fried_Plantains},\smallicon{Tortilla},\smallicon{Seafood_Stew}.
+		}	
+		\tcbox[nodebox, %Extinct Species
+		raster multicolumn=1, top=0mm,
+		raster multirow=2]{
+			\begin{tikzpicture}
+				\cultnode{(0,0)}{dire_wolf}{50}
+				\cultnode{(1.5,0)}{giant_deer}{50}
+				\cultnodelbld{(3,0)}{kolponomos}{20}{1800}
+			\end{tikzpicture}
+			Zoological Gardens:\\
+			+10\%\smallicon{Attractiveness}
+		}		
+		\tcbox[nodebox, %Ocean Predators
+		raster multicolumn=1,
+		raster multirow=2]{
+			\begin{tikzpicture}
+				\cultnode{(0,0)}{orca}{30}
+				\cultnode{(1.5,0)}{shark}{40}
+				\cultnodelbld{(3,0)}{swordfish}{30}{2070}
+			\end{tikzpicture}
+			All Coastal Buildings:\\
+			+10\%\smallicon{productivity} -5\%\smallicon{workforce} -10\%\smallicon{balance}
+		}		
+		\end{tcbraster}
+	}
+	\tcbox[nodebox, %Eastern Jungle
+	raster multicolumn=1,top=-4mm,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			\cultnode{(0,0)}{chital}{20}
+			\cultnode{(1.5,0)}{crocodile}{20}
+			\cultnodelbld{(3,0)}{eastern_elephant}{40}{1404}
+			\cultnode{(0,-1.5)}{waterbuffalo}{20}
+			\cultnode{(1.5,-1.5)}{tiger}{30}
+			\cultnode{(3,-1.5)}{peacock}{20}
+		\end{tikzpicture}
+		Harbor Activity +100\%. chance of gaining 5t\\
+		 \smallicon{Coffee_Beans},\smallicon{Sugar_Cane},\smallicon{Tobacco},\smallicon{Cotton},\smallicon{Cocoa}, \smallicon{Plantains},\smallicon{Pearls},\smallicon{Chocolate},\smallicon{Coffee},\smallicon{Fried_Plantains}, \smallicon{Tortilla},\smallicon{Sugar}.\\
+	}
+	\tcbox[nodebox, % Rainforest
+	raster multicolumn=1,top=12mm,
+	raster multirow=2]{
+		\begin{tikzpicture}
+			\cultnode{(0,0)}{amazonas_dolphin}{40}
+			\cultnode{(1.5,0)}{black_panther}{40}
+			\cultnodelbld{(3,0)}{black_caiman}{30}{1701}
+			\cultnode{(0,-1.5)}{jaguar}{30}
+			\cultnode{(1.5,-1.5)}{pelican}{30}
+			\cultnode{(3,-1.5)}{puerto_rican_amazon}{40}
+		\end{tikzpicture}
+		all Trade Unions:\\
+		+30\smallicon{Attractiveness} 
+	}	
+	\tcbox[nodebox, %Snowflakes
+	raster multicolumn=1,top=12mm,
+	raster multirow=2]{
+		\begin{tikzpicture}
+			\cultnode{(0,0)}{albinos_fennec}{50}
+			\cultnode{(1.5,0)}{albino_crocodile}{40}
+			\cultnodelbld{(3,0)}{albino_gorilla}{50}{2205}
+			\cultnode{(0,-1.5)}{albino_peacock}{50}
+			\cultnode{(1.5,-1.5)}{snow_tiger}{50}
+			\cultnode{(3,-1.5)}{white_flag_dolphin}{50}
+		\end{tikzpicture}
+		Zoological Gardens:\\
+		-50\% \smallicon{balance} +20\%\smallicon{Attractiveness} 
+	}		
+	\tcbox[nodebox, %Domestic Animals
+	raster multicolumn=1,top=12mm,
+	raster multirow=2]{
+		\begin{tikzpicture}
+			\cultnode{(0,0)}{cattle}{10}
+			\cultnode{(1.5,0)}{chicken}{10}
+			\cultnode{(3,0)}{goat}{10}
+			\cultnode{(0,-1.5)}{horse}{10}
+			\cultnode{(1.5,-1.5)}{domestic_pig}{10}
+			\cultnode{(3,-1.5)}{sheep}{10}
+		\end{tikzpicture}
+		All Animal Farms:\\
+		+5\%\smallicon{Productivity} -10\% \smallicon{balance}.
+	}
+	\tcbox[nodebox, %Great Coral Reef
+	raster multicolumn=1,top=12mm,
+	raster multirow=2]{
+		\begin{tikzpicture}
+			\cultnode{(0,0)}{balloonfish}{30}
+			\cultnode{(1.5,0)}{dolphin}{30}
+			\cultnodelbld{(3,0)}{turtle}{10}{1404}
+			\cultnode{(0,-1.5)}{lionfish}{20}
+			\cultnode{(1.5,-1.5)}{mantaray}{20}
+			\cultnode{(3,-1.5)}{seahorses}{20}
+		\end{tikzpicture}
+		Workers, Artisans, Obreros:\\
+		+2\smallicon{Happiness_positive} +2\smallicon{Attractiveness}
+	}
+	\tcbox[nodebox, %Abyssal Depths
+	raster multicolumn=1, top=5mm,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			\cultnode{(0,0)}{anglerfish}{40}
+			\cultnode{(1.5,0)}{blackswallower}{40}
+			\cultnodelbld{(3,0)}{blob_fish}{30}{2070}
+			\cultnode{(0,-1.5)}{goblinshark}{40}
+			\cultnode{(1.5,-1.5)}{helmet_jellyfish}{30}
+			\cultnode{(3,-1.5)}{kraken}{50}
+		\end{tikzpicture}
+		Salvager get increased chance of finding Epic and Legendary animals.
+	}		
+	\tcbox[nodebox, %Polar Circle
+	raster multicolumn=1, top=2mm,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			\cultnode{(0,0)}{arctic_fox}{20}
+			\cultnode{(1.5,0)}{great_auk}{50}
+			\cultnodelbld{(3,0)}{narwhal}{50}{2205}
+			\cultnode{(0,-1.5)}{polar_bear}{40}
+			\cultnode{(1.5,-1.5)}{sealion}{20}
+			\cultnode{(3,-1.5)}{walrus}{40}
+		\end{tikzpicture}
+		All Cloth Industries:\\
+	    +25\%\smallicon{Productivity} -25\%\smallicon{balance}.
+	}
+	\tcbox[nodebox, %Enbesan Highlands
+	raster multicolumn=1,top=5mm,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			\cultnode{(0,0)}{two_horned_chameleon}{20}
+			\cultnode{(1.5,0)}{oryx}{30}
+			\cultnode{(3,0)}{mountain_nyala}{30}
+			\cultnode{(0,-1.5)}{gelada}{40}
+			\cultnode{(1.5,-1.5)}{bearded_vulture}{40}
+			\cultnode{(3,-1.5)}{enbesan_wolf}{20}
+		\end{tikzpicture}
+		Scholars:\\
+		-10\%\smallicon{Seafood_Stew},\smallicon{Hibiscus_Tea}
+	}		
+	\tcbox[nodebox, %Proud Savannah
+	raster multicolumn=1,top=5mm,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			\cultnode{(0,0)}{cheeta}{40}
+			\cultnode{(1.5,0)}{lion}{50}
+			\cultnode{(3,0)}{ostrich}{20}
+			\cultnode{(0,-1.5)}{spotted_hyena}{30}
+			\cultnode{(1.5,-1.5)}{wildebeest}{30}
+			\cultnode{(3,-1.5)}{zebra}{20}
+		\end{tikzpicture}
+		Cattle Farm, Alpaca Farm:\\
+		No. of Modules: -25\%
+	}	
+	\tcbox[nodebox, % Miombo Woodlands
+	raster multicolumn=1, top=5mm,
+	raster multirow=3]{
+		\begin{tikzpicture}
+			\cultnode{(0,0)}{black_rhino}{40}
+			\cultnode{(1.5,0)}{caracal}{40}
+			\cultnode{(3,0)}{elephant}{30}
+			\cultnode{(0,-1.5)}{giraffe}{40}
+			\cultnode{(1.5,-1.5)}{impala}{30}
+			\cultnode{(3,-1.5)}{wild_dog}{50}
+		\end{tikzpicture}
+		Lumberjack's Hut, Charcoal Kiln,  Hunting Cabin:\\
+		-10\%\smallicon{Forest_Density} +5\smallicon{Attractiveness}
+	}	
+\end{tcbraster}
+

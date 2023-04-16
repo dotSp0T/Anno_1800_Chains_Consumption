@@ -1,0 +1,44 @@
+\section{Worker Consumables}
+\begin{tcbraster}[raster columns=7,
+	grid format]
+	\tcbox[nodebox, % Bread
+	raster multicolumn=4,left=0mm,
+	raster multirow=2]{
+		\begin{tikzpicture}
+			\farmnode{(0,0)}{Grain}{2}{Grain_Farm}{1×1}{144}
+			\consnode{(2.75,0)}{Flour}{1}{Flour_Mill}{Farmers/83.33/1/0/0.6}
+			\consnode{(6.5,0)}{Bread}{2}{Bakery}{Workers/55/3/0/4,Artisans/27.5/6/0/12,Tourists/2/55/0/275,Explorers/100/2/0/0}
+			\connect{Grain}{Flour}
+			\connect{Flour}{Bread}
+	\end{tikzpicture}}
+	\tcbox[nodebox, % Beer
+	raster multicolumn=3, valign=bottom, left=-1mm,
+	raster multirow=2]{
+		\begin{tikzpicture}
+			\farmnodec{(0,0)}{Grain}{2}{Grain_Farm}{1×1}{144}{Shepherds/114/1/0/0}
+			\prodnode{(2.25,0)}{Malt}{1}{Malthouse}
+			\connect{Grain}{Malt}
+			\farmnode{(2.25,-1.5)}{Hops}{3}{Hop_Farm}{1×1}{96}
+			\consnode{(4.5,-0.75)}{Beer}{2}{Brewery}{Workers/65/0/3/10,Artisans/32.5/0/3/30,Obreros/37.5/0/4/6,Artistas/18.75/0/3/24}
+			\connect{Malt}{Beer}
+			\connect{Hops}{Beer}
+	\end{tikzpicture}}
+	\tcbox[nodebox, % Sausages
+	raster multicolumn=3, 
+	raster multirow=1]{
+		\begin{tikzpicture}
+			\farmnode{(0,0)}{Pigs}{1}{Pig_Farm}{2×3}{5}
+			\consnode{(2.75,0)}{Sausages}{1}{Slaughterhouse}{Workers/50/3/0/4,Artisans/25/6/0/12}
+			\connect{Pigs}{Sausages}
+	\end{tikzpicture}}
+	\tcbox[nodebox, % Soap
+	raster multicolumn=4, top=15mm,
+	raster multirow=1]{
+		\begin{tikzpicture}
+			\farmnode{(0,0)}{Pigs}{2}{Pig_Farm}{2×3}{5}
+			\consnode{(2.5,0)}{Tallow}{2}{Rendering_Works}{Explorers/33.33/3/5/0}
+			\consnode{(6,0)}{Soap}{1}{Soap_Factory}{Workers/240/2/0/4,Artisans/120/4/0/12,Farmers/572/1/0/1.5,Engineers/64/2/0/6, Elders/200/2/0/3}
+			\connect{Pigs}{Tallow}
+			\connect{Tallow}{Soap}
+	\end{tikzpicture}}
+\end{tcbraster}

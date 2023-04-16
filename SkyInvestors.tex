@@ -1,0 +1,70 @@
+\section{Investor Skyscrapers Consumables}
+\begin{tcbraster}[raster columns=\portraitraster,
+	grid format]
+	\tcbox[nodebox, %Biscuits
+	raster multicolumn=3,
+	raster multirow=3]{
+	\begin{tikzpicture}
+		\farmnode{(0,-3)}{Pigs}{4}{Pig_Farm}{2×3}{5}
+		\prodnode{(2,-3)}{Tallow}{4}{Rendering_Works}
+		\connect{Pigs}{Tallow}
+					
+		\farmnode{(0,0)}{Grain}{4}{Grain_Farm}{1×1}{144}
+		\prodnode{(2,0)}{Flour}{2}{Flour_Mill}
+		\connect{Grain}{Flour}
+		
+		\orchnodenew{(2,-1.5)}{Citrus}{2}
+		\asslnodecons{(5,-1.5)}{Biscuits}{1}{Investors/150/15/0/44}
+		\connect{Flour}{Biscuits}
+		\connect{Tallow}{Biscuits}
+		\connect{Citrus}{Biscuits}
+	\end{tikzpicture}}
+	\tcbox[nodebox, %Cognac
+		raster multicolumn=3,
+		raster multirow=3]{
+	\begin{tikzpicture}
+	 	\farmnode{(0,0)}{Sugar_cane}{1}{Sugar_Cane_Plantation}{1×1}{128}
+		\prodnode{(2,0)}{Sugar}{1}{Sugar_Refinery}
+		\connect{Sugar_cane}{Sugar}
+		
+		\farmnode{(2,-3)}{Grapes}{4}{Vineyard}{1×1}{128}
+		
+		\orchnodeold{(2,-1.5)}{Cherry_Wood}{1}
+		\arwsnodecons{(5,-1.5)}{Cognac}{2}{Investors/90.9/15/0/52}
+		\connect{Grapes}{Cognac}
+		\connect{Sugar}{Cognac}
+		\connect{Cherry_Wood}{Cognac}
+	\end{tikzpicture}}
+	\tcbox[nodebox, %Billiard_Tables
+		raster multicolumn=3,
+		raster multirow=3]{
+	\begin{tikzpicture}
+		\farmnode{(0,-1.5)}{Alpaca_wool}{1}{Alpaca_Farm}{3×3}{4}
+		\prodnode{(2,-1.5)}{Felt}{1}{Felt_Producer}
+		\connect{Alpaca_wool}{Felt}
+		
+		\chemnodenew{(2,-3)}{Celluloid}{1}
+		
+		\orchnodeold{(2,0)}{Cherry_Wood}{1}
+		\arwsnodecons{(5,-1.5)}{Billiard_Tables}{2}{Investors/76.9/15/0/42, Artistas/133.33/2/0/12.8}
+		\connect{Felt}{Billiard_Tables}
+		\connect{Celluloid}{Billiard_Tables}
+		\connect{Cherry_Wood}{Billiard_Tables}
+	\end{tikzpicture}}
+	\tcbox[nodebox, %Billiard_Tables
+		raster multicolumn=3,
+		raster multirow=3]{
+	\begin{tikzpicture}
+		\farmnode{(0,-1.5)}{Alpaca_wool}{1}{Alpaca_Farm}{3×3}{4}
+		\prodnode{(2,-1.5)}{Felt}{1}{Felt_Producer}
+		\connect{Alpaca_wool}{Felt}
+		
+		\chemnodenew{(2,0)}{Celluloid}{1}
+		\chemnodeold{(2,-3)}{Lacquer}{1}
+		\arwsnodecons{(5,-1.5)}{Toys}{2}{Investors/178.5/15/0/46}
+		\connect{Felt}{Toys}
+		\connect{Celluloid}{Toys}
+		\connect{Lacquer}{Toys}
+\end{tikzpicture}}
+
+\end{tcbraster}
